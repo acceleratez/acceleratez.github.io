@@ -1,0 +1,2629 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../binary/">
+      
+      
+        <link rel="next" href="../binary-method/">
+      
+      
+      <link rel="icon" href="../../../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.24">
+    
+    
+      
+        <title>树的基本方法 - AccelerateZ</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#树的基本方法" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../../.." title="AccelerateZ" class="md-header__button md-logo" aria-label="AccelerateZ" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AccelerateZ
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              树的基本方法
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_3" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_3">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_4" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_4">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/acceleratez/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AccelerateZ
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../blog/index.md" class="md-tabs__link">
+        
+  
+    
+  
+  Blog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../" class="md-tabs__link">
+          
+  
+  DSA-wiki
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../AI/" class="md-tabs__link">
+          
+  
+  Embrace AI
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Lang/" class="md-tabs__link">
+          
+  
+  Languages
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Math-wiki/index.md" class="md-tabs__link">
+          
+  
+  Math Master
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../about.md" class="md-tabs__link">
+        
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="AccelerateZ" class="md-nav__button md-logo" aria-label="AccelerateZ" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    AccelerateZ
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/acceleratez/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AccelerateZ
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../blog/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    DSA-wiki
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            DSA-wiki
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Data Structure
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Data Structure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-Intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    01-Intro
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../02-Vector/intro/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    02-Vector
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../03-List/intro/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    03-List
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-Stack-and-Queue/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    04-Stack and Queue
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_5" id="__nav_3_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    05-Tree
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            05-Tree
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    树的基础
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../binary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    二叉树基础
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    树的基本方法
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    树的基本方法
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#统计子树的规模getsize" class="md-nav__link">
+    <span class="md-ellipsis">
+      统计（子）树的规模——getSize()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#计算节点的高度getheight" class="md-nav__link">
+    <span class="md-ellipsis">
+      计算节点的高度——getHeight()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#计算节点的深度getdepth" class="md-nav__link">
+    <span class="md-ellipsis">
+      计算节点的深度——getDepth()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#树的遍历" class="md-nav__link">
+    <span class="md-ellipsis">
+      树的遍历
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="树的遍历">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#遍历traversal" class="md-nav__link">
+    <span class="md-ellipsis">
+      遍历(Traversal)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#先序遍历pre-order-traversal" class="md-nav__link">
+    <span class="md-ellipsis">
+      先序遍历(Pre-order Traversal)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#中序遍历inorder-traversal" class="md-nav__link">
+    <span class="md-ellipsis">
+      中序遍历(Inorder Traversal)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#后序遍历postorder-traversal" class="md-nav__link">
+    <span class="md-ellipsis">
+      后序遍历(Postorder Traversal)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#层次遍历traversal-by-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      层次遍历(Traversal by Level)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../binary-method/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    二叉树的基本方法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../06-Other-Tree/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    06-Other Tree
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../07-BST/intro/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    07-BST
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../08-Advanced-Search-Tree/splay.md" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    08-Advanced Search Tree
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../09-Dict-Map-and-Hashing/intro/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    09-Dict-Map-and-Hashing
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../10-Priority-Queue-and-Heap/priority-queue/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    10-Priority Queue and Heap
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../11-Graph/intro/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    11-Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../12-Graph-Application/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12-Graph Application
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../13-String/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13-String
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../14-Sorting/intro/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    14-Sorting
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Algorithm
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Algorithm
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../algorithm/01-Intro/master/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    01-Intro
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithm/02-Search-and-Traverse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    02-Search and Traverse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../algorithm/03-Divide-and-Conquer/binary/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    03-Divide-and-Conquer
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithm/04-Greedy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    04-Greedy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithm/05-Dynamic-Programming/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    05-Dynamic Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithm/06-Back-Tracking/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    06-Back-Tracking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithm/07-Branch-and-Bound/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    07-Branch-and-Bound
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithm/08-NP-Complete/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    08-NP-Complete
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithm/09-Randomized/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    09-Randomized
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithm/10-Approx/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10-Approximation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithm/11-Genetic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11-Genetic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../algorithm/12-Crypto/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12-Cryptography
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../../AI/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Embrace AI
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../../Lang/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Languages
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../../Math-wiki/index.md" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Math Master
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#统计子树的规模getsize" class="md-nav__link">
+    <span class="md-ellipsis">
+      统计（子）树的规模——getSize()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#计算节点的高度getheight" class="md-nav__link">
+    <span class="md-ellipsis">
+      计算节点的高度——getHeight()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#计算节点的深度getdepth" class="md-nav__link">
+    <span class="md-ellipsis">
+      计算节点的深度——getDepth()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#树的遍历" class="md-nav__link">
+    <span class="md-ellipsis">
+      树的遍历
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="树的遍历">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#遍历traversal" class="md-nav__link">
+    <span class="md-ellipsis">
+      遍历(Traversal)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#先序遍历pre-order-traversal" class="md-nav__link">
+    <span class="md-ellipsis">
+      先序遍历(Pre-order Traversal)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#中序遍历inorder-traversal" class="md-nav__link">
+    <span class="md-ellipsis">
+      中序遍历(Inorder Traversal)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#后序遍历postorder-traversal" class="md-nav__link">
+    <span class="md-ellipsis">
+      后序遍历(Postorder Traversal)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#层次遍历traversal-by-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      层次遍历(Traversal by Level)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="树的基本方法">树的基本方法<a class="headerlink" href="#树的基本方法" title="Permanent link"></a></h1>
+<h2 id="统计子树的规模getsize">统计（子）树的规模——<code>getSize()</code><a class="headerlink" href="#统计子树的规模getsize" title="Permanent link"></a></h2>
+<ol>
+<li>
+<p>结论： 一棵树的规模，等于根节点下所有子树规模之和再加一，也等于根节点的后代总数。</p>
+</li>
+<li>
+<p>操作（递归）：先使用<code>firstChild</code>找出根节点的长子，并沿着<code>nextSibling</code> 引用顺次找到其余的孩子，递归地统计出各子树的规模。最后，只要将所有子树的规模累加起来，再计入根节点本身，就得到了整棵树的规模。当遇到没有任何孩子的节点（即原树的叶子）时，递归终止。</p>
+</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getSize</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="c1">//当前节点也是自己的后代 </span>
+<span class="w">    </span><span class="n">TreeLinkedList</span><span class="w"> </span><span class="n">subtree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">firstChild</span><span class="p">;</span><span class="c1">//从长子开始 </span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="kc">null</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">subtree</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="c1">//依次 </span>
+<span class="w">        </span><span class="n">size</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">subtree</span><span class="p">.</span><span class="na">getSize</span><span class="p">();</span><span class="c1">//累加 </span>
+<span class="w">        </span><span class="n">subtree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">subtree</span><span class="p">.</span><span class="na">getNextSibling</span><span class="p">();</span><span class="c1">//所有孩子的后代数目 </span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="c1">//即可得到当前节点的后代总数 </span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>时间复杂度：<span class="arithmatex">\(O(n)\)</span>。</li>
+</ol>
+<h2 id="计算节点的高度getheight">计算节点的高度——<code>getHeight()</code><a class="headerlink" href="#计算节点的高度getheight" title="Permanent link"></a></h2>
+<ol>
+<li>
+<p>结论：若<code>u</code>是<code>v</code>的孩子，则<code>[1]height(v) ≥ height(u) + 1; [2]height(v)=1+max(height(u))</code> 。</p>
+</li>
+<li>
+<p>操作（递归）：仍是先使用<code>firstChild</code>找出根节点的长子，并沿着<code>nextSibling</code> 引用顺次找到其余的孩子，递归地统计出各子树的高度。然后找到所有子树的最大高度并计入根节点本身，就得到了根节点的高度（即树高）。当该节点为叶子时，递归中止。</p>
+</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getHeight</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="n">TreeLinkedList</span><span class="w"> </span><span class="n">subtree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">firstChild</span><span class="p">;</span><span class="c1">//从长子开始 </span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="kc">null</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">subtree</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="c1">//依次 </span>
+<span class="w">        </span><span class="n">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="n">height</span><span class="p">,</span><span class="w"> </span><span class="n">subtree</span><span class="p">.</span><span class="na">getHeight</span><span class="p">());</span><span class="c1">//在所有孩子中取最大高度 </span>
+<span class="w">        </span><span class="n">subtree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">subtree</span><span class="p">.</span><span class="na">getNextSibling</span><span class="p">();</span><span class="w"> </span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">height</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span><span class="c1">//即可得到当前节点的高度 </span>
+<span class="p">}</span><span class="w"> </span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>时间复杂度：<span class="arithmatex">\(O(n)\)</span>。</li>
+</ol>
+<h2 id="计算节点的深度getdepth">计算节点的深度——<code>getDepth()</code><a class="headerlink" href="#计算节点的深度getdepth" title="Permanent link"></a></h2>
+<ol>
+<li>
+<p>结论：若<code>u</code>是<code>v</code>的孩子，则<code>depth(u) = depth(v) + 1</code>。 </p>
+</li>
+<li>
+<p>操作（尾递归或迭代）：<code>getDepth(v)</code>将从<code>v</code>的父亲开始，沿着<code>parent</code>指针不断上移，直到深度为0的树根。在这个过程中所遇到的每个节点，都是<code>v</code>的真祖先；反之，在这一过程中，v的每一真祖先迟早都会被找到。因此，根据总共上移的层数，就可以得到<code>v</code>在整棵树中的深度。</p>
+</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getDepth</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">depth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="n">TreeLinkedList</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parent</span><span class="p">;</span><span class="c1">//从父亲开始 </span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="kc">null</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="c1">//依次 </span>
+<span class="w">        </span><span class="n">depth</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">getParent</span><span class="p">();</span><span class="c1">//访问各个真祖先 </span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">depth</span><span class="p">;</span><span class="c1">//真祖先的数目，即为当前节点的深度 </span>
+<span class="p">}</span><span class="w"> </span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>时间复杂度：<span class="arithmatex">\(O(n)\)</span>。</li>
+</ol>
+<h2 id="树的遍历">树的遍历<a class="headerlink" href="#树的遍历" title="Permanent link"></a></h2>
+<h3 id="遍历traversal">遍历(Traversal)<a class="headerlink" href="#遍历traversal" title="Permanent link"></a></h3>
+<p>按照某种次序访问树中各节点，每个节点被访问恰好一次。按照被访问的次序，可以得到由树中所有节点排列成的一个序列。<span class="arithmatex">\(T=\text V\cup\text L\cup\text R\)</span>。遵照不同的遍历规则，我们可以得到不同的遍历方法。遍历：结果 ~ 过程 ~ 次序 ~ 策略。</p>
+<h3 id="先序遍历pre-order-traversal">先序遍历(Pre-order Traversal)<a class="headerlink" href="#先序遍历pre-order-traversal" title="Permanent link"></a></h3>
+<ol>
+<li>
+<p>首先访问其根节点，然后再递归地做左子树的先序遍历，最后做右子树的先序遍历。</p>
+</li>
+<li>
+<p>应用：打印结构化文件。</p>
+</li>
+<li>
+<p>递归实现：</p>
+</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">//c++</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">VST</span><span class="o">&gt;</span><span class="w"> </span>
+<span class="kt">void</span><span class="w"> </span><span class="n">traverse</span><span class="p">(</span><span class="w"> </span><span class="n">BinNodePosi</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">VST</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">visit</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="n">visit</span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="o">-&gt;</span><span class="n">data</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">traverse</span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="o">-&gt;</span><span class="n">lc</span><span class="p">,</span><span class="w"> </span><span class="n">visit</span><span class="w"> </span><span class="p">);</span><span class="c1">//尾递归，可以较为简单地化为迭代形式</span>
+<span class="w">    </span><span class="n">traverse</span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="o">-&gt;</span><span class="n">rc</span><span class="p">,</span><span class="w"> </span><span class="n">visit</span><span class="w"> </span><span class="p">);</span><span class="c1">//只需要引入一个栈，即可实现上述操作</span>
+<span class="p">}</span><span class="w"> </span><span class="c1">//O(n)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">//java</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">PreorderTraversal</span><span class="p">(</span><span class="n">TreeLinkedList</span><span class="w"> </span><span class="n">v</span><span class="p">){</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="kc">null</span><span class="o">!=</span><span class="n">v</span><span class="p">){</span>
+<span class="w">        </span><span class="n">visit</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="na">element</span><span class="p">);</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="n">TreeLinkedList</span><span class="w"> </span><span class="n">u</span><span class="o">=</span><span class="n">v</span><span class="p">.</span><span class="na">getFirstChild</span><span class="p">();</span><span class="w"> </span><span class="kc">null</span><span class="o">!=</span><span class="n">u</span><span class="p">;</span><span class="w"> </span><span class="n">u</span><span class="o">=</span><span class="n">u</span><span class="p">.</span><span class="na">getNextSibling</span><span class="p">()){</span>
+<span class="w">            </span><span class="n">PreorderTraversal</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<blockquote>
+<p>制约：使用默认的<code>Call Stack</code>，允许递归的深度有限。我们需要不依赖于递归机制，即使用迭代算法。</p>
+</blockquote>
+<ol>
+<li>对于先序遍历（尾递归）的迭代形式的实现：</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">//cpp</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">VST</span><span class="o">&gt;</span><span class="w"> </span><span class="c1">//元素类型、操作器 </span>
+<span class="kt">void</span><span class="w"> </span><span class="n">travPre_I1</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">BinNodePosi</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">VST</span><span class="o">&amp;</span><span class="w"> </span><span class="n">visit</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">//二叉树先序遍历算法（迭代版#1） </span>
+<span class="w">    </span><span class="n">Stack</span><span class="o">&lt;</span><span class="n">BinNodePosi</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">S</span><span class="p">;</span><span class="w"> </span><span class="c1">//辅助栈 </span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">push</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1">//根节点入栈 </span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">S</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">//在栈变空之前反复循环 </span>
+<span class="w">        </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span><span class="w"> </span><span class="n">visit</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="o">-&gt;</span><span class="n">data</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1">//弹出并访问当前节点，其非空孩子的入栈次序为先右后左 </span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">HasRChild</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">push</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="o">-&gt;</span><span class="n">rc</span><span class="w"> </span><span class="p">);</span><span class="w"> </span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">HasLChild</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">push</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="o">-&gt;</span><span class="n">lc</span><span class="w"> </span><span class="p">);</span><span class="w"> </span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<blockquote>
+<p>缺陷：对于中序和后序遍历，即非尾递归的场合，则无法实现。我们需要考虑一种新的思路。</p>
+</blockquote>
+<ol>
+<li><strong>“藤缠树”</strong>：仔细观察可以发现，沿着左侧藤，整个遍历过程可分解为：<strong>自上而下</strong>访问藤上节点，再自下而上遍历各右子树。这里，各右子树的遍历彼此独立，自成一个子任务。</li>
+</ol>
+<blockquote>
+<p>我们如何进行上述的操作？首先，访问根节点；然后，访问根节点的左孩子；再然后，访问根节点的左孩子的左孩子……即首先我们沿着<strong>左侧链</strong>一直进行访问并向着树的更深层走下去。如此下去，直到某一个节点没有左孩子。此时，我们进行一次转移操作，回退到上一次出现右孩子的节点，然后继续重复上述的操作。</p>
+</blockquote>
+<p>思路如下：我们只将左侧链画出：在左侧链上面，我们仅仅画出根节点和链上各节点的左孩子，而每个节点右孩子和其下面的所有内容，我们抽象地绘制成一棵右子树，标记在其原先的右孩子的位置。第一次访问，一定会沿着左侧链上的节点进行访问，直到访问到没有左孩子的节点<code>L_d</code>。然后，我们进行回溯，自下而上地遍历从<code>L_d</code>到<code>L_0</code>（根节点）上面的全部的右子树。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>preorder(T)={
+    visit(L0); visit(L1); ...; visit(L_end-1); visit(L_end); 
+    preorder(T_end);//(preorder就是从该位置重新执行一系列的visit操作，直到叶子节点)
+    preorder(T_end-1); ...; preorder(T1); preorder(T0);
+}
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>迭代实现</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">//从当前节点出发，沿左分支不断深入，直至没有左分支的节点；沿途节点遇到后立即访问</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">VST</span><span class="o">&gt;</span><span class="w"> </span><span class="c1">//元素类型、操作器</span>
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">visitAlongVine</span><span class="p">(</span><span class="w"> </span><span class="n">BinNodePosi</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">VST</span><span class="o">&amp;</span><span class="w"> </span><span class="n">visit</span><span class="p">,</span><span class="w"> </span><span class="n">Stack</span><span class="o">&lt;</span><span class="n">BinNodePosi</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;&amp;</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">visit</span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="o">-&gt;</span><span class="n">data</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1">//访问当前节点</span>
+<span class="w">      </span><span class="n">S</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="o">-&gt;</span><span class="n">rc</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1">//右孩子入栈暂存（可优化：通过判断，避免空的右孩子入栈）</span>
+<span class="w">      </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="o">-&gt;</span><span class="n">lc</span><span class="p">;</span><span class="w"> </span><span class="c1">//沿左分支深入一层</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span><span class="c1">//使用栈，正是利用其LIFO的特性。</span>
+
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">VST</span><span class="o">&gt;</span><span class="w"> </span><span class="c1">//元素类型、操作器</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">travPre_I2</span><span class="p">(</span><span class="w"> </span><span class="n">BinNodePosi</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">VST</span><span class="o">&amp;</span><span class="w"> </span><span class="n">visit</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">//二叉树先序遍历算法（迭代版#2）</span>
+<span class="w">   </span><span class="n">Stack</span><span class="o">&lt;</span><span class="n">BinNodePosi</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">S</span><span class="p">;</span><span class="w"> </span><span class="c1">//辅助栈</span>
+<span class="w">   </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">visitAlongVine</span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">visit</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1">//从当前节点出发，逐批访问</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w"> </span><span class="c1">//直到栈空</span>
+<span class="w">      </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span><span class="w"> </span><span class="c1">//弹出下一批的起点</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="中序遍历inorder-traversal">中序遍历(Inorder Traversal)<a class="headerlink" href="#中序遍历inorder-traversal" title="Permanent link"></a></h3>
+<ol>
+<li>
+<p>在中序遍历中，我们首先递归地做左子树的中序遍历，然后访问根节点，最后递归地做右子树的中序遍历。</p>
+</li>
+<li>
+<p>应用：使用中序遍历打印与二叉树相关的算术表达式。</p>
+</li>
+<li>
+<p>递归实现：</p>
+</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">//c++</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">VST</span><span class="o">&gt;</span><span class="w"> </span><span class="c1">//元素类型、操作器</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">travIn_R</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">BinNodePosi</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">VST</span><span class="o">&amp;</span><span class="w"> </span><span class="n">visit</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">//二叉树中序遍历算法（递归版）</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">x</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="n">travIn_R</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="o">-&gt;</span><span class="n">lc</span><span class="p">,</span><span class="w"> </span><span class="n">visit</span><span class="w"> </span><span class="p">);</span><span class="c1">//注意到，这里已经不是尾递归了</span>
+<span class="w">    </span><span class="n">visit</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="o">-&gt;</span><span class="n">data</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">travIn_R</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="o">-&gt;</span><span class="n">rc</span><span class="p">,</span><span class="w"> </span><span class="n">visit</span><span class="w"> </span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">//javascript</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">TreeNode</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span><span class="w"> </span><span class="nx">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="nx">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">value</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">left</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">right</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">inOrderTraversal</span><span class="p">(</span><span class="nx">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">root</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">inOrderTraversal</span><span class="p">(</span><span class="nx">root</span><span class="p">.</span><span class="nx">left</span><span class="p">);</span><span class="w"> </span><span class="c1">// 遍历左子树</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">root</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span><span class="w"> </span><span class="c1">// 访问根节点</span>
+<span class="w">    </span><span class="nx">inOrderTraversal</span><span class="p">(</span><span class="nx">root</span><span class="p">.</span><span class="nx">right</span><span class="p">);</span><span class="w"> </span><span class="c1">// 遍历右子树</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>对中序遍历的思考和观察：</li>
+</ol>
+<blockquote>
+<ol>
+<li><strong>第一个访问的节点究竟是哪一个？</strong></li>
+</ol>
+<p>在中序遍历中，第一个访问的节点是整个二叉树<strong>最左侧</strong>的节点，也就是<strong>所有节点中深度最大的左子节点。</strong>和先序遍历刚开始时的情况类似：在中序遍历中，先是转让“控制权”，直至转让到没有左孩子的节点。在先序遍历中，也是先向左向下移动，直到找到第一个没有左孩子的节点。
+   2. “藤缠树”的思想：顺着最左侧通路，自底而上依次访问沿途各节点及其右子树。算法沿最左侧通路自底而上，以沿途各节点为界，中序遍历序列可分解为<span class="arithmatex">\(d + 1\)</span>段，各段彼此独立，且均包括访问来自最左侧通路的某一节点<span class="arithmatex">\(L_k\)</span>，以及遍历其对应的右子树<span class="arithmatex">\(T_k\)</span>​。 </p>
+</blockquote>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>  ```
+  inorder(T) = visit(Ld), inorder(Td);
+                visit(Ld-1),inorder(Td-1);
+                    ..., ...;
+                        visit(L1), inorder(T1);
+                            visit(L0),inorder(T0)
+  ```
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>
+<p>迭代实现：（版本1）</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="c1">//从当前节点出发，沿左分支不断深入，直至没有左分支的节点</span>
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">goAlongVine</span><span class="p">(</span><span class="w"> </span><span class="n">BinNodePosi</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">Stack</span><span class="o">&lt;</span><span class="n">BinNodePosi</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;&amp;</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="o">-&gt;</span><span class="n">lc</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">//当前节点入栈后随即向左侧分支深入，迭代直到无左孩子</span>
+<span class="p">}</span>
+<span class="c1">//需要LIFO的数据结构——栈，开口向下。</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">VST</span><span class="o">&gt;</span><span class="w"> </span><span class="c1">//元素类型、操作器</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">travIn_I1</span><span class="p">(</span><span class="w"> </span><span class="n">BinNodePosi</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">VST</span><span class="o">&amp;</span><span class="w"> </span><span class="n">visit</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">//二叉树中序遍历算法（迭代版#1）</span>
+<span class="w">   </span><span class="n">Stack</span><span class="o">&lt;</span><span class="n">BinNodePosi</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">S</span><span class="p">;</span><span class="w"> </span><span class="c1">//辅助栈</span>
+<span class="w">   </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">goAlongVine</span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1">//从当前节点出发，逐批入栈</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w"> </span><span class="c1">//直至所有节点处理完毕</span>
+<span class="w">      </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span><span class="w"> </span><span class="n">visit</span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="o">-&gt;</span><span class="n">data</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1">//弹出栈顶节点并访问之</span>
+<span class="w">      </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="o">-&gt;</span><span class="n">rc</span><span class="p">;</span><span class="w"> </span><span class="c1">//转向右子树（此句较为重要）</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</li>
+<li>
+<p>该算法的效率——分摊分析：</p>
+<ol>
+<li><code>goAlongVine()</code>最多要调用<span class="arithmatex">\(\Omega(n)\)</span>次，单次调用，最多需要做<span class="arithmatex">\(\Omega(n)\)</span>次<code>push()</code>，但是，这个算法最多仅仅是<span class="arithmatex">\(O(n)\)</span>。</li>
+<li>每一次调用<code>goAlongVine()</code>后都恰好有一次<code>pop()</code>操作，全程不超过<span class="arithmatex">\(O(n)\)</span>次。<code>push()</code>的次数不确定，但是，累计应该与<code>pop()</code>一样多。</li>
+<li>在<code>goAlongVine()</code>操作中，所有的<code>push()</code>操作，就恰好对应着左侧链上的长度。这个次数不会超过所有的节点数。</li>
+</ol>
+</li>
+<li>
+<p>延伸：对于二叉搜索树来说，中序遍历的作用至关重要。相关算法必需的一项基本操作，就是定位任一节点在中序遍历序列中的直接后继。在中序遍历意义下的直接后继就是最靠左的右后代（如果有右孩子）或者最低的左祖先（如果没有右孩子）。这样，可以实现相关的<code>succ()</code>接口：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">BinNodePosi</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">BinNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">succ</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">//定位节点v的直接后继</span>
+<span class="w">    </span><span class="n">BinNodePosi</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">;</span><span class="w"> </span><span class="c1">//记录后继的临时变量</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">rc</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">//若有右孩子，则直接后继必在右子树中，具体地就是</span>
+<span class="w">        </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rc</span><span class="p">;</span><span class="w"> </span><span class="c1">//右子树中</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">HasLChild</span><span class="p">(</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="o">-&gt;</span><span class="n">lc</span><span class="p">;</span><span class="w"> </span><span class="c1">//最靠左（最小）的节点</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">//否则，直接后继应是“将当前节点包含于其左子树中的最低祖先”，具体地就是</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">IsRChild</span><span class="p">(</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="o">-&gt;</span><span class="n">parent</span><span class="p">;</span><span class="w"> </span><span class="c1">//逆向地沿右向分支，不断朝左上方移动</span>
+<span class="w">        </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="o">-&gt;</span><span class="n">parent</span><span class="p">;</span><span class="w"> </span><span class="c1">//最后再朝右上方移动一步，即抵达直接后继（如果存在）</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<blockquote>
+<ol>
+<li>若当前节点有右孩子，则其直接后继必然存在，且属于其右子树。此时只需转入右子树，再沿该子树的最左侧通路朝左下方深入，直到抵达子树中最靠左（最小）的节点。</li>
+<li>反之，若当前节点没有右子树，则若其直接后继存在，必为该节点的某一祖先，且是将当前节点纳入其左子树的最低祖先。于是首先沿右侧通路朝左上方上升，当不能继续前进时，再朝右上方移动一步即可。</li>
+<li>作为后一情况的特例，出口时<code>s</code>可能为<code>NULL</code>。这意味着此前沿着右侧通路向上的回溯，抵达了树根。也就是说，当前节点全树右侧通路的终点——它也是中序遍历的终点，没有后继。</li>
+</ol>
+</blockquote>
+<p>对上述迭代版本的代码，使用<code>succ()</code>接口进行改写，得到新的版本。我们可以借助该版本，实现需要空间更少的算法。</p>
+<p>版本3：以上的迭代式遍历算法都需使用辅助栈，尽管这对遍历算法的渐进时间复杂度没有实质影响，但所需辅助空间的规模将线性正比于二叉树的高度，在最坏情况下与节点总数相当。为此，可对代码继续改进，借助<code>BinNode</code>对象内部的<code>parent</code>指针。该版本无需使用任何结构，总体仅需O(1)的辅助空间，属于就地算法。当然，因需要反复调用<code>succ()</code>，时间效率有所倒退。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">VST</span><span class="o">&gt;</span><span class="w"> </span><span class="c1">//元素类型、操作器</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">travIn_I3</span><span class="p">(</span><span class="w"> </span><span class="n">BinNodePosi</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">VST</span><span class="o">&amp;</span><span class="w"> </span><span class="n">visit</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">//二叉树中序遍历算法（迭代版#3，无需辅助栈）</span>
+<span class="w">   </span><span class="kt">bool</span><span class="w"> </span><span class="n">backtrack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"> </span><span class="c1">//前一步是否刚从左子树回溯——省去栈，仅O(1)辅助空间</span>
+<span class="w">   </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">){</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">backtrack</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">HasLChild</span><span class="p">(</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="c1">//若有左子树且不是刚刚回溯，则</span>
+<span class="w">         </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="o">-&gt;</span><span class="n">lc</span><span class="p">;</span><span class="w"> </span><span class="c1">//深入遍历左子树</span>
+<span class="w">      </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">//否则——无左子树或刚刚回溯（相当于无左子树）</span>
+<span class="w">         </span><span class="n">visit</span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="o">-&gt;</span><span class="n">data</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1">//访问该节点</span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">HasRChild</span><span class="p">(</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">//若其右子树非空，则</span>
+<span class="w">            </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="o">-&gt;</span><span class="n">rc</span><span class="p">;</span><span class="w"> </span><span class="c1">//深入右子树继续遍历</span>
+<span class="w">            </span><span class="n">backtrack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"> </span><span class="c1">//并关闭回溯标志</span>
+<span class="w">         </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">//若右子树空，则</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="o">-&gt;</span><span class="n">succ</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w"> </span><span class="c1">//回溯（含抵达末节点时的退出返回）</span>
+<span class="w">            </span><span class="n">backtrack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"> </span><span class="c1">//并设置回溯标志</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">   </span><span class="p">}</span><span class="w"> </span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</li>
+</ol>
+<h3 id="后序遍历postorder-traversal">后序遍历(Postorder Traversal)<a class="headerlink" href="#后序遍历postorder-traversal" title="Permanent link"></a></h3>
+<ol>
+<li>
+<p>在后序遍历中，我们首先递归地做左子树和右子树的后序遍历，然后访问根节点。</p>
+</li>
+<li>
+<p>应用：计算目录及其子目录中的文件所用空间。</p>
+</li>
+<li>
+<p>递归实现：</p>
+</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">//c++</span>
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">VST</span><span class="o">&gt;</span><span class="w"> </span><span class="c1">//元素类型、操作器</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">travIn_R</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">BinNodePosi</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">VST</span><span class="o">&amp;</span><span class="w"> </span><span class="n">visit</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">//二叉树中序遍历算法（递归版）</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">x</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="n">travIn_R</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="o">-&gt;</span><span class="n">lc</span><span class="p">,</span><span class="w"> </span><span class="n">visit</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">travIn_R</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="o">-&gt;</span><span class="n">rc</span><span class="p">,</span><span class="w"> </span><span class="n">visit</span><span class="w"> </span><span class="p">);</span><span class="c1">//两个都不是尾递归</span>
+<span class="w">    </span><span class="n">visit</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="o">-&gt;</span><span class="n">data</span><span class="w"> </span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># python</span>
+<span class="k">class</span> <span class="nc">TreeNode</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="k">def</span> <span class="nf">postorder_traversal</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">root</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span>
+
+    <span class="n">postorder_traversal</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">left</span><span class="p">)</span>  <span class="c1"># 遍历左子树</span>
+    <span class="n">postorder_traversal</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">right</span><span class="p">)</span>  <span class="c1"># 遍历右子树</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">val</span><span class="p">)</span>  <span class="c1"># 访问根节点</span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>
+<p><strong>“藤缠树”</strong>的思想：从根出发下行，对于<strong>每一个节点</strong>，如果其有左孩子，就继续向左分支；如果其没有左孩子，则向右侧分支。注意：向左分支是<strong>尽可能</strong>的行为。如果对于某一个节点来说，其既没有左孩子，又没有右孩子，则<code>visit()</code>开始执行。所以，在后序遍历的迭代版本中，最<strong>靠左的叶子节点</strong>（中序遍历中次序最靠左者）是<strong>第一个被访问</strong>的节点。这里，树的藤上依然会挂上某些右子树，但是不是所有的节点都挂上了右子树，因为对于某些只有右孩子的节点来说，它的右子树在藤上面。</p>
+</li>
+<li>
+<p><strong>最高左侧可见叶节点(Highest Leaf Visible From Left, HLVFL)</strong>：如果我们将树<code>T</code>画在一个二维平面上，并假设所有节点和边均不透明。于是从左侧水平向右看去，未被遮挡的最高叶节点<code>v</code>，称作最高左侧可见叶节点。注意，该节点既可能是左孩子，又可能是右孩子。</p>
+</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>    1
+   / \
+  2   3
+ / \ / \
+4  5 6  7
+     / \
+    8   9
+</code></pre></div></td></tr></table></div>
+<p>入栈示意图，左侧是栈顶：<code>1-&gt;45231-&gt;5231-&gt;231-&gt;896731-&gt;96731-&gt;6731-&gt;731-&gt;31-&gt;1-&gt;Null</code></p>
+<p>其后序遍历序列为<code>4, 5, 2, 8, 9, 6, 7, 3, 1</code>。</p>
+<ol>
+<li>迭代实现：</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="c1">//在以S栈顶节点为根的子树中，找到最高左侧可见叶节点</span>
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">gotoLeftmostLeaf</span><span class="p">(</span><span class="w"> </span><span class="n">Stack</span><span class="o">&lt;</span><span class="n">BinNodePosi</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;&amp;</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">//沿途所遇节点依次入栈</span>
+<span class="w">   </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">BinNodePosi</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">top</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="c1">//自顶而下，反复检查当前节点（即栈顶）</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">HasLChild</span><span class="p">(</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">//尽可能向左</span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">HasRChild</span><span class="p">(</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="o">-&gt;</span><span class="n">rc</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1">//若有右孩子，优先入栈</span>
+<span class="w">         </span><span class="n">S</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="o">-&gt;</span><span class="n">lc</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1">//然后才转至左孩子</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="c1">//实不得已</span>
+<span class="w">         </span><span class="n">S</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="o">-&gt;</span><span class="n">rc</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1">//才向右</span>
+<span class="w">   </span><span class="n">S</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span><span class="w"> </span><span class="c1">//返回之前，弹出栈顶的空节点</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">VST</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">travPost_I</span><span class="p">(</span><span class="w"> </span><span class="n">BinNodePosi</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">VST</span><span class="o">&amp;</span><span class="w"> </span><span class="n">visit</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">//二叉树的后序遍历（迭代版）</span>
+<span class="w">   </span><span class="n">Stack</span><span class="o">&lt;</span><span class="n">BinNodePosi</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">S</span><span class="p">;</span><span class="w"> </span><span class="c1">//辅助栈</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1">//根节点入栈</span>
+<span class="w">   </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">S</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// x始终为当前节点</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">top</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">x</span><span class="o">-&gt;</span><span class="n">parent</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="c1">////若栈顶非x之父（而为右兄）</span>
+<span class="w">         </span><span class="n">gotoLeftmostLeaf</span><span class="p">(</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1">//则在其右兄子树中找到HLVFL（相当于递归深入）</span>
+<span class="w">      </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span><span class="w"> </span>
+<span class="w">      </span><span class="n">visit</span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="o">-&gt;</span><span class="n">data</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1">//弹出栈顶（即前一节点之后继），并访问之</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>时间复杂度：仍然是线性的时间复杂度<span class="arithmatex">\(O(n)\)</span>。使用摊还分析中的<strong>聚集分析</strong>和<strong>记账法</strong>可以进行分析。 </li>
+</ol>
+<blockquote>
+<p>对于后序遍历二叉树，我们可以将其看作是三个操作的集合：</p>
+<p>访问左子树、访问右子树、访问当前节点。</p>
+<p>每个操作都会被执行 n 次，其中 n 是二叉树的节点数量。因此，整个后序遍历的时间复杂度是 <span class="arithmatex">\(O(n)\)</span>。</p>
+<p>这是因为无论二叉树的形状如何（即使是最坏的情况，也就是所有的节点都只有左子节点或只有右子节点，形成一条线），后序遍历都需要访问每个节点一次。因此，总的操作次数是 n，所以时间复杂度是$ O(n)$。</p>
+</blockquote>
+<ol>
+<li>
+<p>后序遍历的实际应用：表达式树、逆波兰表达式</p>
+</li>
+<li>
+<p>在遇到一个中缀表达式的时候，我们先通过添加适当的括号来直接表明各个运算符的优先级。</p>
+</li>
+<li>按照左括号向下，右括号向上的原则（这样做可以区分出层次结构，便于直观地进行计算和构建树），对该中缀表达式进行排列。</li>
+<li>保留数字和运算符的位置不变，使用恰当的连接线，将树构建出来。这里，每一个数字都是叶子节点，而运算符则为内部节点。</li>
+<li>然后进行对构建好的表达式树的后序遍历。注意，双目运算符下面必有左孩子和右孩子，而单目运算符下面只有左孩子。</li>
+<li>按照运算规则进行后序遍历，即可得到最终答案。（后序遍历的序列就是RPN）</li>
+</ol>
+<h3 id="层次遍历traversal-by-level">层次遍历(Traversal by Level)<a class="headerlink" href="#层次遍历traversal-by-level" title="Permanent link"></a></h3>
+<ol>
+<li>它按照<strong>树的层次</strong>从上到下，同一层次从左到右的顺序访问每一个节点。具体来说，首先访问根节点，然后访问所有的第二层节点（即根节点的直接子节点），接着访问所有的第三层节点（即第二层节点的直接子节点），以此类推，直到所有的节点都被访问过。这种遍历方式常常用于<strong>广度优先搜索（Breadth-First Search，BFS）算法</strong>，因为它首先访问的是离根节点最近的节点。</li>
+<li>使用<strong>队列</strong>进行层次遍历：</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">VST</span><span class="o">&gt;</span><span class="w"> </span><span class="c1">//元素类型、操作器</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">BinNode</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">travLevel</span><span class="p">(</span><span class="w"> </span><span class="n">VST</span><span class="o">&amp;</span><span class="w"> </span><span class="n">visit</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">//二叉树层次遍历算法</span>
+<span class="w">   </span><span class="n">Queue</span><span class="o">&lt;</span><span class="n">BinNodePosi</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">Q</span><span class="p">;</span><span class="w"> </span>
+<span class="w">   </span><span class="n">Q</span><span class="p">.</span><span class="n">enqueue</span><span class="p">(</span><span class="w"> </span><span class="k">this</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1">//引入辅助队列，根节点入队</span>
+<span class="w">   </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">Q</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">//在队列再次变空之前，反复迭代</span>
+<span class="w">      </span><span class="n">BinNodePosi</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Q</span><span class="p">.</span><span class="n">dequeue</span><span class="p">();</span><span class="w"> </span><span class="n">visit</span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="o">-&gt;</span><span class="n">data</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1">//取出队首节点并访问之</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">HasLChild</span><span class="p">(</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">Q</span><span class="p">.</span><span class="n">enqueue</span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="o">-&gt;</span><span class="n">lc</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1">//左孩子入队</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">HasRChild</span><span class="p">(</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">Q</span><span class="p">.</span><span class="n">enqueue</span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="o">-&gt;</span><span class="n">rc</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1">//右孩子入队</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs", "navigation.tracking", "navigation.path", "navigation.top", "navigation.sections", "navigation.prune", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.081f42fc.min.js"></script>
+      
+        <script src="../../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

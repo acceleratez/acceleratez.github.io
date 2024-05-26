@@ -1,0 +1,2134 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../../DS/14-Sorting/sort/">
+      
+      
+        <link rel="next" href="../amortized/">
+      
+      
+      <link rel="icon" href="../../../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.24">
+    
+    
+      
+        <title>主定理 - AccelerateZ</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#递归式求解代入法递归树与主定理" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../../.." title="AccelerateZ" class="md-header__button md-logo" aria-label="AccelerateZ" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AccelerateZ
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              主定理
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_3" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_3">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_4" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_4">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/acceleratez/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AccelerateZ
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../blog/index.md" class="md-tabs__link">
+        
+  
+    
+  
+  Blog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../" class="md-tabs__link">
+          
+  
+  DSA-wiki
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../AI/" class="md-tabs__link">
+          
+  
+  Embrace AI
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Lang/" class="md-tabs__link">
+          
+  
+  Languages
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Math-wiki/index.md" class="md-tabs__link">
+          
+  
+  Math Master
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../about.md" class="md-tabs__link">
+        
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="AccelerateZ" class="md-nav__button md-logo" aria-label="AccelerateZ" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    AccelerateZ
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/acceleratez/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AccelerateZ
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../blog/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    DSA-wiki
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            DSA-wiki
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Data Structure
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Data Structure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DS/01-Intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    01-Intro
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../DS/02-Vector/intro/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    02-Vector
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../DS/03-List/intro/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    03-List
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DS/04-Stack-and-Queue/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    04-Stack and Queue
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../DS/05-Tree/intro/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    05-Tree
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../DS/06-Other-Tree/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    06-Other Tree
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../DS/07-BST/intro/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    07-BST
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../DS/08-Advanced-Search-Tree/splay.md" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    08-Advanced Search Tree
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../DS/09-Dict-Map-and-Hashing/intro/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    09-Dict-Map-and-Hashing
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../DS/10-Priority-Queue-and-Heap/priority-queue/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    10-Priority Queue and Heap
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../DS/11-Graph/intro/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    11-Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DS/12-Graph-Application/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12-Graph Application
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DS/13-String/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13-String
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../DS/14-Sorting/intro/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    14-Sorting
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Algorithm
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Algorithm
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_1" id="__nav_3_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    01-Intro
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            01-Intro
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    主定理
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    主定理
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#从分治法到递归式" class="md-nav__link">
+    <span class="md-ellipsis">
+      从分治法到递归式
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#代入法" class="md-nav__link">
+    <span class="md-ellipsis">
+      代入法
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#递归树" class="md-nav__link">
+    <span class="md-ellipsis">
+      递归树
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#主方法" class="md-nav__link">
+    <span class="md-ellipsis">
+      主方法
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#特别内容" class="md-nav__link">
+    <span class="md-ellipsis">
+      特别内容
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wikipedia上的主定理generic-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wikipedia上的主定理——Generic Form
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../amortized/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    摊还分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-Search-and-Traverse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    02-Search and Traverse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../03-Divide-and-Conquer/binary/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    03-Divide-and-Conquer
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-Greedy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    04-Greedy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-Dynamic-Programming/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    05-Dynamic Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-Back-Tracking/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    06-Back-Tracking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-Branch-and-Bound/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    07-Branch-and-Bound
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08-NP-Complete/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    08-NP-Complete
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-Randomized/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    09-Randomized
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10-Approx/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10-Approximation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../11-Genetic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11-Genetic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../12-Crypto/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12-Cryptography
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../../AI/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Embrace AI
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../../Lang/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Languages
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../../Math-wiki/index.md" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Math Master
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#从分治法到递归式" class="md-nav__link">
+    <span class="md-ellipsis">
+      从分治法到递归式
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#代入法" class="md-nav__link">
+    <span class="md-ellipsis">
+      代入法
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#递归树" class="md-nav__link">
+    <span class="md-ellipsis">
+      递归树
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#主方法" class="md-nav__link">
+    <span class="md-ellipsis">
+      主方法
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#特别内容" class="md-nav__link">
+    <span class="md-ellipsis">
+      特别内容
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wikipedia上的主定理generic-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wikipedia上的主定理——Generic Form
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="递归式求解代入法递归树与主定理">递归式求解——代入法、递归树与主定理<a class="headerlink" href="#递归式求解代入法递归树与主定理" title="Permanent link"></a></h1>
+<p><a href="https://zhuanlan.zhihu.com/p/267890781">递归式求解——代入法、递归树与主定理 - 知乎 (zhihu.com)</a></p>
+<p><a href="https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms)">Master theorem (analysis of algorithms) - Wikipedia</a></p>
+<h2 id="从分治法到递归式">从<strong>分治法</strong>到<strong>递归式</strong><a class="headerlink" href="#从分治法到递归式" title="Permanent link"></a></h2>
+<ol>
+<li>所谓<strong>分治法</strong>，就是把大问题分解成小问题，再把小问题的解合并成原问题的解。<strong>递归式</strong>则是用数学语言对这一过程的时间代价建模。如MergeSort的递推式：
+   $$
+   T(n)=2T(n/2)+\Theta(n),T(1)=\Theta(1).
+   $$</li>
+</ol>
+<blockquote>
+<p><em>递归式的右侧通常由两部分组成，第一部分是分解后子问题的总代价，第二部分是分解和合并子问题的总代价。第一部分仍然是T的函数，第二部分则是实际的渐进复杂度。</em></p>
+</blockquote>
+<ol>
+<li>以下有三种方法来求解递归式：代入法、递归树和主定理。</li>
+</ol>
+<h2 id="代入法">代入法<a class="headerlink" href="#代入法" title="Permanent link"></a></h2>
+<ol>
+<li>我们需要先猜出解的形式，然后用数学归纳法证明该猜测是正确的。</li>
+<li>实例：假设猜测MergeSort的T解是<span class="arithmatex">\(<span class="arithmatex">\(T(n)=O(n\log n)\to T(n)\le c\cdot n\log n, \exists c \in \mathbb{R}.\)</span>\)</span> 然后猜测MergeSort <span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Omega(n\log n)\)</span>\)</span>, 若两者均正确，则MergeSort的T解为<span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Theta(n\log n)\)</span>\)</span>.</li>
+<li>代入法依赖于准确的猜测。</li>
+</ol>
+<h2 id="递归树">递归树<a class="headerlink" href="#递归树" title="Permanent link"></a></h2>
+<ol>
+<li>把递归式逐层展开，直接就能得到一个树形结构。</li>
+<li>实例：<span class="arithmatex">\(<span class="arithmatex">\(T(n)=3T(n/4)+\Theta(n^2)\)</span>\)</span>. 具体流程见网页链接。每层数据规模缩小为之前的四分之一，直到叶子结点数据规模为1，因此总层数为<span class="arithmatex">\(<span class="arithmatex">\(\log_43\)</span>\)</span>。右侧计算了每层所有结点的总代价：单个结点的代价乘以该层结点数量。最后一层单个结点的代价为常数，结点数量<span class="arithmatex">\(<span class="arithmatex">\(3^{\log_4n}=n^{\log_43}\)</span>\)</span>，记作<span class="arithmatex">\(<span class="arithmatex">\(\Theta(n^{\log_43})\)</span>\)</span>。然后对几何级数求和（放缩、舍去低阶项）。</li>
+<li>有些情况下，利用递归树计算精确的解会稍有困难，但不妨碍我们做出一个合理的猜测，然后进一步用代入法验证该猜测。</li>
+</ol>
+<h2 id="主方法">主方法<a class="headerlink" href="#主方法" title="Permanent link"></a></h2>
+<ol>
+<li>
+<p>代入法和递归树法各有缺点，前者需要一个准确的猜测，后者需要画出递归树并推导结果。而大部分递归式解的形式都是一样的。我们也许可以通过对递归式分类，按照某种规则直接写出最终的解。</p>
+</li>
+<li>
+<p>若分治法次都均分数据时，递归式具有如下一般的形式：
+   $$
+   T(n)=\left{\begin{array}{cc}c &amp; \text { if } n&lt;d \a T(n / b)+f(n) &amp; \text { if } n \geq d\end{array}\mathbb{R}}\right.
+   $$</p>
+</li>
+</ol>
+<blockquote>
+<p>这里，<em>a</em>是一个正整数，表示每次分治，问题被分解为<em>a</em>个子问题;</p>
+<p><em>b</em> 是一个大于1的整数，表示每次分治，问题规模缩小为之前的<span class="arithmatex">\(<span class="arithmatex">\(\dfrac1b\)</span>\)</span>.</p>
+<p><em>f(n)</em>是渐进正函数，表示分解和合并的代价。</p>
+</blockquote>
+<ol>
+<li>用递归树找统一解，Total为所有节点的总代价：</li>
+</ol>
+<p><img alt="img" src="https://pic4.zhimg.com/80/v2-a0895b3402aa4bbcd5f405006e2b0ebf_1440w.webp" /></p>
+<ol>
+<li>
+<div class="arithmatex">\[T(1)=\Theta(1)$$为基本操作所花费的时间。化简后，有：
+   $$
+   T(n)=n^{\log_ba}\cdot T(1)+\sum_{j=0}^{\log _{b} n-1} a^{j} f\left(n / b^{j}\mathbb{R}\right)
+   \]</div>
+</li>
+</ol>
+<p>下面有三种情况，按照两个和项的大小进行分类，即比较<span class="arithmatex">\(<span class="arithmatex">\(f(n)\)</span>\)</span>和<span class="arithmatex">\(<span class="arithmatex">\(n^{\log_ba}\)</span>\)</span>的大小：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>1. 若$$f(n)$$渐进小于$$n^{\log_ba}$$.，即认为$$\exists \epsilon&gt;0,\ s.t.\ f(n)=O(n^{\log_ba-\epsilon})$$成立时，有$$T(n)$$为$$\Theta(n^{\log_ba})$$.
+
+   &gt; If $$f(n)$$ is $$O(n^{\log_ba-\varepsilon})$$, then $$T(n)$$ is $$\Theta(n^{\log_ba})$$.
+
+2. 若$$f(n)$$和$$n^{\log_b a}\log^k n$$相等$$(k\ge0)$$，则$$T(n)=\Theta(n^{\log_b a}\log^{k+1} n)$$.
+
+   &gt; If $$f(n)$$ is $$\Theta\left(n^{\log _{b} a} \log ^{k} n\mathbb{R}\right)$$, then $$T(n)$$ is $$\Theta\left(n^{\log _{b} a} \log ^{k+1} n\mathbb{R}\right)$$.
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>
+<p>若<span class="arithmatex">\(<span class="arithmatex">\(f(n)\)</span>\)</span>渐进大于<span class="arithmatex">\(<span class="arithmatex">\(n^{\log_ba}\)</span>\)</span>，<strong>且对于<span class="arithmatex">(<span class="arithmatex">\(\delta\)</span>\)</span>&lt;1和所有足够大的n有<span class="arithmatex">(<span class="arithmatex">\(af(n/b)\le \delta f(n)\)</span>\)</span>，</strong> 则有<span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Theta(f(n))\)</span>\)</span>.</p>
+<blockquote>
+<p>If <span class="arithmatex">\(<span class="arithmatex">\(f(n)\)</span>\)</span>  is <span class="arithmatex">\(<span class="arithmatex">\(\Omega\left(n^{\log _{b} a+\varepsilon}\mathbb{R}\right)\)</span>\)</span> , then  T(n)  is  <span class="arithmatex">\(<span class="arithmatex">\(\Theta(f(n))\)</span>\)</span> , provided  a <span class="arithmatex">\(<span class="arithmatex">\(f(n / b) \leq \delta f(n)\)</span>\)</span>  for some  <span class="arithmatex">\(<span class="arithmatex">\(\delta&lt;1\)</span>\)</span> .</p>
+</blockquote>
+</li>
+<li>
+<p>实例：<span class="arithmatex">\(<span class="arithmatex">\(T(n)=9T(n/3)+n,\ a=9,\ b=3,\ f(n)=n,\ n^{\log_ba}=n^2\)</span>\)</span>, <span class="arithmatex">\(<span class="arithmatex">\(f(n)&lt;\Theta(n^2)\)</span>\)</span>, 故<span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Theta(n^2)\)</span>\)</span>. </p>
+</li>
+<li>
+<p>必须注意，主定理第三条要检查其是否满足附加条件。并非所有满足上面形式的式子都可以使用主定理来进行判定。如<span class="arithmatex">\(<span class="arithmatex">\(T(n)=2T(n/2)+n\log n\)</span>\)</span>, 不满足上述附加条件，故只能使用递归树求解。求解过程如下：</p>
+<div class="arithmatex">\[
+T(n)=2T(n/2)+n\log n
+\]</div>
+<blockquote>
+<p>对于该式，有 <span class="arithmatex">\(<span class="arithmatex">\(a=2,b = 2,f\left(n\mathbb{R}\right) = n\log n\)</span>\)</span> ，此时 <span class="arithmatex">\(<span class="arithmatex">\(n^{log_ba} = n^{log_22} = n\)</span>\)</span> 。显然， $$f \left(n\mathbb{R}\right) = n\log n $$ 渐进大于 <span class="arithmatex">\(<span class="arithmatex">\(n\)</span>\)</span> ，应考虑主定理的第三种情况。将其带入附加条件，得
+$$
+\begin{aligned}2 \frac{n}{2} \lg \frac{n}{2} &amp; \leq c n \lg n \\lg n-1 &amp; \leq c \lg n \(1-c) \lg n &amp; \leq 1\end{aligned}
+   $$
+当 <span class="arithmatex">\(<span class="arithmatex">\(c \ge 1\)</span>\)</span> 时，该式恒成立。但附加条件要求 <span class="arithmatex">\(<span class="arithmatex">\(c \lt 1\)</span>\)</span> ，因此该式不能使用主方法的第三种情况。</p>
+</blockquote>
+</li>
+</ol>
+<p>结果为<span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Theta(n\log^2 n)\)</span>\)</span>.</p>
+<blockquote>
+<p>令解：带入方法2可求解。</p>
+</blockquote>
+<h2 id="特别内容">特别内容<a class="headerlink" href="#特别内容" title="Permanent link"></a></h2>
+<ol>
+<li>对于任意一个符合主定理格式的递归式，如果它满足情况三中的正则条件，那么它一定满足<span class="arithmatex">\(<span class="arithmatex">\(f(n)-\Omega(n^{\log_ba+\epsilon})\)</span>\)</span>, 而反过来不可推出。</li>
+<li>另一个例子：求解递推方程<span class="arithmatex">\(<span class="arithmatex">\(T(n)=T(n/3)+T(2n/3)+n\)</span>\)</span>. 这个递归树的树叶不在同一层上面。此时，应从最坏的情况出发，考虑最长的路径。那么这个递归树一共有<span class="arithmatex">\(<span class="arithmatex">\(k=\log_{3/2}n\)</span>\)</span>层。（2n/3一侧的路径最长，每走一步，问题规模会变成原来的&#8532;.）而每一层节点的数值之和为O(n)，从而有：<span class="arithmatex">\(<span class="arithmatex">\(T(n)=O(n\log_{3/2}n)=O(n\log n)\)</span>\)</span>.</li>
+</ol>
+<h2 id="wikipedia上的主定理generic-form">Wikipedia上的主定理——Generic Form<a class="headerlink" href="#wikipedia上的主定理generic-form" title="Permanent link"></a></h2>
+<ol>
+<li>
+<p>The master theorem always yields <a href="https://en.wikipedia.org/wiki/Asymptotically_tight_bound">asymptotically tight bounds</a> to recurrences from <a href="https://en.wikipedia.org/wiki/Divide_and_conquer_algorithm">divide and conquer algorithms</a> that partition an input into smaller subproblems of equal sizes, solve the subproblems recursively, and then combine the subproblem solutions to give a solution to the original problem. The time for such an algorithm can be expressed by adding the work that they perform at the top level of their recursion (to divide the problems into subproblems and then combine the subproblem solutions) together with the time made in the recursive calls of the algorithm. If <span class="arithmatex">\(<span class="arithmatex">\(T(n)\)</span>\)</span> denotes the total time for the algorithm on an input of size <span class="arithmatex">\(<span class="arithmatex">\(n\)</span>\)</span> and <span class="arithmatex">\(<span class="arithmatex">\(f(n)\)</span>\)</span> denotes the amount of time taken at the top level of the recurrence then the time can be expressed by a <a href="https://en.wikipedia.org/wiki/Recurrence_relation">recurrence relation</a> that takes the form:</p>
+</li>
+<li>
+<p>Here <span class="arithmatex">\(<span class="arithmatex">\(n\)</span>\)</span> is the size of an input problem, <span class="arithmatex">\(<span class="arithmatex">\(a\)</span>\)</span> is the number of subproblems in the recursion, and <span class="arithmatex">\(<span class="arithmatex">\(b\)</span>\)</span> is the factor by which the subproblem size is reduced in each recursive call (b&gt;1). Crucially, <span class="arithmatex">\(<span class="arithmatex">\(a\)</span>\)</span> and <span class="arithmatex">\(<span class="arithmatex">\(b\)</span>\)</span> must not depend on <span class="arithmatex">\(<span class="arithmatex">\(n\)</span>\)</span>. The theorem below also assumes that, as a base case for the recurrence, <span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Theta (1)\)</span>\)</span> when <span class="arithmatex">\(<span class="arithmatex">\(n\)</span>\)</span> is less than some bound <span class="arithmatex">\(<span class="arithmatex">\(\kappa &gt;0\)</span>\)</span>, the smallest input size that will lead to a recursive call.</p>
+</li>
+<li>
+<p>Recurrences of this form often satisfy one of the three following regimes, based on how the work to split/recombine the problem <span class="arithmatex">\(<span class="arithmatex">\(f(n)\)</span>\)</span> relates to the <strong><em>critical exponent</em></strong> <span class="arithmatex">\(<span class="arithmatex">\(c_{crit}=\log _{b}a\)</span>\)</span>. </p>
+</li>
+<li>
+<p><strong>Case 1</strong>: </p>
+<ul>
+<li>
+<p>Description: Work to split/recombine a problem is dwarfed by subproblems. (I.e. the recursion tree is leaf-heavy.)</p>
+</li>
+<li>
+<p>Condition on <span class="arithmatex">\(<span class="arithmatex">\(f(n)\)</span>\)</span> in relation to <span class="arithmatex">\(<span class="arithmatex">\(c_{crit}\)</span>\)</span>, i.e. <span class="arithmatex">\(<span class="arithmatex">\(\log_ba\)</span>\)</span>: When <span class="arithmatex">\(<span class="arithmatex">\(f(n)=O(n^{c})\)</span>\)</span> where $$ c&lt;c_{crit}$$. (upper-bounded by a lesser exponent polynomial)</p>
+</li>
+<li>
+<p>Master Theorem bound: then <span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Theta(n^{c_{crit}})\)</span>\)</span>. (The splitting term does not appear; the recursive tree structure dominates.)</p>
+</li>
+<li>
+<p>Notational examples: If <span class="arithmatex">\(<span class="arithmatex">\(b=a^{2}\)</span>\)</span> and <span class="arithmatex">\(<span class="arithmatex">\(f(n)=O(n^{1/2-\epsilon })\)</span>\)</span>, then <span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Theta (n^{1/2})\)</span>\)</span>.</p>
+<blockquote>
+<p>描述：拆分/重组问题的工作与子问题相形见绌。（即递归树的叶子过多）</p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(f(n)\)</span>\)</span>和<span class="arithmatex">\(<span class="arithmatex">\(\log_ba\)</span>\)</span>的关系：当<span class="arithmatex">\(<span class="arithmatex">\(f(n)=O(n^{c})\)</span>\)</span>时，其中<span class="arithmatex">\(<span class="arithmatex">\(c&lt;\log_ba\)</span>\)</span>。（上界为小指数多项式）</p>
+<p>主定理的约束条件：<span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Theta(n^{c_{crit}})=T(n)=\Theta(n^{\log_b a})\)</span>\)</span>。（递归树占主导地位，而未出现拆分项。）</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Case 2</strong>:</p>
+<ol>
+<li>
+<p>Description: Work to split/recombine a problem is comparable to subproblems.</p>
+</li>
+<li>
+<p>Condition on <span class="arithmatex">\(<span class="arithmatex">\(f(n)\)</span>\)</span> in relation to <span class="arithmatex">\(<span class="arithmatex">\(c_{crit}\)</span>\)</span>, i.e. <span class="arithmatex">\(<span class="arithmatex">\(\log_ba\)</span>\)</span>: When <span class="arithmatex">\(<span class="arithmatex">\(f(n)=\Theta (n^{c_{crit}}\log ^{k}n)\)</span>\)</span> for a <span class="arithmatex">\(<span class="arithmatex">\(k\geq 0\)</span>\)</span> (rangebound by the critical-exponent polynomial, times zero or more optional <span class="arithmatex">\(<span class="arithmatex">\(\log s\)</span>\)</span>)</p>
+</li>
+<li>
+<p>Master Theorem bound: then <span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Theta (n^{c_{crit}}\log ^{k+1}n\mathbb{R})\)</span>\)</span> (The bound is the splitting term, where the log is augmented by a single power.)</p>
+</li>
+<li>
+<p>Notational examples: If <span class="arithmatex">\(<span class="arithmatex">\(b=a^{2}\)</span>\)</span> and <span class="arithmatex">\(<span class="arithmatex">\(f(n)=\Theta (n^{1/2})\)</span>\)</span>, then <span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Theta (n^{1/2}\log n)\)</span>\)</span>; If <span class="arithmatex">\(<span class="arithmatex">\(b=a^{2}\)</span>\)</span> and <span class="arithmatex">\(<span class="arithmatex">\(f(n)=\Theta (n^{1/2}\log n)\)</span>\)</span>, then <span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Theta (n^{1/2}\log ^{2}n)\)</span>\)</span>.</p>
+<blockquote>
+<p>描述：拆分/重组问题的工作与子问题相当。</p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(f(n)\)</span>\)</span>和<span class="arithmatex">\(<span class="arithmatex">\(\log_ba\)</span>\)</span>的关系：当 <span class="arithmatex">\(<span class="arithmatex">\(f(n)=\Theta (n^{c_{crit}}\log ^{k}n)\)</span>\)</span>时，其中<span class="arithmatex">\(<span class="arithmatex">\(k\ge 0\)</span>\)</span>。（界被<span class="arithmatex">\(<span class="arithmatex">\(\log_ba\)</span>\)</span>所限，乘以零或可选的<span class="arithmatex">\(<span class="arithmatex">\(\log s\)</span>\)</span>）</p>
+<p>主定理的约束条件：<span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Theta (n^{c_{crit}}\log ^{k+1}n\mathbb{R})\)</span>\)</span>。（界值为拆分项，对数的次数增加1。）</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Case 3</strong>:</p>
+<ol>
+<li>
+<p>Description: Work to split/recombine a problem dominates subproblems. (I.e. the recursion tree is root-heavy.)</p>
+</li>
+<li>
+<p>Condition on <span class="arithmatex">\(<span class="arithmatex">\(f(n)\)</span>\)</span> in relation to <span class="arithmatex">\(<span class="arithmatex">\(c_{crit}\)</span>\)</span>, i.e. <span class="arithmatex">\(<span class="arithmatex">\(\log_ba\)</span>\)</span>: When <span class="arithmatex">\(<span class="arithmatex">\(f(n)=\Omega (n^{c})\)</span>\)</span> where <span class="arithmatex">\(<span class="arithmatex">\(c&gt;c_{crit}\)</span>\)</span>. (lower-bounded by a greater exponent polynomial)</p>
+</li>
+<li>
+<p>Master Theorem bound: this doesn't necessarily yield anything. Furthermore, if <span class="arithmatex">\(<span class="arithmatex">\(af\left({\frac {n}{b}}\mathbb{R}\right)\leq kf(n)\)</span>\)</span> for some constant <span class="arithmatex">\(<span class="arithmatex">\(k&lt;1\)</span>\)</span> and sufficiently large <span class="arithmatex">\(<span class="arithmatex">\(n\)</span>\)</span> (often called the <em>regularity condition</em>) then the total is dominated by the splitting term <span class="arithmatex">\(<span class="arithmatex">\(f(n)\)</span>\)</span>: <span class="arithmatex">\(<span class="arithmatex">\(T\left(n\mathbb{R}\right)=\Theta \left(f(n)\mathbb{R}\right)\)</span>\)</span>.</p>
+</li>
+<li>
+<p>Notational examples: If <span class="arithmatex">\(<span class="arithmatex">\(b=a^{2}\)</span>\)</span> and <span class="arithmatex">\(<span class="arithmatex">\(f(n)=\Omega (n^{1/2+\epsilon })\)</span>\)</span> and the regularity condition holds, then <span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Theta (f(n))\)</span>\)</span>.</p>
+<blockquote>
+<p>描述：拆分/重组问题的工作远胜于子问题。（即递归树的根过多）</p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(f(n)\)</span>\)</span>和<span class="arithmatex">\(<span class="arithmatex">\(\log_ba\)</span>\)</span>的关系：当<span class="arithmatex">\(<span class="arithmatex">\(f(n)=O(n^{c})\)</span>\)</span>时，其中<span class="arithmatex">\(<span class="arithmatex">\(c&gt;\log_ba\)</span>\)</span>。（下界为大指数多项式）</p>
+<p>主定理的约束条件：这不一定有结果。若<span class="arithmatex">\(<span class="arithmatex">\(\exists k&lt;1\)</span>\)</span>和一个很大的<span class="arithmatex">\(<span class="arithmatex">\(n\)</span>\)</span>（规则性条件），有<span class="arithmatex">\(<span class="arithmatex">\(af\left({\dfrac {n}{b}}\mathbb{R}\right)\leq kf(n)\)</span>\)</span>，则结果由拆分项<span class="arithmatex">\(<span class="arithmatex">\(f(n)\)</span>\)</span>主导，<span class="arithmatex">\(<span class="arithmatex">\(T\left(n\mathbb{R}\right)=\Theta \left(f(n)\mathbb{R}\right)\)</span>\)</span>。</p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ol>
+<p>A useful extension of Case 2 handles all values of <span class="arithmatex">\(<span class="arithmatex">\(k\)</span>\)</span>:</p>
+<table>
+<thead>
+<tr>
+<th>Case</th>
+<th>Condition on <span class="arithmatex">\(<span class="arithmatex">\(f(n)\)</span>\)</span> in relation to <span class="arithmatex">\(<span class="arithmatex">\(c_{crit}\)</span>\)</span>, i.e. <span class="arithmatex">\(<span class="arithmatex">\(\log _{b}a\)</span>\)</span></th>
+<th>Master Theorem bound</th>
+<th>Notational examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2a</td>
+<td>When <span class="arithmatex">\(<span class="arithmatex">\(f(n)=\Theta (n^{c_{crit}}\log ^{k}n)\)</span>\)</span> for any <span class="arithmatex">\(<span class="arithmatex">\(k&gt;-1\)</span>\)</span></td>
+<td>... then <span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Theta \left(n^{c_{crit}}\log ^{k+1} n\mathbb{R}\right)\)</span>\)</span> (The bound is the splitting term, where the log is augmented by a single power.)</td>
+<td>If <span class="arithmatex">\(<span class="arithmatex">\(b=a^{2}\)</span>\)</span> and <span class="arithmatex">\(<span class="arithmatex">\(f(n)=\Theta (n^{1/2}/\log ^{1/2}n)\)</span>\)</span>, then <span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Theta (n^{1/2}\log ^{1/2}n)\)</span>\)</span>.</td>
+</tr>
+<tr>
+<td>2b</td>
+<td>When <span class="arithmatex">\(<span class="arithmatex">\(f(n)=\Theta (n^{c_{crit}}\log ^{k}n)\)</span>\)</span> for <span class="arithmatex">\(<span class="arithmatex">\(k=-1\)</span>\)</span></td>
+<td>... then <span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Theta \left(n^{c_{crit}}\log \log n\mathbb{R}\right)\)</span>\)</span> (The bound is the splitting term, where the log reciprocal is replaced by an iterated log.)</td>
+<td>If <span class="arithmatex">\(<span class="arithmatex">\(b=a^{2}\)</span>\)</span> and <span class="arithmatex">\(<span class="arithmatex">\(f(n)=\Theta (n^{1/2}/\log n)\)</span>\)</span>, then <span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Theta (n^{1/2}\log \log n)\)</span>\)</span>.</td>
+</tr>
+<tr>
+<td>2c</td>
+<td>When <span class="arithmatex">\(<span class="arithmatex">\(f(n)=\Theta (n^{c_{crit}}\log ^{k}n)\)</span>\)</span> for any <span class="arithmatex">\(<span class="arithmatex">\(k&gt;-1\)</span>\)</span></td>
+<td>... then <span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Theta \left(n^{c_{crit}}\mathbb{R}\right)\)</span>\)</span> (The bound is the splitting term, where the log disappears.)</td>
+<td>If <span class="arithmatex">\(<span class="arithmatex">\(b=a^{2}\)</span>\)</span> and <span class="arithmatex">\(<span class="arithmatex">\(f(n)=\Theta (n^{1/2}/\log^2 n)\)</span>\)</span>, then <span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Theta (n^{1/2})\)</span>\)</span>.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs", "navigation.tracking", "navigation.path", "navigation.top", "navigation.sections", "navigation.prune", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.081f42fc.min.js"></script>
+      
+        <script src="../../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
