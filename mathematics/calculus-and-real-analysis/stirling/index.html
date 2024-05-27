@@ -42,7 +42,7 @@
       
     
     
-      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -61,7 +61,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#stirling公式" class="md-skip">
+        <a href="#stirling" class="md-skip">
           跳转至
         </a>
       
@@ -117,42 +117,20 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
-  
-    
-    
-    
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
-    
-  
-    
-    
-    
-    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
-    
-      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_3" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z"/></svg>
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_3">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_4" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
-      </label>
-    
-  
-    
-    
-    
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_4">
-    
-      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
       </label>
     
   
@@ -256,6 +234,23 @@
     
   
   Blog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../test/" class="md-tabs__link">
+        
+  
+    
+  
+  Test
 
       </a>
     </li>
@@ -428,6 +423,26 @@
   
   <span class="md-ellipsis">
     Blog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../test/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Test
   </span>
   
 
@@ -659,7 +674,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#stirling公式_1" class="md-nav__link">
+  <a href="#stirling_1" class="md-nav__link">
     <span class="md-ellipsis">
       Stirling公式
     </span>
@@ -668,7 +683,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#stirling公式的推导" class="md-nav__link">
+  <a href="#stirling_2" class="md-nav__link">
     <span class="md-ellipsis">
       Stirling公式的推导
     </span>
@@ -678,7 +693,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#阶乘大小估计积分的矩形公式" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       阶乘大小估计——积分的矩形公式
     </span>
@@ -687,7 +702,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#精细化结果梯形公式" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       精细化结果——梯形公式
     </span>
@@ -696,7 +711,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#梯形公式的误差估计正项级数收敛判别法" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       梯形公式的误差估计——正项级数收敛判别法
     </span>
@@ -705,7 +720,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#stirling公式借助wallis公式计算极限的值" class="md-nav__link">
+  <a href="#stirlingwallis" class="md-nav__link">
     <span class="md-ellipsis">
       Stirling公式——借助Wallis公式计算极限的值
     </span>
@@ -736,8 +751,8 @@
   
 
 
-<h1 id="stirling公式">Stirling公式<a class="headerlink" href="#stirling公式" title="Permanent link"></a></h1>
-<h2 id="stirling公式_1">Stirling公式<a class="headerlink" href="#stirling公式_1" title="Permanent link"></a></h2>
+<h1 id="stirling">Stirling公式<a class="headerlink" href="#stirling" title="Permanent link"></a></h1>
+<h2 id="stirling_1">Stirling公式<a class="headerlink" href="#stirling_1" title="Permanent link"></a></h2>
 <ol>
 <li>
 <p>斯特林公式（英语：Stirling's formula）是一条用来取n阶乘近似值的数学公式。一般来说，当n很大的时候，n阶乘的计算量十分大，所以斯特林公式十分好用，而且，即使在n很小的时候，斯特林公式的取值已经十分准确。</p>
@@ -763,9 +778,9 @@
    即可。上述的内容，不需要引入Wallis公式便能得到结论。</p>
 </li>
 </ol>
-<h2 id="stirling公式的推导">Stirling公式的推导<a class="headerlink" href="#stirling公式的推导" title="Permanent link"></a></h2>
+<h2 id="stirling_2">Stirling公式的推导<a class="headerlink" href="#stirling_2" title="Permanent link"></a></h2>
 <p>参见<a href="https://zhuanlan.zhihu.com/p/143992660">Stirling公式的一些思考 - 知乎 </a></p>
-<h4 id="阶乘大小估计积分的矩形公式">阶乘大小估计——积分的矩形公式<a class="headerlink" href="#阶乘大小估计积分的矩形公式" title="Permanent link"></a></h4>
+<h4 id="_1">阶乘大小估计——积分的矩形公式<a class="headerlink" href="#_1" title="Permanent link"></a></h4>
 <p>我们先从 n! 大小的估计出发. 阶乘实际为累乘，数学上对累乘处理的工具十分少，一般都会选择取对数转换为累加，然后借助已有工具处理。
 $$
 n! = \prod_{k=1}<sup>nk=\exp\left(\sum_{k=1}</sup>n\log k\right).
@@ -780,11 +795,11 @@ $$
 $$
 对 k 从 1 到 n 这 n 个不等式进行累加得到
 $$
-\sum_{k=1}<sup>{n}\log(k)&lt;\int_{1}</sup>{n+1}\log(x)\mathrm dx&lt;\sum_{k=1}^{n+1}\log(k), \quad \forall n\in \mathbb N.
+\sum_{k=1}<sup n_1="n+1">{n}\log(k)&lt;\int_{1}</sup>\log(k), \quad \forall n\in \mathbb N.
 $$
 即
 $$
-\sum_{k=1}<sup>{n}\log(k)&lt;(n+1)\log(n+1)-n&lt;\log(n+1)+\sum_{k=1}</sup>{n}\log(k), \quad \forall n\in \mathbb N.
+\sum_{k=1}}\log(x)\mathrm dx&lt;\sum_{k=1}^{n+1<sup n="n">{n}\log(k)&lt;(n+1)\log(n+1)-n&lt;\log(n+1)+\sum_{k=1}</sup>\log(k), \quad \forall n\in \mathbb N.
 $$
 整理后可有
 $$
@@ -795,7 +810,7 @@ $$
 \dfrac{(n+1)<sup>n}{e</sup>n}&lt;n!&lt;\dfrac{(n+1)<sup>{n+1}}{e</sup>n}, \quad \forall n \in \mathbb N.
 $$
 这已经是一个初步的比较好看的结果了. 但精度还是不够, 得到这个公式本质上是用矩形公式逼近 <span class="arithmatex">\(<span class="arithmatex">\(\log(x)\)</span>\)</span> 的积分. 我们知道, <span class="arithmatex">\(<span class="arithmatex">\(\log(x)\)</span>\)</span>是一个单调递增的凹函数, 如果改用梯形公式, 则精度会提高很多.</p>
-<h4 id="精细化结果梯形公式">精细化结果——梯形公式<a class="headerlink" href="#精细化结果梯形公式" title="Permanent link"></a></h4>
+<h4 id="_2">精细化结果——梯形公式<a class="headerlink" href="#_2" title="Permanent link"></a></h4>
 <p>在 <span class="arithmatex">\(<span class="arithmatex">\([k,k+1]\)</span>\)</span> 上, 由于<span class="arithmatex">\(<span class="arithmatex">\(\log(x)\)</span>\)</span> 是一个凹函数, 即函数图像在割线之上, 因此
 $$
 \log(x)&gt;\dfrac{\log(k+1)-\log(k)}{(k+1)-k}(x-k)+\log(k),\quad k<x\<k+1.
@@ -825,7 +840,7 @@ $$
 \begin{aligned} \dfrac{a_{n+1}}{a_n}&amp;=\dfrac{e}{\left( 1+\frac 1n \right)^{n+\frac 12}}\ &amp;&lt;\exp\left( 1-\left(n+\frac12\right)\log\left( 1+\frac 1n \right) \right)\ &amp;&lt; \exp\left( 1- \left(n+\frac12\right)\left( \frac 1n-\dfrac{1}{2n<sup>2}+\dfrac{1}{3n</sup>3} \right)\right)\ &amp;\le e<sup>{-\tfrac{1}{12n</sup>2}}\ &amp;&lt;1. \end{aligned}
 $$
 因此 <span class="arithmatex">\(<span class="arithmatex">\(a_{n+1}&lt;a_n\)</span>\)</span>，<span class="arithmatex">\(<span class="arithmatex">\(a_n\)</span>\)</span>为单调递减的数列, 极限存在. 接下来只需要证明, 这个极限不是0就可以了. 这里回溯一下我们得到阶乘估计的方法: 积分的梯形公式. 因此需要估计梯形公式的误差.</p>
-<h4 id="梯形公式的误差估计正项级数收敛判别法">梯形公式的误差估计——正项级数收敛判别法<a class="headerlink" href="#梯形公式的误差估计正项级数收敛判别法" title="Permanent link"></a></h4>
+<h4 id="_3">梯形公式的误差估计——正项级数收敛判别法<a class="headerlink" href="#_3" title="Permanent link"></a></h4>
 <p>设<span class="arithmatex">\(<span class="arithmatex">\(a_n\to c\)</span>\)</span>, 把阶乘表示为
 $$
 n!=a_n\sqrt{n}\left( \frac ne \right)^n,
@@ -891,10 +906,10 @@ $$
 \end{aligned}
 $$
 而证明<span class="arithmatex">\(<span class="arithmatex">\(c=\sqrt{2\pi}\)</span>\)</span> 一般需要借助Wallis公式, 在一般的数学分析教科书中都可以查阅到.</p>
-<h4 id="stirling公式借助wallis公式计算极限的值">Stirling公式——借助Wallis公式计算极限的值<a class="headerlink" href="#stirling公式借助wallis公式计算极限的值" title="Permanent link"></a></h4>
+<h4 id="stirlingwallis">Stirling公式——借助Wallis公式计算极限的值<a class="headerlink" href="#stirlingwallis" title="Permanent link"></a></h4>
 <p>事实上, 由Wallis公式
 $$
-\frac{\pi}{2}=\lim_{n\to\infty}\left(\dfrac{(2n)!!}{(2n-1)!!}\right)<sup>2\dfrac{1}{2n+1}=\lim_{n\to\infty}\left(\dfrac{((2n)!!)</sup>2}{(2n)!}\right)<sup>2\dfrac{1}{2n}=\lim_{n\to\infty}\left(\dfrac{2</sup>{2n}(n!)<sup>2}{(2n)!}\right)</sup>2\dfrac{1}{2n}
+\frac{\pi}{2}=\lim_{n\to\infty}\left(\dfrac{(2n)!!}{(2n-1)!!}\right)<sup>2\dfrac{1}{2n+1}=\lim_{n\to\infty}\left(\dfrac{((2n)!!)</sup>2}{(2n)!}\right)<sup 2n="2n">2\dfrac{1}{2n}=\lim_{n\to\infty}\left(\dfrac{2</sup>(n!)<sup>2}{(2n)!}\right)</sup>2\dfrac{1}{2n}
 $$
 我们知道
 $$
@@ -910,9 +925,9 @@ n!=a_n\sqrt{n}\left( \frac ne \right)^n
 $$
 代入 <span class="arithmatex">\(<span class="arithmatex">\(d_n\)</span>\)</span> 的表达式可以得到
 $$
-d_n=\dfrac{2<sup>{2n}(n!)</sup>2}{\sqrt{n}(2n)!}=\dfrac{2<sup>{2n}(a_n)</sup>2n<sup>{2n+1}e</sup>{-2n}}{\sqrt{n}\sqrt{2n}a_{2n}(2n)<sup>{2n}e</sup>{-2n}}=\dfrac{a_n^2}{\sqrt{2}a_{2n}},
+d_n=\dfrac{2<sup>{2n}(n!)</sup>2}{\sqrt{n}(2n)!}=\dfrac{2<sup>{2n}(a_n)</sup>2n<sup -2n="-2n">{2n+1}e</sup>(2n)}}{\sqrt{n}\sqrt{2n}a_{2n<sup -2n="-2n">{2n}e</sup>,
 $$
-而 <span class="arithmatex">\(<span class="arithmatex">\(a_n\to c&gt;0, d_n\to\sqrt{\pi}\)</span>\)</span> , 在上式两端令<span class="arithmatex">\(<span class="arithmatex">\(n\to\infty\)</span>\)</span> 得到
+而 }}=\dfrac{a_n^2}{\sqrt{2}a_{2n}<span class="arithmatex">\(<span class="arithmatex">\(a_n\to c&gt;0, d_n\to\sqrt{\pi}\)</span>\)</span> , 在上式两端令<span class="arithmatex">\(<span class="arithmatex">\(n\to\infty\)</span>\)</span> 得到
 $$
 \frac{c^2}{\sqrt{2}c}=\sqrt \pi,
 $$
@@ -977,11 +992,13 @@ $$</p>
     
       <script src="../../../assets/javascripts/bundle.081f42fc.min.js"></script>
       
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
         <script src="../../../javascripts/katex.js"></script>
-      
-        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
-      
-        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

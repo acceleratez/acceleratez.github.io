@@ -46,7 +46,7 @@
       
     
     
-      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
     
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -65,7 +65,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#映射map词典dictionary和散列hash" class="md-skip">
+        <a href="#mapdictionaryhash" class="md-skip">
           跳转至
         </a>
       
@@ -121,42 +121,20 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
-  
-    
-    
-    
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
-    
-  
-    
-    
-    
-    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
-    
-      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_3" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z"/></svg>
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_3">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_4" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
-      </label>
-    
-  
-    
-    
-    
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_4">
-    
-      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
       </label>
     
   
@@ -260,6 +238,23 @@
     
   
   Blog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../test/" class="md-tabs__link">
+        
+  
+    
+  
+  Test
 
       </a>
     </li>
@@ -446,6 +441,26 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../test/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Test
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -468,10 +483,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -482,8 +497,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             DSA-wiki
           </label>
@@ -536,10 +551,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -550,8 +565,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2">
             <span class="md-nav__icon md-icon"></span>
             Data Structure
           </label>
@@ -892,10 +907,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_9" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_9" checked>
         
           
-          <label class="md-nav__link" for="__nav_3_2_9" id="__nav_3_2_9_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_2_9" id="__nav_4_2_9_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -906,8 +921,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_9_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_2_9">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2_9">
             <span class="md-nav__icon md-icon"></span>
             09-Dict-Map-and-Hashing
           </label>
@@ -966,7 +981,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#键值对" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       键值对
     </span>
@@ -975,7 +990,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#映射和词典的定义" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       映射和词典的定义
     </span>
@@ -984,7 +999,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#map的adt及具体实现" class="md-nav__link">
+  <a href="#mapadt" class="md-nav__link">
     <span class="md-ellipsis">
       Map的ADT及具体实现
     </span>
@@ -993,7 +1008,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#javautil包中的映射类" class="md-nav__link">
+  <a href="#javautil" class="md-nav__link">
     <span class="md-ellipsis">
       java.util包中的映射类
     </span>
@@ -1011,7 +1026,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#哈希表" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       哈希表
     </span>
@@ -1020,7 +1035,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#从ibm公司电话说起" class="md-nav__link">
+  <a href="#ibm" class="md-nav__link">
     <span class="md-ellipsis">
       从IBM公司电话说起
     </span>
@@ -1029,7 +1044,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#各种访问方式的比较" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       各种访问方式的比较
     </span>
@@ -1038,7 +1053,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#联合数组" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       联合数组
     </span>
@@ -1047,7 +1062,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#实例电话簿" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       实例：电话簿
     </span>
@@ -1056,7 +1071,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#散列表的冲突" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       散列表的冲突
     </span>
@@ -1332,10 +1347,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
         
           
-          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -1346,8 +1361,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_3">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
             <span class="md-nav__icon md-icon"></span>
             Algorithm
           </label>
@@ -1448,7 +1463,7 @@
       
   
   <span class="md-ellipsis">
-    03-Divide-and-Conquer
+    03-Divide and Conquer
   </span>
   
 
@@ -1517,7 +1532,7 @@
         
   
   <span class="md-ellipsis">
-    06-Back-Tracking
+    06-Back Tracking
   </span>
   
 
@@ -1538,7 +1553,7 @@
         
   
   <span class="md-ellipsis">
-    07-Branch-and-Bound
+    07-Branch and Bound
   </span>
   
 
@@ -1559,7 +1574,7 @@
         
   
   <span class="md-ellipsis">
-    08-NP-Complete
+    08-NP Complete
   </span>
   
 
@@ -1847,7 +1862,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#键值对" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       键值对
     </span>
@@ -1856,7 +1871,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#映射和词典的定义" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       映射和词典的定义
     </span>
@@ -1865,7 +1880,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#map的adt及具体实现" class="md-nav__link">
+  <a href="#mapadt" class="md-nav__link">
     <span class="md-ellipsis">
       Map的ADT及具体实现
     </span>
@@ -1874,7 +1889,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#javautil包中的映射类" class="md-nav__link">
+  <a href="#javautil" class="md-nav__link">
     <span class="md-ellipsis">
       java.util包中的映射类
     </span>
@@ -1892,7 +1907,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#哈希表" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       哈希表
     </span>
@@ -1901,7 +1916,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#从ibm公司电话说起" class="md-nav__link">
+  <a href="#ibm" class="md-nav__link">
     <span class="md-ellipsis">
       从IBM公司电话说起
     </span>
@@ -1910,7 +1925,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#各种访问方式的比较" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       各种访问方式的比较
     </span>
@@ -1919,7 +1934,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#联合数组" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       联合数组
     </span>
@@ -1928,7 +1943,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#实例电话簿" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       实例：电话簿
     </span>
@@ -1937,7 +1952,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#散列表的冲突" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       散列表的冲突
     </span>
@@ -1963,8 +1978,8 @@
   
 
 
-<h1 id="映射map词典dictionary和散列hash">映射(Map)、词典(Dictionary)和散列(Hash)<a class="headerlink" href="#映射map词典dictionary和散列hash" title="Permanent link"></a></h1>
-<h2 id="键值对">键值对<a class="headerlink" href="#键值对" title="Permanent link"></a></h2>
+<h1 id="mapdictionaryhash">映射(Map)、词典(Dictionary)和散列(Hash)<a class="headerlink" href="#mapdictionaryhash" title="Permanent link"></a></h1>
+<h2 id="_1">键值对<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
 <ol>
 <li>键值对是计算系统和应用程序中的一种基本数据表示方式。设计人员通常希望采用一种开放式数据结构，以便在不修改现有代码或数据的情况下进行未来扩展。在这种情况下，数据模型的全部或部分内容可以用 <code>&lt;属性名、值&gt;</code>形式的 2 元组集合来表示，每个元素都是一个属性值对。根据特定应用和程序员选择的实现方式，属性名可能是唯一的，也可能不是唯一的。</li>
 </ol>
@@ -1972,7 +1987,7 @@
 <p>A name–value pair, also called an attribute–value pair, key–value pair, or field–value pair, is a fundamental data representation in computing systems and applications. Designers often desire an open-ended data structure that allows for future extension without modifying existing code or data. In such situations, all or part of the data model may be expressed as a collection of 2-tuples in the form <attribute name, value> with each element being an attribute–value pair. Depending on the particular application and the implementation chosen by programmers, attribute names may or may not be unique.</p>
 <p>——From <a href="https://en.wikipedia.org/wiki/Name–value_pair">Name–value pair - Wikipedia</a></p>
 </blockquote>
-<h2 id="映射和词典的定义">映射和词典的定义<a class="headerlink" href="#映射和词典的定义" title="Permanent link"></a></h2>
+<h2 id="_2">映射和词典的定义<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
 <ol>
 <li><strong>词条(Entry)</strong>：一种组合关系，由<strong>关键码(Key)</strong>和<strong>数据项(Value)</strong>合成。</li>
 <li><strong>映射(Map)</strong>的定义：</li>
@@ -1987,7 +2002,7 @@
 <li>对于<strong>映射和词典</strong>这类结构，在作为基本数据单位的词条内部，关键码与数值的地位等同，二者不必加以区分。此类结构所支持的这种新的数据访问方式，即所谓的循数值访问。</li>
 <li>特别地，在许多编程语言中，映射和词典实际上是同一种数据结构。例如，在Python中，被称为字典（Dictionary），而在Java中，则被称为映射（Map）。</li>
 </ol>
-<h2 id="map的adt及具体实现">Map的ADT及具体实现<a class="headerlink" href="#map的adt及具体实现" title="Permanent link"></a></h2>
+<h2 id="mapadt">Map的ADT及具体实现<a class="headerlink" href="#mapadt" title="Permanent link"></a></h2>
 <ol>
 <li>Map类的接口： </li>
 </ol>
@@ -2051,7 +2066,7 @@
 <p>Java提供的<code>equals()</code>是一个较为通用的判等器，我们也可以新建一个类，利用Java提供的<code>euqals()</code>方法和自己实现的某些额外方法，实现一个更加通用的判等器。利用这种模式，程序员完全可以编写出独立的通用判等器，而无需触及对象内部的结构。</p>
 </li>
 </ol>
-<h2 id="javautil包中的映射类">java.util包中的映射类<a class="headerlink" href="#javautil包中的映射类" title="Permanent link"></a></h2>
+<h2 id="javautil">java.util包中的映射类<a class="headerlink" href="#javautil" title="Permanent link"></a></h2>
 <ol>
 <li>Java在<code>java.util</code>包中已定义了一个名为<code>java.util.Map</code>的映射接口，而且也约定禁止关键码的重复。与第6.1.1节定义的映射接口相比，<code>java.util.Map</code>接口并未直接提供迭代器方法，而是通过两个名为<code>keys()</code>和<code>values()</code>的方法，间接地提供关于关键码或数据对象的迭代器。</li>
 <li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Map.html">Map (Java Platform SE 8 ) (oracle.com)</a></li>
@@ -2066,23 +2081,23 @@
 <ol>
 <li><a href="https://zh.cppreference.com/w/cpp/container/unordered_map">std::unordered_map - cppreference.com</a></li>
 </ol>
-<h2 id="哈希表">哈希表<a class="headerlink" href="#哈希表" title="Permanent link"></a></h2>
+<h2 id="_3">哈希表<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
 <p>如果将条目的关键码视作其在映射结构中的存放位置，则可以散列表（Hash table）的形式来实现映射结构。哈希表又称散列表，一种以「key-value」形式存储数据的数据结构。所谓以「key-value」形式存储数据，是指任意的键值 key 都唯一对应到内存中的某个位置。只需要输入查找的键值，就可以快速地找到其对应的 value。可以把哈希表理解为一种高级的数组，这种数组的下标可以是很大的整数，浮点数，字符串甚至结构体。</p>
-<h2 id="从ibm公司电话说起">从IBM公司电话说起<a class="headerlink" href="#从ibm公司电话说起" title="Permanent link"></a></h2>
+<h2 id="ibm">从IBM公司电话说起<a class="headerlink" href="#ibm" title="Permanent link"></a></h2>
 <ol>
 <li>在<a href="https://www.ibm.com/docs/zh/i/7.3?topic=overview-contacting-support">联系 IBM 支持 - IBM 文档</a>中，IBM公司的电话号码是<code>1-800-IBM-CALL</code>和<code>1-800-IBM-4YOU</code>。为什么电话号码中可以出现字母？观察9键键盘，在某些数字键下面，会有英文字母出现。所以，IBM公司的电话号码可以由<code>1-800-426-2255</code>改写成<code>1-800-IBM-CALL</code>。IBM公司的这种方式很是巧妙，借助个性化的电话号码，让用户能够加深对其的印象。这中间蕴含的思维方式，即是<strong>散列</strong>。</li>
 <li>IBM的巧妙体现在两个方面：</li>
 <li>让你能够记住这一家公司的电话号码；</li>
 <li>拨号时，仍然使用的是数字系统，只需要对键盘进行字母+数字改造即可实现上述内容。</li>
 </ol>
-<h2 id="各种访问方式的比较">各种访问方式的比较<a class="headerlink" href="#各种访问方式的比较" title="Permanent link"></a></h2>
+<h2 id="_4">各种访问方式的比较<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
 <ol>
 <li>循秩访问(Call by Rank)：Vector；</li>
 <li>循位置访问(Call by Position)：List；</li>
 <li>循关键码访问(Call by Key)：BST（二叉搜索树）；</li>
 <li>循数值访问(Call by Value)：Hashing（哈希、杂凑、<strong>散列</strong>）。</li>
 </ol>
-<h2 id="联合数组">联合数组<a class="headerlink" href="#联合数组" title="Permanent link"></a></h2>
+<h2 id="_5">联合数组<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
 <p>联合数组(Associative Array)：可以根据数据元素的取值，直接访问。其下标不再是整数，甚至没有了大小次序，这样，更为直观、便捷。支持的语言有：<code>Java, Python, Perl, Ruby, PHP</code>等。</p>
 <p>部分语言的例子：</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -2131,7 +2146,7 @@
 <span class="k">for</span> <span class="n">alias</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span> <span class="n">beauty</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">reverse</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">)</span> <span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span> <span class="n">alias</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">beauty</span><span class="p">[</span><span class="n">alias</span><span class="p">]</span> <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="实例电话簿">实例：电话簿<a class="headerlink" href="#实例电话簿" title="Permanent link"></a></h2>
+<h2 id="_6">实例：电话簿<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
 <p>需求： 为一所学校制作电话簿。号码<span class="arithmatex">\(\leftrightarrows\)</span>教员、学生、员工、办公室</p>
 <ol>
 <li>使用蛮力法（使用数组实现，按电话号码索引）（R=Real，实际拥有的个数；P=Possible，所有可能的个数。）</li>
@@ -2153,7 +2168,7 @@
 <li>确定散列函数：可以有很多种构造方法，这里使用取余法<code>hash(key) = key % M</code>。</li>
 <li>空间效率：一般可以使用装填因子<span class="arithmatex">\(\lambda=\dfrac{N}{M}\)</span>来衡量。</li>
 </ol>
-<h2 id="散列表的冲突">散列表的冲突<a class="headerlink" href="#散列表的冲突" title="Permanent link"></a></h2>
+<h2 id="_7">散列表的冲突<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
 <ol>
 <li>
 <p>散列冲突(Hash Collision)：关键码不同的词条被映射到同一散列地址的情况，即<code>hash(key1)=hash(key2)</code>，而<code>key1!=key2</code>。原因是，某些散列函数只是将一个相对较大的集合映射到一个远远相对较小的集合，而按照抽屉原理/鸽巢原理，冲突无法彻底避免。</p>
@@ -2166,10 +2181,10 @@
 </li>
 </ol>
 <blockquote>
-<p>至少有两位同学生日相同的可能性<span class="arithmatex">\(P_{365}(n) = ?\)</span>
-$$
-P_{365}(1) = 0, P_{365}(2) = 1/365,\cdots, P_{365}(22) = 47.6\%, P_{365}(23) = 50.7\%,\cdots P_{365}(100)=99.999969\%
-$$</p>
+<p>至少有两位同学生日相同的可能性<span class="arithmatex">\(P_{365}(n) = ?\)</span></p>
+<div class="arithmatex">\[
+P_{365}(1) = 0, P_{365}(2) = 1/365,\cdots, P_{365}(22) = 47.6\%, \\P_{365}(23) = 50.7\%,\cdots P_{365}(100)=99.999969\%
+\]</div>
 </blockquote>
 <ol>
 <li>
@@ -2240,11 +2255,13 @@ $$</p>
     
       <script src="../../../../assets/javascripts/bundle.081f42fc.min.js"></script>
       
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
         <script src="../../../../javascripts/katex.js"></script>
-      
-        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
-      
-        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

@@ -46,7 +46,7 @@
       
     
     
-      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
     
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -65,7 +65,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#排序算法实现" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -121,42 +121,20 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
-  
-    
-    
-    
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
-    
-  
-    
-    
-    
-    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
-    
-      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_3" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z"/></svg>
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_3">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_4" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
-      </label>
-    
-  
-    
-    
-    
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_4">
-    
-      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
       </label>
     
   
@@ -260,6 +238,23 @@
     
   
   Blog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../test/" class="md-tabs__link">
+        
+  
+    
+  
+  Test
 
       </a>
     </li>
@@ -446,6 +441,26 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../test/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Test
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -468,10 +483,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -482,8 +497,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             DSA-wiki
           </label>
@@ -536,10 +551,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -550,8 +565,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2">
             <span class="md-nav__icon md-icon"></span>
             Data Structure
           </label>
@@ -1069,10 +1084,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_14" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_14" checked>
         
           
-          <label class="md-nav__link" for="__nav_3_2_14" id="__nav_3_2_14_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_2_14" id="__nav_4_2_14_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1083,8 +1098,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_14_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_2_14">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_14_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2_14">
             <span class="md-nav__icon md-icon"></span>
             14-Sorting
           </label>
@@ -1164,7 +1179,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#适合循秩访问的数据结构的排序算法" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       适合循秩访问的数据结构的排序算法
     </span>
@@ -1174,7 +1189,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#冒泡排序" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       冒泡排序
     </span>
@@ -1183,7 +1198,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#归并排序" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       归并排序
     </span>
@@ -1197,7 +1212,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#适合循位置访问的数据结构的排序算法" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       适合循位置访问的数据结构的排序算法
     </span>
@@ -1207,7 +1222,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#选择排序selection-sort" class="md-nav__link">
+  <a href="#selection-sort" class="md-nav__link">
     <span class="md-ellipsis">
       选择排序(Selection Sort)
     </span>
@@ -1217,7 +1232,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#思路" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       思路
     </span>
@@ -1226,7 +1241,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#为什么要选择选择排序" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       为什么要选择选择排序
     </span>
@@ -1235,7 +1250,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#代码实现" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       代码实现
     </span>
@@ -1244,7 +1259,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#时间复杂度" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       时间复杂度
     </span>
@@ -1258,7 +1273,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#插入排序insertion-sort" class="md-nav__link">
+  <a href="#insertion-sort" class="md-nav__link">
     <span class="md-ellipsis">
       插入排序(Insertion Sort)
     </span>
@@ -1268,7 +1283,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#思想" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       思想
     </span>
@@ -1277,7 +1292,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#和选择排序的不同之处" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       和选择排序的不同之处
     </span>
@@ -1286,7 +1301,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#代码实现_1" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     <span class="md-ellipsis">
       代码实现
     </span>
@@ -1295,7 +1310,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#时间复杂度_1" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     <span class="md-ellipsis">
       时间复杂度
     </span>
@@ -1304,7 +1319,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#插入排序的平均性能" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     <span class="md-ellipsis">
       插入排序的平均性能
     </span>
@@ -1313,7 +1328,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#逆序对" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     <span class="md-ellipsis">
       逆序对
     </span>
@@ -1332,7 +1347,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#其他排序算法" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     <span class="md-ellipsis">
       其他排序算法
     </span>
@@ -1342,7 +1357,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#快速排序" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     <span class="md-ellipsis">
       快速排序
     </span>
@@ -1351,7 +1366,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#桶排序bucket-sort" class="md-nav__link">
+  <a href="#bucket-sort" class="md-nav__link">
     <span class="md-ellipsis">
       桶排序(Bucket Sort)
     </span>
@@ -1360,7 +1375,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#基数排序radix-sort" class="md-nav__link">
+  <a href="#radix-sort" class="md-nav__link">
     <span class="md-ellipsis">
       基数排序(Radix Sort)
     </span>
@@ -1369,7 +1384,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#堆排序heapsort" class="md-nav__link">
+  <a href="#heapsort" class="md-nav__link">
     <span class="md-ellipsis">
       堆排序(HeapSort)
     </span>
@@ -1378,7 +1393,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#什么是堆排序" class="md-nav__link">
+  <a href="#_18" class="md-nav__link">
     <span class="md-ellipsis">
       什么是堆排序
     </span>
@@ -1387,7 +1402,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#就地堆排序in-place-heapsort" class="md-nav__link">
+  <a href="#in-place-heapsort" class="md-nav__link">
     <span class="md-ellipsis">
       就地堆排序（In-place Heapsort）
     </span>
@@ -1401,7 +1416,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#总结" class="md-nav__link">
+  <a href="#_19" class="md-nav__link">
     <span class="md-ellipsis">
       总结
     </span>
@@ -1458,10 +1473,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
         
           
-          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -1472,8 +1487,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_3">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
             <span class="md-nav__icon md-icon"></span>
             Algorithm
           </label>
@@ -1574,7 +1589,7 @@
       
   
   <span class="md-ellipsis">
-    03-Divide-and-Conquer
+    03-Divide and Conquer
   </span>
   
 
@@ -1643,7 +1658,7 @@
         
   
   <span class="md-ellipsis">
-    06-Back-Tracking
+    06-Back Tracking
   </span>
   
 
@@ -1664,7 +1679,7 @@
         
   
   <span class="md-ellipsis">
-    07-Branch-and-Bound
+    07-Branch and Bound
   </span>
   
 
@@ -1685,7 +1700,7 @@
         
   
   <span class="md-ellipsis">
-    08-NP-Complete
+    08-NP Complete
   </span>
   
 
@@ -1973,7 +1988,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#适合循秩访问的数据结构的排序算法" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       适合循秩访问的数据结构的排序算法
     </span>
@@ -1983,7 +1998,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#冒泡排序" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       冒泡排序
     </span>
@@ -1992,7 +2007,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#归并排序" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       归并排序
     </span>
@@ -2006,7 +2021,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#适合循位置访问的数据结构的排序算法" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       适合循位置访问的数据结构的排序算法
     </span>
@@ -2016,7 +2031,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#选择排序selection-sort" class="md-nav__link">
+  <a href="#selection-sort" class="md-nav__link">
     <span class="md-ellipsis">
       选择排序(Selection Sort)
     </span>
@@ -2026,7 +2041,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#思路" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       思路
     </span>
@@ -2035,7 +2050,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#为什么要选择选择排序" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       为什么要选择选择排序
     </span>
@@ -2044,7 +2059,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#代码实现" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       代码实现
     </span>
@@ -2053,7 +2068,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#时间复杂度" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       时间复杂度
     </span>
@@ -2067,7 +2082,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#插入排序insertion-sort" class="md-nav__link">
+  <a href="#insertion-sort" class="md-nav__link">
     <span class="md-ellipsis">
       插入排序(Insertion Sort)
     </span>
@@ -2077,7 +2092,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#思想" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       思想
     </span>
@@ -2086,7 +2101,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#和选择排序的不同之处" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       和选择排序的不同之处
     </span>
@@ -2095,7 +2110,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#代码实现_1" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     <span class="md-ellipsis">
       代码实现
     </span>
@@ -2104,7 +2119,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#时间复杂度_1" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     <span class="md-ellipsis">
       时间复杂度
     </span>
@@ -2113,7 +2128,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#插入排序的平均性能" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     <span class="md-ellipsis">
       插入排序的平均性能
     </span>
@@ -2122,7 +2137,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#逆序对" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     <span class="md-ellipsis">
       逆序对
     </span>
@@ -2141,7 +2156,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#其他排序算法" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     <span class="md-ellipsis">
       其他排序算法
     </span>
@@ -2151,7 +2166,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#快速排序" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     <span class="md-ellipsis">
       快速排序
     </span>
@@ -2160,7 +2175,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#桶排序bucket-sort" class="md-nav__link">
+  <a href="#bucket-sort" class="md-nav__link">
     <span class="md-ellipsis">
       桶排序(Bucket Sort)
     </span>
@@ -2169,7 +2184,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#基数排序radix-sort" class="md-nav__link">
+  <a href="#radix-sort" class="md-nav__link">
     <span class="md-ellipsis">
       基数排序(Radix Sort)
     </span>
@@ -2178,7 +2193,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#堆排序heapsort" class="md-nav__link">
+  <a href="#heapsort" class="md-nav__link">
     <span class="md-ellipsis">
       堆排序(HeapSort)
     </span>
@@ -2187,7 +2202,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#什么是堆排序" class="md-nav__link">
+  <a href="#_18" class="md-nav__link">
     <span class="md-ellipsis">
       什么是堆排序
     </span>
@@ -2196,7 +2211,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#就地堆排序in-place-heapsort" class="md-nav__link">
+  <a href="#in-place-heapsort" class="md-nav__link">
     <span class="md-ellipsis">
       就地堆排序（In-place Heapsort）
     </span>
@@ -2210,7 +2225,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#总结" class="md-nav__link">
+  <a href="#_19" class="md-nav__link">
     <span class="md-ellipsis">
       总结
     </span>
@@ -2236,9 +2251,9 @@
   
 
 
-<h1 id="排序算法实现">排序算法实现<a class="headerlink" href="#排序算法实现" title="Permanent link"></a></h1>
-<h2 id="适合循秩访问的数据结构的排序算法">适合循秩访问的数据结构的排序算法<a class="headerlink" href="#适合循秩访问的数据结构的排序算法" title="Permanent link"></a></h2>
-<h3 id="冒泡排序">冒泡排序<a class="headerlink" href="#冒泡排序" title="Permanent link"></a></h3>
+<h1 id="_1">排序算法实现<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
+<h2 id="_2">适合循秩访问的数据结构的排序算法<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<h3 id="_3">冒泡排序<a class="headerlink" href="#_3" title="Permanent link"></a></h3>
 <ol>
 <li>
 <p>思想：每次比较相邻的两个元素，如果顺序不对则交换。</p>
@@ -2272,11 +2287,11 @@
 <span class="w"> </span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <blockquote>
-<p>冒泡排序的曲线为
-$$
-\left{(x,y,t)\in[0,1]^3:y\le\frac{x}{x+t},x\le1-t\right}\cup\left{(x,x,t):x,t\in[0,1]\right}
-$$
-<a href="https://linesthatconnect.github.io/blog/a-rigorous-derivation-of-the-bubble-sort-curve/">A Rigorous Derivation of the Bubble Sort Curve | Lines That Connect</a></p>
+<p>冒泡排序的曲线为</p>
+<div class="arithmatex">\[
+\left\{(x,y,t)\in[0,1]^3:y\le\frac{x}{x+t},x\le1-t\right\}\cup\left\{(x,x,t):x,t\in[0,1]\right\}
+\]</div>
+<p><a href="https://linesthatconnect.github.io/blog/a-rigorous-derivation-of-the-bubble-sort-curve/">A Rigorous Derivation of the Bubble Sort Curve | Lines That Connect</a></p>
 </blockquote>
 <ol>
 <li>基本版</li>
@@ -2331,21 +2346,19 @@ $$
 <ol>
 <li>冒泡排序的算法是稳定的，因为a和b相对位置发生变化，只能是先接近至相邻，后可能因逆序而交换位置。如果if语句内写成<span class="arithmatex">\(\ge\)</span>，则会变得不稳定。</li>
 </ol>
-<h3 id="归并排序">归并排序<a class="headerlink" href="#归并排序" title="Permanent link"></a></h3>
+<h3 id="_4">归并排序<a class="headerlink" href="#_4" title="Permanent link"></a></h3>
 <ol>
-<li>
-<p>简介：由 J. von Neumann 于1945年首次编程实现，向量和列表通用。共分三大步：1.序列一分为二；2.子序列递归排序；3.合并有序子序列。时间复杂度T(n)可以表示为：
-   $$
-   T(n)=O(1)+2T(n/2)+O(n).
-   $$
-   根据主定理，<span class="arithmatex">\(a=2, b=2,\)</span> <span class="arithmatex">\(f(n)=n\)</span>. 因为<span class="arithmatex">\(\Theta(n^{\log_b a})=\Theta(n^{\log_2 2})=\Theta(n)\)</span>，根据主定理第二条，有
-   $$
-   T(n)=\Theta(n\log n).
-   $$</p>
-</li>
-<li>
-<p>代码实现：</p>
-</li>
+<li>简介：由 J. von Neumann 于1945年首次编程实现，向量和列表通用。共分三大步：1.序列一分为二；2.子序列递归排序；3.合并有序子序列。时间复杂度T(n)可以表示为：</li>
+</ol>
+<div class="arithmatex">\[
+    T(n)=O(1)+2T(n/2)+O(n).
+\]</div>
+<p>根据主定理，<span class="arithmatex">\(a=2, b=2,\)</span> <span class="arithmatex">\(f(n)=n\)</span>. 因为<span class="arithmatex">\(\Theta(n^{\log_b a})=\Theta(n^{\log_2 2})=\Theta(n)\)</span>，根据主定理第二条，有</p>
+<div class="arithmatex">\[
+    T(n)=\Theta(n\log n).
+\]</div>
+<ol>
+<li>代码实现：</li>
 </ol>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -2400,19 +2413,19 @@ $$
 </code></pre></div></td></tr></table></div>
 </li>
 </ol>
-<h2 id="适合循位置访问的数据结构的排序算法">适合循位置访问的数据结构的排序算法<a class="headerlink" href="#适合循位置访问的数据结构的排序算法" title="Permanent link"></a></h2>
-<h3 id="选择排序selection-sort">选择排序(Selection Sort)<a class="headerlink" href="#选择排序selection-sort" title="Permanent link"></a></h3>
-<h4 id="思路">思路<a class="headerlink" href="#思路" title="Permanent link"></a></h4>
+<h2 id="_5">适合循位置访问的数据结构的排序算法<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
+<h3 id="selection-sort">选择排序(Selection Sort)<a class="headerlink" href="#selection-sort" title="Permanent link"></a></h3>
+<h4 id="_6">思路<a class="headerlink" href="#_6" title="Permanent link"></a></h4>
 <ol>
 <li>在未排序序列中找到最小（或最大）元素，存放到排序序列的起始位置。</li>
 <li>再从剩余未排序元素中继续寻找最小（或最大）元素，然后放到已排序序列的末尾。</li>
 <li>重复第二步，直到所有元素均排序完毕。</li>
 </ol>
-<h4 id="为什么要选择选择排序">为什么要选择选择排序<a class="headerlink" href="#为什么要选择选择排序" title="Permanent link"></a></h4>
+<h4 id="_7">为什么要选择选择排序<a class="headerlink" href="#_7" title="Permanent link"></a></h4>
 <blockquote>
 <p>冒泡排序的效率太低：都是对元素进行比较，而冒泡排序中，最大值就位的过程需要用大量的交换，这样的效率过于低下。使用选择排序，可以大幅度地减少交换的过程。也就是说，选择排序在每一次的迭代中，只会做一次移动。</p>
 </blockquote>
-<h4 id="代码实现">代码实现<a class="headerlink" href="#代码实现" title="Permanent link"></a></h4>
+<h4 id="_8">代码实现<a class="headerlink" href="#_8" title="Permanent link"></a></h4>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2454,13 +2467,13 @@ $$
 <blockquote>
 <p>这里，<code>insert()</code>和<code>remove()</code>都需要使用到动态空间分配，需要尽量少的使用它们。</p>
 </blockquote>
-<h4 id="时间复杂度">时间复杂度<a class="headerlink" href="#时间复杂度" title="Permanent link"></a></h4>
+<h4 id="_9">时间复杂度<a class="headerlink" href="#_9" title="Permanent link"></a></h4>
 <p>一共要迭代n次，且<code>selectMax()</code>操作的时间复杂度为<span class="arithmatex">\(\Theta(n-k)\)</span>，<code>insert()</code>和<code>remove()</code>的操作的时间复杂度为<span class="arithmatex">\(O(1)\)</span>，故总体上的时间复杂度仍为<span class="arithmatex">\(\Theta(n^2)\)</span>。需要注意的是，和冒泡排序相比，改进后的选择排序的移动次数明显变少，所以在性能上还是有较大地提升。</p>
-<h3 id="插入排序insertion-sort">插入排序(Insertion Sort)<a class="headerlink" href="#插入排序insertion-sort" title="Permanent link"></a></h3>
-<h4 id="思想">思想<a class="headerlink" href="#思想" title="Permanent link"></a></h4>
+<h3 id="insertion-sort">插入排序(Insertion Sort)<a class="headerlink" href="#insertion-sort" title="Permanent link"></a></h3>
+<h4 id="_10">思想<a class="headerlink" href="#_10" title="Permanent link"></a></h4>
 <p>插入排序是一种简单的排序算法，它的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。也就是说，将数组分为两部分，一部分是有序的，一部分是无序的。每次从无序部分取出一个元素，插入到有序部分的合适位置。</p>
 <p>实例：玩扑克牌时的整理牌面的动作。</p>
-<h4 id="和选择排序的不同之处">和选择排序的不同之处<a class="headerlink" href="#和选择排序的不同之处" title="Permanent link"></a></h4>
+<h4 id="_11">和选择排序的不同之处<a class="headerlink" href="#_11" title="Permanent link"></a></h4>
 <ol>
 <li>
 <p>有序部分和无序部分的位置的不同。在选择排序中，有序部分是所有元素的靠后的位置，而在插入排序中，元素从前到后依次变为有序，即有序部分是所有元素的靠前的位置。</p>
@@ -2469,7 +2482,7 @@ $$
 <p>无序部分的元素大小的问题。在选择排序中，无序部分的元素一定不会超过有序部分元素的最小值（详见算法），而在插入排序中，上述内容并不能得到保证。</p>
 </li>
 </ol>
-<h4 id="代码实现_1">代码实现<a class="headerlink" href="#代码实现_1" title="Permanent link"></a></h4>
+<h4 id="_12">代码实现<a class="headerlink" href="#_12" title="Permanent link"></a></h4>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -2510,7 +2523,7 @@ $$
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<h4 id="时间复杂度_1">时间复杂度<a class="headerlink" href="#时间复杂度_1" title="Permanent link"></a></h4>
+<h4 id="_13">时间复杂度<a class="headerlink" href="#_13" title="Permanent link"></a></h4>
 <ol>
 <li>最好情况下为<span class="arithmatex">\(O(n)\)</span>，最坏情况下为<span class="arithmatex">\(O(n^2)\)</span>，则时间复杂度为<span class="arithmatex">\(O(n^2)\)</span>。</li>
 <li>若使用支持<strong>循秩访问</strong>的数据结构，在判断插入的位置时使用时间复杂度为<span class="arithmatex">\(O(\log n)\)</span>的二分查找，则插入排序的时间复杂度仍为<span class="arithmatex">\(O(n^2)\)</span>。</li>
@@ -2518,7 +2531,7 @@ $$
 <blockquote>
 <p>这是因为虽然在查找位置时的时间复杂度降低了，但是数据结构变为向量，导致在执行插入新元素至已经由二分查找确定好的位置时候必须把该位置之后的所有元素都要后移一位，而这需要<span class="arithmatex">\(O(n)\)</span>的时间复杂度。所以，时间复杂度还是没有明显的变化。</p>
 </blockquote>
-<h4 id="插入排序的平均性能">插入排序的平均性能<a class="headerlink" href="#插入排序的平均性能" title="Permanent link"></a></h4>
+<h4 id="_14">插入排序的平均性能<a class="headerlink" href="#_14" title="Permanent link"></a></h4>
 <p>采用<strong>后项分析(Backward Analyze)</strong>的方法。</p>
 <ol>
 <li>
@@ -2528,31 +2541,31 @@ $$
 <p>考察：当秩为<code>r</code>的元素刚插入完成的那一刻，此时秩为<span class="arithmatex">\([0,r]\)</span>的有序前缀中，哪一个是我们刚刚插入的哪一个元素？</p>
 </li>
 <li>
-<p>解释：每一个元素均有可能，而且其概率均等于<span class="arithmatex">\(\dfrac{1}{r+1}\)</span>。所以，在刚刚完成的这一次迭代中，为了引入该元素所花费时间的数学期望为
-   $$
-   E&reg;=1+\frac{r+(r-1)+ \ldots+3+2+1+0}{r+1}=1+\frac r2.
-   $$
-   于是，总体时间的数学期望为
-   $$
-   E(X)=1+\sum_{r=0}<sup>{n-1}E&reg;=O(n</sup>2).
-   $$</p>
+<p>解释：每一个元素均有可能，而且其概率均等于<span class="arithmatex">\(\dfrac{1}{r+1}\)</span>。所以，在刚刚完成的这一次迭代中，为了引入该元素所花费时间的数学期望为</p>
 </li>
 </ol>
+<p>$$
+        E&reg;=1+\frac{r+(r-1)+ \ldots+3+2+1+0}{r+1}=1+\frac r2.
+   $$</p>
+<p>于是，总体时间的数学期望为</p>
+<p>$$
+        E(X)=1+\sum_{r=0}<sup>{n-1}E&reg;=O(n</sup>2).
+   $$</p>
 <blockquote>
-<p>这里使用了数学期望的性质：和的期望等于期望的和，即
-$$
-E(X_1+X_2+ \ldots+X_n)=E(X_1)+E(X_2)+ \ldots+E(X_n).
-$$
-证明略。</p>
+<p>这里使用了数学期望的性质：和的期望等于期望的和，即</p>
+<div class="arithmatex">\[
+   E(X_1+X_2+ \ldots+X_n)=E(X_1)+E(X_2)+ \ldots+E(X_n).
+\]</div>
+<p>证明略。</p>
 </blockquote>
-<h4 id="逆序对">逆序对<a class="headerlink" href="#逆序对" title="Permanent link"></a></h4>
+<h4 id="_15">逆序对<a class="headerlink" href="#_15" title="Permanent link"></a></h4>
 <ol>
 <li>设<span class="arithmatex">\(A\)</span>为一个有<span class="arithmatex">\(n\)</span>个数字的有序集<span class="arithmatex">\((n&gt;1)\)</span>，其中所有数字各不相同。如果存在正整数<span class="arithmatex">\(i,j\)</span>，使得  <span class="arithmatex">\(1 \le i&lt;j \le n\)</span> 并且  <code>A[i]&gt;A[j]</code>  ，则  <span class="arithmatex">\(\langle A[i], A[j]\rangle\)</span>  这个有序对称为  A  的一个逆序对，也称作逆序数。</li>
 <li>逆序对的统计：为了方便起见，我们统一用两者中秩较大的元素进行逆序对的统计工作。记<span class="arithmatex">\(i(n)\)</span>为秩为n的元素的逆序对的数量，即对于秩为n的元素，所有秩比其小而值比其大的元素的个数。</li>
 <li>逆序对在<strong>插入排序</strong>中的应用：对于即将要进行插入排序操作的在未排序序列首位的元素<code>arr[p]</code>，它进行比较以确定插入位置的次数正好为<span class="arithmatex">\(i(p)\)</span>。<span class="arithmatex">\(i(p)\)</span>就是<code>p</code>所对应的查找长度，而<span class="arithmatex">\(\sum_pi(p)=I\)</span>为插入排序总的比较次数。（算法消耗时间的最主要部分）。故插入排序属于输入敏感(Input-Sensitive)的排序算法。</li>
 </ol>
-<h2 id="其他排序算法">其他排序算法<a class="headerlink" href="#其他排序算法" title="Permanent link"></a></h2>
-<h3 id="快速排序">快速排序<a class="headerlink" href="#快速排序" title="Permanent link"></a></h3>
+<h2 id="_16">其他排序算法<a class="headerlink" href="#_16" title="Permanent link"></a></h2>
+<h3 id="_17">快速排序<a class="headerlink" href="#_17" title="Permanent link"></a></h3>
 <ol>
 <li>思想：使用分治法。</li>
 <li>选择一个元素作为"基准"（pivot）。</li>
@@ -2618,36 +2631,36 @@ $$
 <li>时间复杂度：快速排序的递推公式和归并排序的递推公式一致，均为<span class="arithmatex">\(T(n)=2T(n/2)+cn\)</span>。所以其时间复杂度为<span class="arithmatex">\(O(n\log n)\)</span>。最坏情况下是<span class="arithmatex">\(O(n^2)\)</span>。由于快速排序的内部循环可以在大多数实际情况下非常快速地执行，因此它通常比其他<span class="arithmatex">\(O(n\log n)\)</span>算法更快。</li>
 </ol>
 <blockquote>
-<p><strong>平均情况下：</strong>Assume that each of the sub-arrays' size pair is equally likely, and has probability of <span class="arithmatex">\(\dfrac{1}{n}\)</span>. Average cost can be computed in a recurrence way:
-$$
+<p><strong>平均情况下：</strong>Assume that each of the sub-arrays' size pair is equally likely, and has probability of <span class="arithmatex">\(\dfrac{1}{n}\)</span>. Average cost can be computed in a recurrence way:</p>
+<div class="arithmatex">\[
 T(n)=\frac{1}{n}\sum_{i=0}^{n-1}\left [ T(i)+T(n-1-i) \right ]+cn
-$$</p>
-<p><strong>对该公式的推导：</strong>
-$$
-nT(n)=\sum_{i=0}^{n-1}\left [ T(i)+T(n-1-i) \right ]+cn^2 (1)
-$$
-$$
-(n-1)T(n-1)=\sum_{i=0}^{n-2}\left [ T(i)+T(n-2-i) \right ]+c(n-1)^2 (2)
-$$
-（1）-（2），并逐项化简（抵消），有
-$$
+\]</div>
+<p><strong>对该公式的推导：</strong></p>
+<div class="arithmatex">\[
+\begin{aligned}
+nT(n)&amp;=\sum_{i=0}^{n-1}\left [ T(i)+T(n-1-i) \right ]+cn^2\\
+(n-1)T(n-1)&amp;=\sum_{i=0}^{n-2}\left [ T(i)+T(n-2-i) \right ]+c(n-1)^2
+\end{aligned}
+\]</div>
+<p>（1）-（2），并逐项化简（抵消），有</p>
+<div class="arithmatex">\[
 nT(n)=(n+1)T(n-1)+2cn
-$$
-两边同时除以<span class="arithmatex">\(n(n+1)\)</span>：
-$$
+\]</div>
+<p>两边同时除以<span class="arithmatex">\(n(n+1)\)</span>：</p>
+<div class="arithmatex">\[
 \frac{T(n)}{n+1}=\frac{T(n-1)}{n}+\frac{2c}{n+1}=\frac{T(n-2)}{n-1}+\frac{2c}{n}+\frac{2c}{n+1}=\ldots
-$$</p>
-<p>通项公式：
-$$
+\]</div>
+<p>通项公式：</p>
+<div class="arithmatex">\[
 \frac{T(n)}{n+1}=\frac{T(n-k)}{n-k+1}+2c\left(\sum_{i=2}^{k+1}{\frac{1}{n-k+i}}\right)
-$$
-最后，因为<span class="arithmatex">\(\sum H_n\le\ln n\)</span>，我们有：
-$$
+\]</div>
+<p>最后，因为<span class="arithmatex">\(\sum H_n\le\ln n\)</span>，我们有：</p>
+<div class="arithmatex">\[
 \frac{T(n)}{n+1}=\frac{T(1)}{2}+2c\left(\frac{1}{3}+\frac{1}{4}+ \ldots+\frac{1}{n+1}\right)
-$$
-则<span class="arithmatex">\(T(n)\)</span>是<span class="arithmatex">\(O(n+1)+(n+1)O(\ln n)\)</span>的，即<span class="arithmatex">\(T(n)=O(n\log n)\)</span>.</p>
+\]</div>
+<p>则<span class="arithmatex">\(T(n)\)</span>是<span class="arithmatex">\(O(n+1)+(n+1)O(\ln n)\)</span>的，即<span class="arithmatex">\(T(n)=O(n\log n)\)</span>.</p>
 </blockquote>
-<h3 id="桶排序bucket-sort">桶排序(Bucket Sort)<a class="headerlink" href="#桶排序bucket-sort" title="Permanent link"></a></h3>
+<h3 id="bucket-sort">桶排序(Bucket Sort)<a class="headerlink" href="#bucket-sort" title="Permanent link"></a></h3>
 <ol>
 <li>
 <p>思想：将数组分为若干个桶，每个桶内的元素是有序的，然后将所有桶中的元素合并。</p>
@@ -2726,7 +2739,7 @@ $$
 <p>稳定性：如果使用稳定的内层排序，并且将元素插入桶中时不改变元素间的相对顺序，那么桶排序就是一种稳定的排序算法。由于每块元素不多，一般使用插入排序。此时桶排序是一种稳定的排序算法。</p>
 </li>
 </ol>
-<h3 id="基数排序radix-sort">基数排序(Radix Sort)<a class="headerlink" href="#基数排序radix-sort" title="Permanent link"></a></h3>
+<h3 id="radix-sort">基数排序(Radix Sort)<a class="headerlink" href="#radix-sort" title="Permanent link"></a></h3>
 <ol>
 <li>
 <p>基数排序也是非比较的排序算法，对每一位进行排序，从最低位开始排序，复杂度为<span class="arithmatex">\(O(kn)\)</span>,n为数组长度，k为数组中的数的最大的位数；</p>
@@ -2819,8 +2832,8 @@ $$
 <ol>
 <li>时间复杂度：<span class="arithmatex">\(O(n\cdot k)\)</span></li>
 </ol>
-<h3 id="堆排序heapsort">堆排序(HeapSort)<a class="headerlink" href="#堆排序heapsort" title="Permanent link"></a></h3>
-<h3 id="什么是堆排序">什么是堆排序<a class="headerlink" href="#什么是堆排序" title="Permanent link"></a></h3>
+<h3 id="heapsort">堆排序(HeapSort)<a class="headerlink" href="#heapsort" title="Permanent link"></a></h3>
+<h3 id="_18">什么是堆排序<a class="headerlink" href="#_18" title="Permanent link"></a></h3>
 <ol>
 <li>
 <p><strong>堆排序</strong>是由1991年的计算机先驱奖获得者、斯坦福大学计算机科学系教授罗伯特·弗洛伊德(Robert W. Floyd）和威廉姆斯(J. Williams）在1964年共同发明了的一种排序算法。</p>
@@ -2832,7 +2845,7 @@ $$
 <blockquote>
 <p>定理 基于比较操作的排序算法具有<span class="arithmatex">\(\Omega(n\log n)\)</span>的时间复杂度下界。证明详见<a href="https://acceleratez.github.io/2024/05/06/algorithm/排序总览/">排序总览 - AccelerateZ</a></p>
 </blockquote>
-<h3 id="就地堆排序in-place-heapsort">就地堆排序（In-place Heapsort）<a class="headerlink" href="#就地堆排序in-place-heapsort" title="Permanent link"></a></h3>
+<h3 id="in-place-heapsort">就地堆排序（In-place Heapsort）<a class="headerlink" href="#in-place-heapsort" title="Permanent link"></a></h3>
 <ol>
 <li>
 <p><strong>就地算法（In-place Algorithm）</strong>：除输入本身外只使用常数辅助空间的算法，称作就地算法。</p>
@@ -2987,7 +3000,7 @@ $$
 <ol>
 <li>复杂度：在每一步迭代中，交换<code>M</code>和<code>X</code>只需常数时间，对<code>X</code>的下滤调整不超过<span class="arithmatex">\(O(\log n)\)</span>时间。因此，全部<span class="arithmatex">\(n\)</span>步迭代累计耗时不超过<span class="arithmatex">\(O(n\log n)\)</span>。即便使用蛮力算法而不是Floyd算法来完成<code>H</code>的初始化， 整个算法的运行时间也不超过<span class="arithmatex">\(O(n\log n)\)</span>。</li>
 </ol>
-<h2 id="总结">总结<a class="headerlink" href="#总结" title="Permanent link"></a></h2>
+<h2 id="_19">总结<a class="headerlink" href="#_19" title="Permanent link"></a></h2>
 <table>
 <thead>
 <tr>
@@ -3086,11 +3099,13 @@ $$
     
       <script src="../../../../assets/javascripts/bundle.081f42fc.min.js"></script>
       
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
         <script src="../../../../javascripts/katex.js"></script>
-      
-        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
-      
-        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

@@ -46,7 +46,7 @@
       
     
     
-      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
     
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -65,7 +65,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#递归式求解代入法递归树与主定理" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -121,42 +121,20 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
-  
-    
-    
-    
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
-    
-  
-    
-    
-    
-    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
-    
-      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_3" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z"/></svg>
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_3">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_4" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
-      </label>
-    
-  
-    
-    
-    
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_4">
-    
-      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
       </label>
     
   
@@ -260,6 +238,23 @@
     
   
   Blog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../test/" class="md-tabs__link">
+        
+  
+    
+  
+  Test
 
       </a>
     </li>
@@ -446,6 +441,26 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../test/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Test
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -468,10 +483,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -482,8 +497,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             DSA-wiki
           </label>
@@ -534,10 +549,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
         
           
-          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -548,8 +563,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
             <span class="md-nav__icon md-icon"></span>
             Data Structure
           </label>
@@ -1123,10 +1138,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -1137,8 +1152,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_3">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_3">
             <span class="md-nav__icon md-icon"></span>
             Algorithm
           </label>
@@ -1167,10 +1182,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_1" checked>
         
           
-          <label class="md-nav__link" for="__nav_3_3_1" id="__nav_3_3_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4_3_1" id="__nav_4_3_1_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1181,8 +1196,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_1_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_3_1">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_3_1">
             <span class="md-nav__icon md-icon"></span>
             01-Intro
           </label>
@@ -1241,7 +1256,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#从分治法到递归式" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       从分治法到递归式
     </span>
@@ -1250,7 +1265,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#代入法" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       代入法
     </span>
@@ -1259,7 +1274,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#递归树" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       递归树
     </span>
@@ -1268,7 +1283,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#主方法" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       主方法
     </span>
@@ -1277,7 +1292,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#特别内容" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       特别内容
     </span>
@@ -1286,7 +1301,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#wikipedia上的主定理generic-form" class="md-nav__link">
+  <a href="#wikipediageneric-form" class="md-nav__link">
     <span class="md-ellipsis">
       Wikipedia上的主定理——Generic Form
     </span>
@@ -1382,7 +1397,7 @@
       
   
   <span class="md-ellipsis">
-    03-Divide-and-Conquer
+    03-Divide and Conquer
   </span>
   
 
@@ -1451,7 +1466,7 @@
         
   
   <span class="md-ellipsis">
-    06-Back-Tracking
+    06-Back Tracking
   </span>
   
 
@@ -1472,7 +1487,7 @@
         
   
   <span class="md-ellipsis">
-    07-Branch-and-Bound
+    07-Branch and Bound
   </span>
   
 
@@ -1493,7 +1508,7 @@
         
   
   <span class="md-ellipsis">
-    08-NP-Complete
+    08-NP Complete
   </span>
   
 
@@ -1781,7 +1796,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#从分治法到递归式" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       从分治法到递归式
     </span>
@@ -1790,7 +1805,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#代入法" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       代入法
     </span>
@@ -1799,7 +1814,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#递归树" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       递归树
     </span>
@@ -1808,7 +1823,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#主方法" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       主方法
     </span>
@@ -1817,7 +1832,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#特别内容" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       特别内容
     </span>
@@ -1826,7 +1841,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#wikipedia上的主定理generic-form" class="md-nav__link">
+  <a href="#wikipediageneric-form" class="md-nav__link">
     <span class="md-ellipsis">
       Wikipedia上的主定理——Generic Form
     </span>
@@ -1852,121 +1867,96 @@
   
 
 
-<h1 id="递归式求解代入法递归树与主定理">递归式求解——代入法、递归树与主定理<a class="headerlink" href="#递归式求解代入法递归树与主定理" title="Permanent link"></a></h1>
+<h1 id="_1">递归式求解——代入法、递归树与主定理<a class="headerlink" href="#_1" title="Permanent link"></a></h1>
 <p><a href="https://zhuanlan.zhihu.com/p/267890781">递归式求解——代入法、递归树与主定理 - 知乎 (zhihu.com)</a></p>
 <p><a href="https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms)">Master theorem (analysis of algorithms) - Wikipedia</a></p>
-<h2 id="从分治法到递归式">从<strong>分治法</strong>到<strong>递归式</strong><a class="headerlink" href="#从分治法到递归式" title="Permanent link"></a></h2>
-<ol>
-<li>所谓<strong>分治法</strong>，就是把大问题分解成小问题，再把小问题的解合并成原问题的解。<strong>递归式</strong>则是用数学语言对这一过程的时间代价建模。如MergeSort的递推式：
-   $$
+<h2 id="_2">从<strong>分治法</strong>到<strong>递归式</strong><a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<p>所谓<strong>分治法</strong>，就是把大问题分解成小问题，再把小问题的解合并成原问题的解。<strong>递归式</strong>则是用数学语言对这一过程的时间代价建模。如MergeSort的递推式：</p>
+<div class="arithmatex">\[
    T(n)=2T(n/2)+\Theta(n),T(1)=\Theta(1).
-   $$</li>
-</ol>
+\]</div>
 <blockquote>
-<p><em>递归式的右侧通常由两部分组成，第一部分是分解后子问题的总代价，第二部分是分解和合并子问题的总代价。第一部分仍然是T的函数，第二部分则是实际的渐进复杂度。</em></p>
+<p>递归式的右侧通常由两部分组成，第一部分是分解后子问题的总代价，第二部分是分解和合并子问题的总代价。第一部分仍然是T的函数，第二部分则是实际的渐进复杂度。</p>
 </blockquote>
-<ol>
-<li>以下有三种方法来求解递归式：代入法、递归树和主定理。</li>
-</ol>
-<h2 id="代入法">代入法<a class="headerlink" href="#代入法" title="Permanent link"></a></h2>
+<p>以下有三种方法来求解递归式：代入法、递归树和主定理。</p>
+<h2 id="_3">代入法<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
 <ol>
 <li>我们需要先猜出解的形式，然后用数学归纳法证明该猜测是正确的。</li>
-<li>实例：假设猜测MergeSort的T解是<span class="arithmatex">\(<span class="arithmatex">\(T(n)=O(n\log n)\to T(n)\le c\cdot n\log n, \exists c \in \mathbb{R}.\)</span>\)</span> 然后猜测MergeSort <span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Omega(n\log n)\)</span>\)</span>, 若两者均正确，则MergeSort的T解为<span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Theta(n\log n)\)</span>\)</span>.</li>
+<li>实例：假设猜测MergeSort的T解是<span class="arithmatex">\(T(n)=O(n\log n)\to T(n)\le c\cdot n\log n, \exists c \in \mathbb{R}.\)</span> 然后猜测MergeSort <span class="arithmatex">\(T(n)=\Omega(n\log n)\)</span>, 若两者均正确，则MergeSort的T解为<span class="arithmatex">\(T(n)=\Theta(n\log n)\)</span>.</li>
 <li>代入法依赖于准确的猜测。</li>
 </ol>
-<h2 id="递归树">递归树<a class="headerlink" href="#递归树" title="Permanent link"></a></h2>
+<h2 id="_4">递归树<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
 <ol>
 <li>把递归式逐层展开，直接就能得到一个树形结构。</li>
-<li>实例：<span class="arithmatex">\(<span class="arithmatex">\(T(n)=3T(n/4)+\Theta(n^2)\)</span>\)</span>. 具体流程见网页链接。每层数据规模缩小为之前的四分之一，直到叶子结点数据规模为1，因此总层数为<span class="arithmatex">\(<span class="arithmatex">\(\log_43\)</span>\)</span>。右侧计算了每层所有结点的总代价：单个结点的代价乘以该层结点数量。最后一层单个结点的代价为常数，结点数量<span class="arithmatex">\(<span class="arithmatex">\(3^{\log_4n}=n^{\log_43}\)</span>\)</span>，记作<span class="arithmatex">\(<span class="arithmatex">\(\Theta(n^{\log_43})\)</span>\)</span>。然后对几何级数求和（放缩、舍去低阶项）。</li>
+<li>实例：<span class="arithmatex">\(T(n)=3T(n/4)+\Theta(n^2)\)</span>. 具体流程见网页链接。每层数据规模缩小为之前的四分之一，直到叶子结点数据规模为1，因此总层数为<span class="arithmatex">\(\log_43\)</span>。右侧计算了每层所有结点的总代价：单个结点的代价乘以该层结点数量。最后一层单个结点的代价为常数，结点数量<span class="arithmatex">\(3^{\log_4n}=n^{\log_43}\)</span>，记作<span class="arithmatex">\(\Theta(n^{\log_43})\)</span>。然后对几何级数求和（放缩、舍去低阶项）。</li>
 <li>有些情况下，利用递归树计算精确的解会稍有困难，但不妨碍我们做出一个合理的猜测，然后进一步用代入法验证该猜测。</li>
 </ol>
-<h2 id="主方法">主方法<a class="headerlink" href="#主方法" title="Permanent link"></a></h2>
-<ol>
-<li>
+<h2 id="_5">主方法<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
 <p>代入法和递归树法各有缺点，前者需要一个准确的猜测，后者需要画出递归树并推导结果。而大部分递归式解的形式都是一样的。我们也许可以通过对递归式分类，按照某种规则直接写出最终的解。</p>
-</li>
-<li>
-<p>若分治法次都均分数据时，递归式具有如下一般的形式：
-   $$
-   T(n)=\left{\begin{array}{cc}c &amp; \text { if } n&lt;d \a T(n / b)+f(n) &amp; \text { if } n \geq d\end{array}\mathbb{R}}\right.
-   $$</p>
-</li>
-</ol>
+<p>若分治法每一次都均分数据时，递归式具有如下一般的形式：</p>
+<div class="arithmatex">\[
+    T(n)= \begin{cases} aT(n/b)+f(n) &amp; \text { if } n \geq d \\ \Theta(1) &amp; \text { if } n&lt;d \end{cases}
+\]</div>
 <blockquote>
 <p>这里，<em>a</em>是一个正整数，表示每次分治，问题被分解为<em>a</em>个子问题;</p>
-<p><em>b</em> 是一个大于1的整数，表示每次分治，问题规模缩小为之前的<span class="arithmatex">\(<span class="arithmatex">\(\dfrac1b\)</span>\)</span>.</p>
-<p><em>f(n)</em>是渐进正函数，表示分解和合并的代价。</p>
+<p><em>b</em> 是一个大于1的整数，表示每次分治，问题规模缩小为之前的<span class="arithmatex">\(\dfrac1b\)</span>.</p>
+<p><em>f(n)</em>是渐进正函数，表示分解和合并的代价。
+</p>
 </blockquote>
-<ol>
-<li>用递归树找统一解，Total为所有节点的总代价：</li>
-</ol>
+<p>用递归树找统一解，Total为所有节点的总代价：</p>
 <p><img alt="img" src="https://pic4.zhimg.com/80/v2-a0895b3402aa4bbcd5f405006e2b0ebf_1440w.webp" /></p>
+<p><span class="arithmatex">\(T(1)=\Theta(1)\)</span>为基本操作所花费的时间。化简后，有：</p>
+<div class="arithmatex">\[
+T(n)=n^{\log_ba}\cdot T(1)+\sum_{j=0}^{\log _{b} n-1} a^{j} f\left(n / b^{j}\right)
+\]</div>
+<p>下面有三种情况，按照两个和项的大小进行分类，即比较<span class="arithmatex">\(f(n)\)</span>和<span class="arithmatex">\(n^{\log_ba}\)</span>的大小：</p>
 <ol>
-<li>
-<div class="arithmatex">\[T(1)=\Theta(1)$$为基本操作所花费的时间。化简后，有：
-   $$
-   T(n)=n^{\log_ba}\cdot T(1)+\sum_{j=0}^{\log _{b} n-1} a^{j} f\left(n / b^{j}\mathbb{R}\right)
-   \]</div>
-</li>
+<li>若<span class="arithmatex">\(f(n)\)</span>渐进小于<span class="arithmatex">\(n^{\log_ba}\)</span>.，即认为<span class="arithmatex">\(\exists \epsilon&gt;0,\ s.t.\ f(n)=O(n^{\log_ba-\epsilon})\)</span>成立时，有<span class="arithmatex">\(T(n)\)</span>为<span class="arithmatex">\(\Theta(n^{\log_ba})\)</span>.</li>
 </ol>
-<p>下面有三种情况，按照两个和项的大小进行分类，即比较<span class="arithmatex">\(<span class="arithmatex">\(f(n)\)</span>\)</span>和<span class="arithmatex">\(<span class="arithmatex">\(n^{\log_ba}\)</span>\)</span>的大小：</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code>1. 若$$f(n)$$渐进小于$$n^{\log_ba}$$.，即认为$$\exists \epsilon&gt;0,\ s.t.\ f(n)=O(n^{\log_ba-\epsilon})$$成立时，有$$T(n)$$为$$\Theta(n^{\log_ba})$$.
-
-   &gt; If $$f(n)$$ is $$O(n^{\log_ba-\varepsilon})$$, then $$T(n)$$ is $$\Theta(n^{\log_ba})$$.
-
-2. 若$$f(n)$$和$$n^{\log_b a}\log^k n$$相等$$(k\ge0)$$，则$$T(n)=\Theta(n^{\log_b a}\log^{k+1} n)$$.
-
-   &gt; If $$f(n)$$ is $$\Theta\left(n^{\log _{b} a} \log ^{k} n\mathbb{R}\right)$$, then $$T(n)$$ is $$\Theta\left(n^{\log _{b} a} \log ^{k+1} n\mathbb{R}\right)$$.
-</code></pre></div></td></tr></table></div>
-<ol>
-<li>
-<p>若<span class="arithmatex">\(<span class="arithmatex">\(f(n)\)</span>\)</span>渐进大于<span class="arithmatex">\(<span class="arithmatex">\(n^{\log_ba}\)</span>\)</span>，<strong>且对于<span class="arithmatex">(<span class="arithmatex">\(\delta\)</span>\)</span>&lt;1和所有足够大的n有<span class="arithmatex">(<span class="arithmatex">\(af(n/b)\le \delta f(n)\)</span>\)</span>，</strong> 则有<span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Theta(f(n))\)</span>\)</span>.</p>
 <blockquote>
-<p>If <span class="arithmatex">\(<span class="arithmatex">\(f(n)\)</span>\)</span>  is <span class="arithmatex">\(<span class="arithmatex">\(\Omega\left(n^{\log _{b} a+\varepsilon}\mathbb{R}\right)\)</span>\)</span> , then  T(n)  is  <span class="arithmatex">\(<span class="arithmatex">\(\Theta(f(n))\)</span>\)</span> , provided  a <span class="arithmatex">\(<span class="arithmatex">\(f(n / b) \leq \delta f(n)\)</span>\)</span>  for some  <span class="arithmatex">\(<span class="arithmatex">\(\delta&lt;1\)</span>\)</span> .</p>
+<p>If <span class="arithmatex">\(f(n)\)</span> is <span class="arithmatex">\(O(n^{\log_ba-\varepsilon})\)</span>, then <span class="arithmatex">\(T(n)\)</span> is <span class="arithmatex">\(\Theta(n^{\log_ba})\)</span>.</p>
 </blockquote>
-</li>
-<li>
-<p>实例：<span class="arithmatex">\(<span class="arithmatex">\(T(n)=9T(n/3)+n,\ a=9,\ b=3,\ f(n)=n,\ n^{\log_ba}=n^2\)</span>\)</span>, <span class="arithmatex">\(<span class="arithmatex">\(f(n)&lt;\Theta(n^2)\)</span>\)</span>, 故<span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Theta(n^2)\)</span>\)</span>. </p>
-</li>
-<li>
-<p>必须注意，主定理第三条要检查其是否满足附加条件。并非所有满足上面形式的式子都可以使用主定理来进行判定。如<span class="arithmatex">\(<span class="arithmatex">\(T(n)=2T(n/2)+n\log n\)</span>\)</span>, 不满足上述附加条件，故只能使用递归树求解。求解过程如下：</p>
+<ol>
+<li>若<span class="arithmatex">\(f(n)\)</span>和<span class="arithmatex">\(n^{\log_b a}\log^k n\)</span>相等<span class="arithmatex">\((k\ge0)\)</span>，则<span class="arithmatex">\(T(n)=\Theta(n^{\log_b a}\log^{k+1} n)\)</span>.</li>
+</ol>
+<blockquote>
+<p>If <span class="arithmatex">\(f(n)\)</span> is <span class="arithmatex">\(\Theta\left(n^{\log _{b} a} \log ^{k} n\mathbb{R}\right)\)</span>, then <span class="arithmatex">\(T(n)\)</span> is <span class="arithmatex">\(\Theta\left(n^{\log _{b} a} \log ^{k+1} n\mathbb{R}\right)\)</span>.</p>
+</blockquote>
+<ol>
+<li>若<span class="arithmatex">\(f(n)\)</span>渐进大于<span class="arithmatex">\(n^{\log_ba}\)</span>，<strong>且对于<span class="arithmatex">\(\delta\)</span>&lt;1和所有足够大的n有<span class="arithmatex">\(af(n/b)\le \delta f(n)\)</span>，</strong> 则有<span class="arithmatex">\(T(n)=\Theta(f(n))\)</span>.</li>
+</ol>
+<blockquote>
+<p>If <span class="arithmatex">\(f(n)\)</span>  is <span class="arithmatex">\(\Omega\left(n^{\log _{b} a+\varepsilon}\mathbb{R}\right)\)</span> , then  T(n)  is  <span class="arithmatex">\(\Theta(f(n))\)</span> , provided  a <span class="arithmatex">\(f(n / b) \leq \delta f(n)\)</span>  for some  <span class="arithmatex">\(\delta&lt;1\)</span> .</p>
+</blockquote>
+<p>实例：<span class="arithmatex">\(T(n)=9T(n/3)+n,\ a=9,\ b=3,\ f(n)=n,\ n^{\log_ba}=n^2\)</span>, <span class="arithmatex">\(f(n)&lt;\Theta(n^2)\)</span>, 故<span class="arithmatex">\(T(n)=\Theta(n^2)\)</span>. </p>
+<p>必须注意，主定理第三条要检查其是否满足附加条件。并非所有满足上面形式的式子都可以使用主定理来进行判定。如<span class="arithmatex">\(T(n)=2T(n/2)+n\log n\)</span>, 不满足上述附加条件，故只能使用递归树求解。求解过程如下：</p>
+<blockquote>
 <div class="arithmatex">\[
 T(n)=2T(n/2)+n\log n
 \]</div>
-<blockquote>
-<p>对于该式，有 <span class="arithmatex">\(<span class="arithmatex">\(a=2,b = 2,f\left(n\mathbb{R}\right) = n\log n\)</span>\)</span> ，此时 <span class="arithmatex">\(<span class="arithmatex">\(n^{log_ba} = n^{log_22} = n\)</span>\)</span> 。显然， $$f \left(n\mathbb{R}\right) = n\log n $$ 渐进大于 <span class="arithmatex">\(<span class="arithmatex">\(n\)</span>\)</span> ，应考虑主定理的第三种情况。将其带入附加条件，得
-$$
-\begin{aligned}2 \frac{n}{2} \lg \frac{n}{2} &amp; \leq c n \lg n \\lg n-1 &amp; \leq c \lg n \(1-c) \lg n &amp; \leq 1\end{aligned}
-   $$
-当 <span class="arithmatex">\(<span class="arithmatex">\(c \ge 1\)</span>\)</span> 时，该式恒成立。但附加条件要求 <span class="arithmatex">\(<span class="arithmatex">\(c \lt 1\)</span>\)</span> ，因此该式不能使用主方法的第三种情况。</p>
-</blockquote>
-</li>
-</ol>
-<p>结果为<span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Theta(n\log^2 n)\)</span>\)</span>.</p>
-<blockquote>
+<p>对于该式，有 <span class="arithmatex">\(a=2,b = 2,f\left(n\mathbb{R}\right) = n\log n\)</span> ，此时 <span class="arithmatex">\(n^{log_ba} = n^{log_22} = n\)</span> 。显然， <span class="arithmatex">\(f(n\mathbb{R}) = n\log n\)</span> 渐进大于 <span class="arithmatex">\(n\)</span> ，应考虑主定理的第三种情况。将其带入附加条件，得</p>
+<div class="arithmatex">\[
+\begin{aligned}
+ 2 \frac{n}{2} \lg \frac{n}{2} &amp; \leq c n \lg n \\\lg n-1 &amp; \leq c \lg n \\(1-c) \lg n &amp; \leq 1\end{aligned}
+\]</div>
+<p>当 <span class="arithmatex">\(c \ge 1\)</span> 时，该式恒成立。但附加条件要求 <span class="arithmatex">\(c \lt 1\)</span> ，因此该式不能使用主方法的第三种情况。结果为<span class="arithmatex">\(T(n)=\Theta(n\log^2 n)\)</span>.</p>
 <p>令解：带入方法2可求解。</p>
 </blockquote>
-<h2 id="特别内容">特别内容<a class="headerlink" href="#特别内容" title="Permanent link"></a></h2>
+<h2 id="_6">特别内容<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
 <ol>
-<li>对于任意一个符合主定理格式的递归式，如果它满足情况三中的正则条件，那么它一定满足<span class="arithmatex">\(<span class="arithmatex">\(f(n)-\Omega(n^{\log_ba+\epsilon})\)</span>\)</span>, 而反过来不可推出。</li>
-<li>另一个例子：求解递推方程<span class="arithmatex">\(<span class="arithmatex">\(T(n)=T(n/3)+T(2n/3)+n\)</span>\)</span>. 这个递归树的树叶不在同一层上面。此时，应从最坏的情况出发，考虑最长的路径。那么这个递归树一共有<span class="arithmatex">\(<span class="arithmatex">\(k=\log_{3/2}n\)</span>\)</span>层。（2n/3一侧的路径最长，每走一步，问题规模会变成原来的&#8532;.）而每一层节点的数值之和为O(n)，从而有：<span class="arithmatex">\(<span class="arithmatex">\(T(n)=O(n\log_{3/2}n)=O(n\log n)\)</span>\)</span>.</li>
+<li>对于任意一个符合主定理格式的递归式，如果它满足情况三中的正则条件，那么它一定满足<span class="arithmatex">\(f(n)-\Omega(n^{\log_ba+\epsilon})\)</span>, 而反过来不可推出。</li>
+<li>另一个例子：求解递推方程<span class="arithmatex">\(T(n)=T(n/3)+T(2n/3)+n\)</span>. 这个递归树的树叶不在同一层上面。此时，应从最坏的情况出发，考虑最长的路径。那么这个递归树一共有<span class="arithmatex">\(k=\log_{3/2}n\)</span>层。（2n/3一侧的路径最长，每走一步，问题规模会变成原来的&#8532;.）而每一层节点的数值之和为O(n)，从而有：<span class="arithmatex">\(T(n)=O(n\log_{3/2}n)=O(n\log n)\)</span>.</li>
 </ol>
-<h2 id="wikipedia上的主定理generic-form">Wikipedia上的主定理——Generic Form<a class="headerlink" href="#wikipedia上的主定理generic-form" title="Permanent link"></a></h2>
+<h2 id="wikipediageneric-form">Wikipedia上的主定理——Generic Form<a class="headerlink" href="#wikipediageneric-form" title="Permanent link"></a></h2>
 <ol>
 <li>
-<p>The master theorem always yields <a href="https://en.wikipedia.org/wiki/Asymptotically_tight_bound">asymptotically tight bounds</a> to recurrences from <a href="https://en.wikipedia.org/wiki/Divide_and_conquer_algorithm">divide and conquer algorithms</a> that partition an input into smaller subproblems of equal sizes, solve the subproblems recursively, and then combine the subproblem solutions to give a solution to the original problem. The time for such an algorithm can be expressed by adding the work that they perform at the top level of their recursion (to divide the problems into subproblems and then combine the subproblem solutions) together with the time made in the recursive calls of the algorithm. If <span class="arithmatex">\(<span class="arithmatex">\(T(n)\)</span>\)</span> denotes the total time for the algorithm on an input of size <span class="arithmatex">\(<span class="arithmatex">\(n\)</span>\)</span> and <span class="arithmatex">\(<span class="arithmatex">\(f(n)\)</span>\)</span> denotes the amount of time taken at the top level of the recurrence then the time can be expressed by a <a href="https://en.wikipedia.org/wiki/Recurrence_relation">recurrence relation</a> that takes the form:</p>
+<p>The master theorem always yields <a href="https://en.wikipedia.org/wiki/Asymptotically_tight_bound">asymptotically tight bounds</a> to recurrences from <a href="https://en.wikipedia.org/wiki/Divide_and_conquer_algorithm">divide and conquer algorithms</a> that partition an input into smaller subproblems of equal sizes, solve the subproblems recursively, and then combine the subproblem solutions to give a solution to the original problem. The time for such an algorithm can be expressed by adding the work that they perform at the top level of their recursion (to divide the problems into subproblems and then combine the subproblem solutions) together with the time made in the recursive calls of the algorithm. If <span class="arithmatex">\(T(n)\)</span> denotes the total time for the algorithm on an input of size <span class="arithmatex">\(n\)</span> and <span class="arithmatex">\(f(n)\)</span> denotes the amount of time taken at the top level of the recurrence then the time can be expressed by a <a href="https://en.wikipedia.org/wiki/Recurrence_relation">recurrence relation</a> that takes the form:</p>
 </li>
 <li>
-<p>Here <span class="arithmatex">\(<span class="arithmatex">\(n\)</span>\)</span> is the size of an input problem, <span class="arithmatex">\(<span class="arithmatex">\(a\)</span>\)</span> is the number of subproblems in the recursion, and <span class="arithmatex">\(<span class="arithmatex">\(b\)</span>\)</span> is the factor by which the subproblem size is reduced in each recursive call (b&gt;1). Crucially, <span class="arithmatex">\(<span class="arithmatex">\(a\)</span>\)</span> and <span class="arithmatex">\(<span class="arithmatex">\(b\)</span>\)</span> must not depend on <span class="arithmatex">\(<span class="arithmatex">\(n\)</span>\)</span>. The theorem below also assumes that, as a base case for the recurrence, <span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Theta (1)\)</span>\)</span> when <span class="arithmatex">\(<span class="arithmatex">\(n\)</span>\)</span> is less than some bound <span class="arithmatex">\(<span class="arithmatex">\(\kappa &gt;0\)</span>\)</span>, the smallest input size that will lead to a recursive call.</p>
+<p>Here <span class="arithmatex">\(n\)</span> is the size of an input problem, <span class="arithmatex">\(a\)</span> is the number of subproblems in the recursion, and <span class="arithmatex">\(b\)</span> is the factor by which the subproblem size is reduced in each recursive call (b&gt;1). Crucially, <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> must not depend on <span class="arithmatex">\(n\)</span>. The theorem below also assumes that, as a base case for the recurrence, <span class="arithmatex">\(T(n)=\Theta (1)\)</span> when <span class="arithmatex">\(n\)</span> is less than some bound <span class="arithmatex">\(\kappa &gt;0\)</span>, the smallest input size that will lead to a recursive call.</p>
 </li>
 <li>
-<p>Recurrences of this form often satisfy one of the three following regimes, based on how the work to split/recombine the problem <span class="arithmatex">\(<span class="arithmatex">\(f(n)\)</span>\)</span> relates to the <strong><em>critical exponent</em></strong> <span class="arithmatex">\(<span class="arithmatex">\(c_{crit}=\log _{b}a\)</span>\)</span>. </p>
+<p>Recurrences of this form often satisfy one of the three following regimes, based on how the work to split/recombine the problem <span class="arithmatex">\(f(n)\)</span> relates to the <strong><em>critical exponent</em></strong> <span class="arithmatex">\(c_{crit}=\log _{b}a\)</span>. </p>
 </li>
 <li>
 <p><strong>Case 1</strong>: </p>
@@ -1975,17 +1965,17 @@ $$
 <p>Description: Work to split/recombine a problem is dwarfed by subproblems. (I.e. the recursion tree is leaf-heavy.)</p>
 </li>
 <li>
-<p>Condition on <span class="arithmatex">\(<span class="arithmatex">\(f(n)\)</span>\)</span> in relation to <span class="arithmatex">\(<span class="arithmatex">\(c_{crit}\)</span>\)</span>, i.e. <span class="arithmatex">\(<span class="arithmatex">\(\log_ba\)</span>\)</span>: When <span class="arithmatex">\(<span class="arithmatex">\(f(n)=O(n^{c})\)</span>\)</span> where $$ c&lt;c_{crit}$$. (upper-bounded by a lesser exponent polynomial)</p>
+<p>Condition on <span class="arithmatex">\(f(n)\)</span> in relation to <span class="arithmatex">\(c_{crit}\)</span>, i.e. <span class="arithmatex">\(\log_ba\)</span>: When <span class="arithmatex">\(f(n)=O(n^{c})\)</span> where $ c&lt;c_{crit}$. (upper-bounded by a lesser exponent polynomial)</p>
 </li>
 <li>
-<p>Master Theorem bound: then <span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Theta(n^{c_{crit}})\)</span>\)</span>. (The splitting term does not appear; the recursive tree structure dominates.)</p>
+<p>Master Theorem bound: then <span class="arithmatex">\(T(n)=\Theta(n^{c_{crit}})\)</span>. (The splitting term does not appear; the recursive tree structure dominates.)</p>
 </li>
 <li>
-<p>Notational examples: If <span class="arithmatex">\(<span class="arithmatex">\(b=a^{2}\)</span>\)</span> and <span class="arithmatex">\(<span class="arithmatex">\(f(n)=O(n^{1/2-\epsilon })\)</span>\)</span>, then <span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Theta (n^{1/2})\)</span>\)</span>.</p>
+<p>Notational examples: If <span class="arithmatex">\(b=a^{2}\)</span> and <span class="arithmatex">\(f(n)=O(n^{1/2-\epsilon })\)</span>, then <span class="arithmatex">\(T(n)=\Theta (n^{1/2})\)</span>.</p>
 <blockquote>
 <p>描述：拆分/重组问题的工作与子问题相形见绌。（即递归树的叶子过多）</p>
-<p><span class="arithmatex">\(<span class="arithmatex">\(f(n)\)</span>\)</span>和<span class="arithmatex">\(<span class="arithmatex">\(\log_ba\)</span>\)</span>的关系：当<span class="arithmatex">\(<span class="arithmatex">\(f(n)=O(n^{c})\)</span>\)</span>时，其中<span class="arithmatex">\(<span class="arithmatex">\(c&lt;\log_ba\)</span>\)</span>。（上界为小指数多项式）</p>
-<p>主定理的约束条件：<span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Theta(n^{c_{crit}})=T(n)=\Theta(n^{\log_b a})\)</span>\)</span>。（递归树占主导地位，而未出现拆分项。）</p>
+<p><span class="arithmatex">\(f(n)\)</span>和<span class="arithmatex">\(\log_ba\)</span>的关系：当<span class="arithmatex">\(f(n)=O(n^{c})\)</span>时，其中<span class="arithmatex">\(c&lt;\log_ba\)</span>。（上界为小指数多项式）</p>
+<p>主定理的约束条件：<span class="arithmatex">\(T(n)=\Theta(n^{c_{crit}})=T(n)=\Theta(n^{\log_b a})\)</span>。（递归树占主导地位，而未出现拆分项。）</p>
 </blockquote>
 </li>
 </ul>
@@ -1997,17 +1987,17 @@ $$
 <p>Description: Work to split/recombine a problem is comparable to subproblems.</p>
 </li>
 <li>
-<p>Condition on <span class="arithmatex">\(<span class="arithmatex">\(f(n)\)</span>\)</span> in relation to <span class="arithmatex">\(<span class="arithmatex">\(c_{crit}\)</span>\)</span>, i.e. <span class="arithmatex">\(<span class="arithmatex">\(\log_ba\)</span>\)</span>: When <span class="arithmatex">\(<span class="arithmatex">\(f(n)=\Theta (n^{c_{crit}}\log ^{k}n)\)</span>\)</span> for a <span class="arithmatex">\(<span class="arithmatex">\(k\geq 0\)</span>\)</span> (rangebound by the critical-exponent polynomial, times zero or more optional <span class="arithmatex">\(<span class="arithmatex">\(\log s\)</span>\)</span>)</p>
+<p>Condition on <span class="arithmatex">\(f(n)\)</span> in relation to <span class="arithmatex">\(c_{crit}\)</span>, i.e. <span class="arithmatex">\(\log_ba\)</span>: When <span class="arithmatex">\(f(n)=\Theta (n^{c_{crit}}\log ^{k}n)\)</span> for a <span class="arithmatex">\(k\geq 0\)</span> (rangebound by the critical-exponent polynomial, times zero or more optional <span class="arithmatex">\(\log s\)</span>)</p>
 </li>
 <li>
-<p>Master Theorem bound: then <span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Theta (n^{c_{crit}}\log ^{k+1}n\mathbb{R})\)</span>\)</span> (The bound is the splitting term, where the log is augmented by a single power.)</p>
+<p>Master Theorem bound: then <span class="arithmatex">\(T(n)=\Theta (n^{c_{crit}}\log ^{k+1}n\mathbb{R})\)</span> (The bound is the splitting term, where the log is augmented by a single power.)</p>
 </li>
 <li>
-<p>Notational examples: If <span class="arithmatex">\(<span class="arithmatex">\(b=a^{2}\)</span>\)</span> and <span class="arithmatex">\(<span class="arithmatex">\(f(n)=\Theta (n^{1/2})\)</span>\)</span>, then <span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Theta (n^{1/2}\log n)\)</span>\)</span>; If <span class="arithmatex">\(<span class="arithmatex">\(b=a^{2}\)</span>\)</span> and <span class="arithmatex">\(<span class="arithmatex">\(f(n)=\Theta (n^{1/2}\log n)\)</span>\)</span>, then <span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Theta (n^{1/2}\log ^{2}n)\)</span>\)</span>.</p>
+<p>Notational examples: If <span class="arithmatex">\(b=a^{2}\)</span> and <span class="arithmatex">\(f(n)=\Theta (n^{1/2})\)</span>, then <span class="arithmatex">\(T(n)=\Theta (n^{1/2}\log n)\)</span>; If <span class="arithmatex">\(b=a^{2}\)</span> and <span class="arithmatex">\(f(n)=\Theta (n^{1/2}\log n)\)</span>, then <span class="arithmatex">\(T(n)=\Theta (n^{1/2}\log ^{2}n)\)</span>.</p>
 <blockquote>
 <p>描述：拆分/重组问题的工作与子问题相当。</p>
-<p><span class="arithmatex">\(<span class="arithmatex">\(f(n)\)</span>\)</span>和<span class="arithmatex">\(<span class="arithmatex">\(\log_ba\)</span>\)</span>的关系：当 <span class="arithmatex">\(<span class="arithmatex">\(f(n)=\Theta (n^{c_{crit}}\log ^{k}n)\)</span>\)</span>时，其中<span class="arithmatex">\(<span class="arithmatex">\(k\ge 0\)</span>\)</span>。（界被<span class="arithmatex">\(<span class="arithmatex">\(\log_ba\)</span>\)</span>所限，乘以零或可选的<span class="arithmatex">\(<span class="arithmatex">\(\log s\)</span>\)</span>）</p>
-<p>主定理的约束条件：<span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Theta (n^{c_{crit}}\log ^{k+1}n\mathbb{R})\)</span>\)</span>。（界值为拆分项，对数的次数增加1。）</p>
+<p><span class="arithmatex">\(f(n)\)</span>和<span class="arithmatex">\(\log_ba\)</span>的关系：当 <span class="arithmatex">\(f(n)=\Theta (n^{c_{crit}}\log ^{k}n)\)</span>时，其中<span class="arithmatex">\(k\ge 0\)</span>。（界被<span class="arithmatex">\(\log_ba\)</span>所限，乘以零或可选的<span class="arithmatex">\(\log s\)</span>）</p>
+<p>主定理的约束条件：<span class="arithmatex">\(T(n)=\Theta (n^{c_{crit}}\log ^{k+1}n\mathbb{R})\)</span>。（界值为拆分项，对数的次数增加1。）</p>
 </blockquote>
 </li>
 </ol>
@@ -2019,28 +2009,28 @@ $$
 <p>Description: Work to split/recombine a problem dominates subproblems. (I.e. the recursion tree is root-heavy.)</p>
 </li>
 <li>
-<p>Condition on <span class="arithmatex">\(<span class="arithmatex">\(f(n)\)</span>\)</span> in relation to <span class="arithmatex">\(<span class="arithmatex">\(c_{crit}\)</span>\)</span>, i.e. <span class="arithmatex">\(<span class="arithmatex">\(\log_ba\)</span>\)</span>: When <span class="arithmatex">\(<span class="arithmatex">\(f(n)=\Omega (n^{c})\)</span>\)</span> where <span class="arithmatex">\(<span class="arithmatex">\(c&gt;c_{crit}\)</span>\)</span>. (lower-bounded by a greater exponent polynomial)</p>
+<p>Condition on <span class="arithmatex">\(f(n)\)</span> in relation to <span class="arithmatex">\(c_{crit}\)</span>, i.e. <span class="arithmatex">\(\log_ba\)</span>: When <span class="arithmatex">\(f(n)=\Omega (n^{c})\)</span> where <span class="arithmatex">\(c&gt;c_{crit}\)</span>. (lower-bounded by a greater exponent polynomial)</p>
 </li>
 <li>
-<p>Master Theorem bound: this doesn't necessarily yield anything. Furthermore, if <span class="arithmatex">\(<span class="arithmatex">\(af\left({\frac {n}{b}}\mathbb{R}\right)\leq kf(n)\)</span>\)</span> for some constant <span class="arithmatex">\(<span class="arithmatex">\(k&lt;1\)</span>\)</span> and sufficiently large <span class="arithmatex">\(<span class="arithmatex">\(n\)</span>\)</span> (often called the <em>regularity condition</em>) then the total is dominated by the splitting term <span class="arithmatex">\(<span class="arithmatex">\(f(n)\)</span>\)</span>: <span class="arithmatex">\(<span class="arithmatex">\(T\left(n\mathbb{R}\right)=\Theta \left(f(n)\mathbb{R}\right)\)</span>\)</span>.</p>
+<p>Master Theorem bound: this doesn't necessarily yield anything. Furthermore, if <span class="arithmatex">\(af\left({\frac {n}{b}}\mathbb{R}\right)\leq kf(n)\)</span> for some constant <span class="arithmatex">\(k&lt;1\)</span> and sufficiently large <span class="arithmatex">\(n\)</span> (often called the <em>regularity condition</em>) then the total is dominated by the splitting term <span class="arithmatex">\(f(n)\)</span>: <span class="arithmatex">\(T\left(n\mathbb{R}\right)=\Theta \left(f(n)\mathbb{R}\right)\)</span>.</p>
 </li>
 <li>
-<p>Notational examples: If <span class="arithmatex">\(<span class="arithmatex">\(b=a^{2}\)</span>\)</span> and <span class="arithmatex">\(<span class="arithmatex">\(f(n)=\Omega (n^{1/2+\epsilon })\)</span>\)</span> and the regularity condition holds, then <span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Theta (f(n))\)</span>\)</span>.</p>
+<p>Notational examples: If <span class="arithmatex">\(b=a^{2}\)</span> and <span class="arithmatex">\(f(n)=\Omega (n^{1/2+\epsilon })\)</span> and the regularity condition holds, then <span class="arithmatex">\(T(n)=\Theta (f(n))\)</span>.</p>
 <blockquote>
 <p>描述：拆分/重组问题的工作远胜于子问题。（即递归树的根过多）</p>
-<p><span class="arithmatex">\(<span class="arithmatex">\(f(n)\)</span>\)</span>和<span class="arithmatex">\(<span class="arithmatex">\(\log_ba\)</span>\)</span>的关系：当<span class="arithmatex">\(<span class="arithmatex">\(f(n)=O(n^{c})\)</span>\)</span>时，其中<span class="arithmatex">\(<span class="arithmatex">\(c&gt;\log_ba\)</span>\)</span>。（下界为大指数多项式）</p>
-<p>主定理的约束条件：这不一定有结果。若<span class="arithmatex">\(<span class="arithmatex">\(\exists k&lt;1\)</span>\)</span>和一个很大的<span class="arithmatex">\(<span class="arithmatex">\(n\)</span>\)</span>（规则性条件），有<span class="arithmatex">\(<span class="arithmatex">\(af\left({\dfrac {n}{b}}\mathbb{R}\right)\leq kf(n)\)</span>\)</span>，则结果由拆分项<span class="arithmatex">\(<span class="arithmatex">\(f(n)\)</span>\)</span>主导，<span class="arithmatex">\(<span class="arithmatex">\(T\left(n\mathbb{R}\right)=\Theta \left(f(n)\mathbb{R}\right)\)</span>\)</span>。</p>
+<p><span class="arithmatex">\(f(n)\)</span>和<span class="arithmatex">\(\log_ba\)</span>的关系：当<span class="arithmatex">\(f(n)=O(n^{c})\)</span>时，其中<span class="arithmatex">\(c&gt;\log_ba\)</span>。（下界为大指数多项式）</p>
+<p>主定理的约束条件：这不一定有结果。若<span class="arithmatex">\(\exists k&lt;1\)</span>和一个很大的<span class="arithmatex">\(n\)</span>（规则性条件），有<span class="arithmatex">\(af\left({\dfrac {n}{b}}\mathbb{R}\right)\leq kf(n)\)</span>，则结果由拆分项<span class="arithmatex">\(f(n)\)</span>主导，<span class="arithmatex">\(T\left(n\mathbb{R}\right)=\Theta \left(f(n)\mathbb{R}\right)\)</span>。</p>
 </blockquote>
 </li>
 </ol>
 </li>
 </ol>
-<p>A useful extension of Case 2 handles all values of <span class="arithmatex">\(<span class="arithmatex">\(k\)</span>\)</span>:</p>
+<p>A useful extension of Case 2 handles all values of <span class="arithmatex">\(k\)</span>:</p>
 <table>
 <thead>
 <tr>
 <th>Case</th>
-<th>Condition on <span class="arithmatex">\(<span class="arithmatex">\(f(n)\)</span>\)</span> in relation to <span class="arithmatex">\(<span class="arithmatex">\(c_{crit}\)</span>\)</span>, i.e. <span class="arithmatex">\(<span class="arithmatex">\(\log _{b}a\)</span>\)</span></th>
+<th>Condition on <span class="arithmatex">\(f(n)\)</span> in relation to <span class="arithmatex">\(c_{crit}\)</span>, i.e. <span class="arithmatex">\(\log _{b}a\)</span></th>
 <th>Master Theorem bound</th>
 <th>Notational examples</th>
 </tr>
@@ -2048,21 +2038,21 @@ $$
 <tbody>
 <tr>
 <td>2a</td>
-<td>When <span class="arithmatex">\(<span class="arithmatex">\(f(n)=\Theta (n^{c_{crit}}\log ^{k}n)\)</span>\)</span> for any <span class="arithmatex">\(<span class="arithmatex">\(k&gt;-1\)</span>\)</span></td>
-<td>... then <span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Theta \left(n^{c_{crit}}\log ^{k+1} n\mathbb{R}\right)\)</span>\)</span> (The bound is the splitting term, where the log is augmented by a single power.)</td>
-<td>If <span class="arithmatex">\(<span class="arithmatex">\(b=a^{2}\)</span>\)</span> and <span class="arithmatex">\(<span class="arithmatex">\(f(n)=\Theta (n^{1/2}/\log ^{1/2}n)\)</span>\)</span>, then <span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Theta (n^{1/2}\log ^{1/2}n)\)</span>\)</span>.</td>
+<td>When <span class="arithmatex">\(f(n)=\Theta (n^{c_{crit}}\log ^{k}n)\)</span> for any <span class="arithmatex">\(k&gt;-1\)</span></td>
+<td>... then <span class="arithmatex">\(T(n)=\Theta \left(n^{c_{crit}}\log ^{k+1} n\mathbb{R}\right)\)</span> (The bound is the splitting term, where the log is augmented by a single power.)</td>
+<td>If <span class="arithmatex">\(b=a^{2}\)</span> and <span class="arithmatex">\(f(n)=\Theta (n^{1/2}/\log ^{1/2}n)\)</span>, then <span class="arithmatex">\(T(n)=\Theta (n^{1/2}\log ^{1/2}n)\)</span>.</td>
 </tr>
 <tr>
 <td>2b</td>
-<td>When <span class="arithmatex">\(<span class="arithmatex">\(f(n)=\Theta (n^{c_{crit}}\log ^{k}n)\)</span>\)</span> for <span class="arithmatex">\(<span class="arithmatex">\(k=-1\)</span>\)</span></td>
-<td>... then <span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Theta \left(n^{c_{crit}}\log \log n\mathbb{R}\right)\)</span>\)</span> (The bound is the splitting term, where the log reciprocal is replaced by an iterated log.)</td>
-<td>If <span class="arithmatex">\(<span class="arithmatex">\(b=a^{2}\)</span>\)</span> and <span class="arithmatex">\(<span class="arithmatex">\(f(n)=\Theta (n^{1/2}/\log n)\)</span>\)</span>, then <span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Theta (n^{1/2}\log \log n)\)</span>\)</span>.</td>
+<td>When <span class="arithmatex">\(f(n)=\Theta (n^{c_{crit}}\log ^{k}n)\)</span> for <span class="arithmatex">\(k=-1\)</span></td>
+<td>... then <span class="arithmatex">\(T(n)=\Theta \left(n^{c_{crit}}\log \log n\mathbb{R}\right)\)</span> (The bound is the splitting term, where the log reciprocal is replaced by an iterated log.)</td>
+<td>If <span class="arithmatex">\(b=a^{2}\)</span> and <span class="arithmatex">\(f(n)=\Theta (n^{1/2}/\log n)\)</span>, then <span class="arithmatex">\(T(n)=\Theta (n^{1/2}\log \log n)\)</span>.</td>
 </tr>
 <tr>
 <td>2c</td>
-<td>When <span class="arithmatex">\(<span class="arithmatex">\(f(n)=\Theta (n^{c_{crit}}\log ^{k}n)\)</span>\)</span> for any <span class="arithmatex">\(<span class="arithmatex">\(k&gt;-1\)</span>\)</span></td>
-<td>... then <span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Theta \left(n^{c_{crit}}\mathbb{R}\right)\)</span>\)</span> (The bound is the splitting term, where the log disappears.)</td>
-<td>If <span class="arithmatex">\(<span class="arithmatex">\(b=a^{2}\)</span>\)</span> and <span class="arithmatex">\(<span class="arithmatex">\(f(n)=\Theta (n^{1/2}/\log^2 n)\)</span>\)</span>, then <span class="arithmatex">\(<span class="arithmatex">\(T(n)=\Theta (n^{1/2})\)</span>\)</span>.</td>
+<td>When <span class="arithmatex">\(f(n)=\Theta (n^{c_{crit}}\log ^{k}n)\)</span> for any <span class="arithmatex">\(k&gt;-1\)</span></td>
+<td>... then <span class="arithmatex">\(T(n)=\Theta \left(n^{c_{crit}}\mathbb{R}\right)\)</span> (The bound is the splitting term, where the log disappears.)</td>
+<td>If <span class="arithmatex">\(b=a^{2}\)</span> and <span class="arithmatex">\(f(n)=\Theta (n^{1/2}/\log^2 n)\)</span>, then <span class="arithmatex">\(T(n)=\Theta (n^{1/2})\)</span>.</td>
 </tr>
 </tbody>
 </table>
@@ -2123,11 +2113,13 @@ $$
     
       <script src="../../../../assets/javascripts/bundle.081f42fc.min.js"></script>
       
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
         <script src="../../../../javascripts/katex.js"></script>
-      
-        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
-      
-        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>
