@@ -1,0 +1,1457 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../Number-Theory/fermat-square-sum/">
+      
+      
+      
+      <link rel="icon" href="../../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.24">
+    
+    
+      
+        <title>Catalan数 - AccelerateZ</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#catalan" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="AccelerateZ" class="md-header__button md-logo" aria-label="AccelerateZ" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AccelerateZ
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Catalan数
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/acceleratez/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AccelerateZ
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../blog/index.md" class="md-tabs__link">
+        
+  
+    
+  
+  Blog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../DSA/" class="md-tabs__link">
+          
+  
+  DSA
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../AI/" class="md-tabs__link">
+          
+  
+  Embrace AI
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Lang/" class="md-tabs__link">
+          
+  
+  Languages
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  Math Master
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about.md" class="md-tabs__link">
+        
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="AccelerateZ" class="md-nav__button md-logo" aria-label="AccelerateZ" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    AccelerateZ
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/acceleratez/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AccelerateZ
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../DSA/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    DSA
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../AI/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Embrace AI
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Lang/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Languages
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Math Master
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Math Master
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Calculus
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Calculus
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Calculus/stirling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stirling公式
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Linear-Algebra
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            Linear-Algebra
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linear-Algebra/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Probability-Theory
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            Probability-Theory
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Probability-Theory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Number-Theory
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_5">
+            <span class="md-nav__icon md-icon"></span>
+            Number-Theory
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Number-Theory/fermat-square-sum/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    费马平方和定理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6_6" id="__nav_6_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Discrete Math
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_6">
+            <span class="md-nav__icon md-icon"></span>
+            Discrete Math
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Catalan数
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Catalan数
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      简介
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#catalan_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Catalan数的递推关系
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#catalan_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Catalan公式的推导
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#catalan_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Catalan数的应用
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      参考资料
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      简介
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#catalan_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Catalan数的递推关系
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#catalan_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Catalan公式的推导
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#catalan_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Catalan数的应用
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      参考资料
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="catalan">Catalan 数<a class="headerlink" href="#catalan" title="Permanent link"></a></h1>
+<h2 id="_1">简介<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
+<ul>
+<li>
+<p>卡特兰数(Catalan Number)，又称明安图数，是组合数学中一种常出现于各种计数问题中的数列。以比利时数学家欧仁·查理·卡特兰的名字命名。1730年，清代蒙古族数学家明安图在对三角函数幂级数的推导过程中首次发现，1774年被发表在《割圜密率捷法》。</p>
+</li>
+<li>
+<p>若记 <span class="arithmatex">\(h(n)\)</span> 为卡特兰数的第 <span class="arithmatex">\(n\)</span> 项，且令 <span class="arithmatex">\(h(0)=1\)</span>， 则有：</p>
+</li>
+</ul>
+<div class="arithmatex">\[
+    h(n)=\sum_{i=0}^{n-1} h(i)\cdot h(n-1-i)
+\]</div>
+<ul>
+<li>卡特兰数的第0到第15项：<span class="arithmatex">\(h(0)=1\)</span>, <span class="arithmatex">\(h(1)=1\)</span>, <span class="arithmatex">\(h(2)=2\)</span>, <span class="arithmatex">\(h(3)=5\)</span>, <span class="arithmatex">\(h(4)=14\)</span>, <span class="arithmatex">\(h(5)=42\)</span>, <span class="arithmatex">\(h(6)=132\)</span>, <span class="arithmatex">\(h(7)=429\)</span>, <span class="arithmatex">\(h(8)=1430\)</span>, <span class="arithmatex">\(h(9)=4862\)</span>, <span class="arithmatex">\(h(10)=16796\)</span>, <span class="arithmatex">\(h(11)=58786\)</span>, <span class="arithmatex">\(h(12)=208012\)</span>, <span class="arithmatex">\(h(13)=742900\)</span>, <span class="arithmatex">\(h(14)=2674440\)</span>, <span class="arithmatex">\(h(15)=9694845\)</span>。</li>
+</ul>
+<h2 id="catalan_1">Catalan数的递推关系<a class="headerlink" href="#catalan_1" title="Permanent link"></a></h2>
+<ul>
+<li>Catalan数的递推关系为：</li>
+</ul>
+<div class="arithmatex">\[
+    h(n)=\sum_{i=0}^{n-1} h(i)\cdot h(n-1-i)
+\]</div>
+<div class="arithmatex">\[
+    (n-3)h(n)=\frac{n}{2}\sum_{i=3}^{n-1}h(i)\cdot h(n+2-i)
+\]</div>
+<div class="arithmatex">\[
+    h(n)=h(n-1)\cdot\frac{4n-2}{n+1}
+\]</div>
+<ul>
+<li>Catalan数的递推关系的解（Lobb公式）：</li>
+</ul>
+<div class="arithmatex">\[
+    h(n)=\frac{1}{n+1}\binom{2n}{n}=\frac{(2n)!}{n!(n+1)!}
+\]</div>
+<div class="arithmatex">\[
+    h(n)=\binom{2n}{n}-\binom{2n}{n+1}
+\]</div>
+<h2 id="catalan_2">Catalan公式的推导<a class="headerlink" href="#catalan_2" title="Permanent link"></a></h2>
+<p>卡特兰数的递推式为</p>
+<div class="arithmatex">\[
+    H_n=\sum_{i=0}^{n-1}H_{i}H_{n-i-1} \quad (n\ge 2)
+\]</div>
+<p>其中 <span class="arithmatex">\(H_0=1,H_1=1\)</span>。设它的普通生成函数为 <span class="arithmatex">\(H(x)\)</span>。</p>
+<p>我们发现卡特兰数的递推式与卷积的形式很相似，因此我们用卷积来构造关于 <span class="arithmatex">\(H(x)\)</span> 的方程：</p>
+<div class="arithmatex">\[
+    \begin{aligned}
+    H(x)&amp;=\sum_{n\ge 0}H_nx^n\\
+    &amp;=1+\sum_{n\ge 1}\sum_{i=0}^{n-1}H_ix^iH_{n-i-1}x^{n-i-1}x\\
+    &amp;=1+x\sum_{i\ge 0}H_{i}x^i\sum_{n\ge 0}H_{n}x^{n}\\
+    &amp;=1+xH^2(x)
+    \end{aligned}
+\]</div>
+<p>解得</p>
+<div class="arithmatex">\[
+    H(x)=\frac{1\pm \sqrt{1-4x}}{2x}
+\]</div>
+<p>那么这就产生了一个问题：我们应该取哪一个根呢？我们将其分子有理化：</p>
+<div class="arithmatex">\[
+    H(x)=\frac{2}{1\mp \sqrt{1-4x}}
+\]</div>
+<p>代入 <span class="arithmatex">\(x=0\)</span>，我们得到的是 <span class="arithmatex">\(H(x)\)</span> 的常数项，也就是 <span class="arithmatex">\(H_0\)</span>。当 <span class="arithmatex">\(H(x)=\dfrac{2}{1+\sqrt{1-4x}}\)</span> 的时候有 <span class="arithmatex">\(H(0)=1\)</span>，满足要求。而另一个解会出现分母为 <span class="arithmatex">\(0\)</span> 的情况（不收敛），舍弃。</p>
+<p>因此我们得到了卡特兰数生成函数的封闭形式：</p>
+<div class="arithmatex">\[
+    H(x)=\frac{1- \sqrt{1-4x}}{2x}
+\]</div>
+<p>接下来我们要将其展开。但注意到它的分母不是斐波那契数列那样的多项式形式，因此不方便套用等比数列的展开形式。在这里我们需要使用牛顿二项式定理。我们来先展开 <span class="arithmatex">\(\sqrt{1-4x}\)</span>：</p>
+<div class="arithmatex">\[
+    \begin{aligned}
+    (1-4x)^{\frac{1}{2}}
+    &amp;=\sum_{n\ge 0}\binom{\frac{1}{2}}{n}(-4x)^n\\
+    &amp;=1+\sum_{n\ge 1}\frac{\left(\frac{1}{2}\right)^{\underline{n}}}{n!}(-4x)^n
+    \end{aligned}
+\]</div>
+<p>注意到</p>
+<div class="arithmatex">\[
+    \begin{aligned}
+    \left(\frac{1}{2}\right)^{\underline{n}}
+    &amp;=\frac{1}{2}\frac{-1}{2}\frac{-3}{2}\cdots\frac{-(2n-3)}{2}\\
+    &amp;=\frac{(-1)^{n-1}(2n-3)!!}{2^n}\\
+    &amp;=\frac{(-1)^{n-1}(2n-2)!}{2^n(2n-2)!!}\\
+    &amp;=\frac{(-1)^{n-1}(2n-2)!}{2^{2n-1}(n-1)!}
+    \end{aligned}
+\]</div>
+<p>这里使用了双阶乘的化简技巧。那么带回 <span class="arithmatex">\((1)\)</span> 得到</p>
+<div class="arithmatex">\[
+    \begin{aligned}
+    (1-4x)^{\frac{1}{2}}
+    &amp;=1+\sum_{n\ge 1}\frac{(-1)^{n-1}(2n-2)!}{2^{2n-1}(n-1)!n!}(-4x)^n\\
+    &amp;=1-\sum_{n\ge 1}\frac{(2n-2)!}{(n-1)!n!}2x^n\\
+    &amp;=1-\sum_{n\ge 1}\binom{2n-1}{n}\frac{1}{(2n-1)}2x^n
+    \end{aligned}
+\]</div>
+<p>带回原式得到</p>
+<div class="arithmatex">\[
+    \begin{aligned}
+    H(x)&amp;=\frac{1- \sqrt{1-4x}}{2x}\\
+    &amp;=\frac{1}{2x}\sum_{n\ge 1}\binom{2n-1}{n}\frac{1}{(2n-1)}2x^n\\
+    &amp;=\sum_{n\ge 1}\binom{2n-1}{n}\frac{1}{(2n-1)}x^{n-1}\\
+    &amp;=\sum_{n\ge 0}\binom{2n+1}{n+1}\frac{1}{(2n+1)}x^{n}\\
+    &amp;=\sum_{n\ge 0}\binom{2n}{n}\frac{1}{n+1}x^{n}\\
+    \end{aligned}
+\]</div>
+<p>这样我们就得到了卡特兰数的通项公式。</p>
+<h2 id="catalan_3">Catalan数的应用<a class="headerlink" href="#catalan_3" title="Permanent link"></a></h2>
+<ul>
+<li>括号匹配问题：给定 <span class="arithmatex">\(n\)</span> 对括号，求出所有合法的括号序列的个数。</li>
+</ul>
+<blockquote>
+<p>思路：<span class="arithmatex">\(n\)</span>对括号相当于有<span class="arithmatex">\(2n\)</span>个符号，<span class="arithmatex">\(n\)</span>个左括号、<span class="arithmatex">\(n\)</span>个右括号，可以设问题的解为<span class="arithmatex">\(f(2n)\)</span>。第0个符号肯定为左括号，与之匹配的右括号必须为第<span class="arithmatex">\(2i+1\)</span>字符。（因为如果是第2i个字符，那么第0个字符与第2i个字符间包含奇数个字符，而奇数个字符是无法构成匹配的。）</p>
+<p>通过简单分析，<span class="arithmatex">\(f(2n)\)</span>可以转化如下的递推式：</p>
+<div class="arithmatex">\[
+  f(2n) = f(0)\cdot f(2n-2) + f(2)\cdot f(2n - 4) +\ldots+ f(2n - 4)\cdot f(2) + f(2n-2)\cdot f(0)
+\]</div>
+<p><span class="arithmatex">\(f(0)\cdot f(2n-2)\)</span>表示第0个字符与第1个字符匹配，同时剩余字符分成两个部分，一部分为0个字符，另一部分为<span class="arithmatex">\(2n-2\)</span>个字符，然后对这两部分求解。<span class="arithmatex">\(f(2)\cdot f(2n-4)\)</span>表示第0个字符与第3个字符匹配，同时剩余字符分成两个部分，一部分为2个字符，另一部分为<span class="arithmatex">\(2n-4\)</span>个字符。依次类推。</p>
+<p>假设f(0) = 1，则有<span class="arithmatex">\(f(2n)=h(n)\)</span>。</p>
+</blockquote>
+<ul>
+<li>（变种）买票找零问题：有 <span class="arithmatex">\(2n\)</span> 个人排成一行进入剧场。入场费5元。其中只有 <span class="arithmatex">\(n\)</span> 个人有一张5元钞票，另外 <span class="arithmatex">\(n\)</span> 人只有10元钞票，剧院无其它钞票，问有多少中方法使得只要有10元的人买票，售票处就有5元的钞票找零？</li>
+</ul>
+<blockquote>
+<p>思路：令拿较小钞票的人代表上题中的左括号，而拿较大钞票的人代表上题中的右括号。记此时的情况有<span class="arithmatex">\(M\)</span>种，则有<span class="arithmatex">\(M=h(n)\)</span>。（题目限制售票员一定能够找开零钱，故不能反过来写）</p>
+</blockquote>
+<ul>
+<li>（变种）栈的进出栈序列问题：给定 <span class="arithmatex">\(n\)</span> 个元素的进栈（出栈）序列，求出所有可能的进栈（出栈）序列的个数。</li>
+</ul>
+<blockquote>
+<p>思路：令进栈操作代表第一题中的左括号，出栈操作代表第一题中的右括号。（不能再栈已空的时候继续出栈。）记此时的情况有<span class="arithmatex">\(M\)</span>种，则有<span class="arithmatex">\(M=h(n)\)</span>。</p>
+</blockquote>
+<ul>
+<li>（变种）圆桌握手问题：在圆上选择 <span class="arithmatex">\(2n\)</span> 个点，将其两两连接，求出所有不相交的弦的方案数。</li>
+</ul>
+<blockquote>
+<p>思路：以其中一个点为基点，编号为0，然后按顺时针方向将其他点依次编号。那么与编号为0相连点的编号一定是奇数，否则，这两个编号间含有奇数个点，势必会有个点被孤立，即在一条线段的两侧分别有一个孤立点，从而导致两线段相交。设选中的基点为A，与它连接的点为B，那么A和B将所有点分成两个部分，一部分位于A、B的左边，另一部分位于A、B的右边。然后分别对这两部分求解即可。</p>
+<p>设问题的解为 <span class="arithmatex">\(f(n)\)</span>，则有</p>
+<div class="arithmatex">\[
+  f(n)=\sum_{i=0}^{n-1}f(i)\cdot f(n-1-i)
+\]</div>
+<p>其中，<span class="arithmatex">\(f(i)\cdot f(n-i-1)\)</span>表示编号0的点与编号1的点相连，此时位于它们右边的点的个数为0(可以连成0条线段)，而位于它们左边的点为2n-2（可以连成n-1条线段）。</p>
+<p>若令<span class="arithmatex">\(f(0) = 1, f(1) = 1, f(2) = 2\)</span>， 则<span class="arithmatex">\(f(n)=h(n)\)</span>。</p>
+</blockquote>
+<ul>
+<li>凸多边形三角划分问题：给定 <span class="arithmatex">\(n\)</span> 边凸多边形，求出所有不相交的三角形的划分方案数。</li>
+</ul>
+<blockquote>
+<p>思路：以凸多边形的一边为基，设这条边的2个顶点为<span class="arithmatex">\(A,B\)</span>。从剩余顶点中选1个，可以将凸多边形分成三个部分，中间是一个三角形，左右两边分别是两个凸多边形，然后求解左右两个凸多边形。</p>
+<p>设问题的解为<span class="arithmatex">\(f(n)\)</span>，其中<span class="arithmatex">\(n\)</span>表示顶点数，那么有</p>
+<div class="arithmatex">\[
+  f(n) = f(2)\cdot f(n-1) + f(3)\cdot f(n-2)+\ldots+f(n-2)\cdot f(3)+f(n-1)\cdot f(2)
+\]</div>
+<p>其中，<span class="arithmatex">\(f(i)\cdot f(n+1-i)\)</span>表示三个相邻的顶点构成一个三角形，那么另外两个部分的顶点数分别为<span class="arithmatex">\(i,n+1-i\)</span>。</p>
+<p>若<span class="arithmatex">\(f(2)=1\)</span>，则有<span class="arithmatex">\(f(n)=h(n-2)\)</span>。</p>
+</blockquote>
+<ul>
+<li>路径计数问题：从 (0,0) 到 (n,n) 的除端点外不穿过（不接触）直线 <span class="arithmatex">\(y=x\)</span> 的非降路径数。</li>
+</ul>
+<blockquote>
+<p>思路：非降路径是指只能向上或向右走的路径。</p>
+<ol>
+<li>
+<p>从 <span class="arithmatex">\((0,0)\)</span> 到 <span class="arithmatex">\((m,n)\)</span> 的非降路径数等于 <span class="arithmatex">\(m\)</span> 个 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(n\)</span> 个 <span class="arithmatex">\(y\)</span> 的排列数，即 <span class="arithmatex">\(\dbinom{n + m}{m}\)</span>。</p>
+</li>
+<li>
+<p>从 <span class="arithmatex">\((0,0)\)</span> 到 <span class="arithmatex">\((n,n)\)</span> 的除端点外不接触直线 <span class="arithmatex">\(y=x\)</span> 的非降路径数：</p>
+</li>
+</ol>
+<p>先考虑 <span class="arithmatex">\(y=x\)</span> 下方的路径，都是从 <span class="arithmatex">\((0, 0)\)</span> 出发，经过 <span class="arithmatex">\((1, 0)\)</span> 及 <span class="arithmatex">\((n, n-1)\)</span> 到 <span class="arithmatex">\((n,n)\)</span>，可以看做是 <span class="arithmatex">\((1,0)\)</span> 到 <span class="arithmatex">\((n,n-1)\)</span> 不接触 <span class="arithmatex">\(y=x\)</span> 的非降路径数。</p>
+<p>所有的的非降路径有 <span class="arithmatex">\(\dbinom{2n-2}{n-1}\)</span> 条。对于这里面任意一条接触了 <span class="arithmatex">\(y=x\)</span> 的路径，可以把它最后离开这条线的点到 <span class="arithmatex">\((1,0)\)</span> 之间的部分关于 <span class="arithmatex">\(y=x\)</span> 对称变换，就得到从 <span class="arithmatex">\((0,1)\)</span> 到 <span class="arithmatex">\((n,n-1)\)</span> 的一条非降路径。反之也成立。从而 <span class="arithmatex">\(y=x\)</span> 下方的非降路径数是 <span class="arithmatex">\(\dbinom{2n-2}{n-1} - \dbinom{2n-2}{n}\)</span>。根据对称性可知所求答案为 <span class="arithmatex">\(2\dbinom{2n-2}{n-1} - 2\dbinom{2n-2}{n}\)</span>。</p>
+<ol>
+<li>从 <span class="arithmatex">\((0,0)\)</span> 到 <span class="arithmatex">\((n,n)\)</span> 的除端点外不穿过直线 <span class="arithmatex">\(y=x\)</span> 的非降路径数：（这里是分为左上和右下两部分，所以答案要乘以2）</li>
+</ol>
+<p>用类似的方法可以得到：<span class="arithmatex">\(\dfrac{2}{n+1}\dbinom{2n}{n}\)</span></p>
+</blockquote>
+<ul>
+<li>二叉树的计数问题：给定 <span class="arithmatex">\(n\)</span> 个节点，求出所有不同的二叉树的个数</li>
+</ul>
+<blockquote>
+<p>推导：将n个互异节点组成的二分查找树的总数记为 <span class="arithmatex">\(T(n)\)</span> 。尽管由同一组节点组成的二叉搜索树不尽相同，但它们的中序遍历序列却必然相同，不妨记作：</p>
+<div class="arithmatex">\[
+  \left[x_0,x_1,\ldots,x_{k-1}\right],x_k,\left[x_{k+1},\ldots,x_{n-1}\right]
+\]</div>
+<p>根据所取的树根节点不同，所有的搜索树可以分为 <span class="arithmatex">\(n\)</span> 类。如果以 <span class="arithmatex">\(x_k\)</span> 为根节点，则其左右子树见上。</p>
+<p>对应的递推关系如下：</p>
+<div class="arithmatex">\[
+  T(0)=T(1)=1,\quad T(n)=\sum\limits_{k=0}^{n-1}T(k)\cdot T(n-k-1)
+\]</div>
+<p>（边界条件很好理解，而递推式可以以减治的方式进行理解：对于某一棵BST，其由左、右两个子树和根节点组成。因为中序序列确定，所以它们三者的排序方式不会改变，即依然是左子树——根节点——右子树组成。于是，问题转化成求 <span class="arithmatex">\(T(L),T(R)\)</span> ，其中，<span class="arithmatex">\(L,R\)</span> 分别是构成这两棵子树的元素总个数，且 <span class="arithmatex">\(n=L+R+1\)</span>。同时，根据乘法原理，可以推出递推式。）</p>
+<p>这是典型的Catalan数式递推关系，解之即得题中结论。</p>
+</blockquote>
+<h2 id="_2">参考资料<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<ul>
+<li><a href="https://baike.baidu.com/item/卡特兰数/6125746">卡特兰数_百度百科 (baidu.com)</a></li>
+<li><a href="https://oi-wiki.org/math/combinatorics/catalan/">卡特兰数 - OI Wiki (oi-wiki.org)</a></li>
+<li><a href="https://blog.51cto.com/buptdtt/832586">Catalan数（卡特兰数） - 51CTO</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Lobb_number">Lobb number - Wikipedia</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tracking", "navigation.path", "navigation.top", "navigation.sections", "navigation.prune", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.081f42fc.min.js"></script>
+      
+        <script src="../../../assets/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../assets/katex.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2231 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../08-Advanced-BST/b-tree/">
+      
+      
+        <link rel="next" href="../hash/">
+      
+      
+      <link rel="icon" href="../../../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.24">
+    
+    
+      
+        <title>Intro - AccelerateZ</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#mapdictionaryhash" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../../.." title="AccelerateZ" class="md-header__button md-logo" aria-label="AccelerateZ" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AccelerateZ
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Intro
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/acceleratez/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AccelerateZ
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../blog/index.md" class="md-tabs__link">
+        
+  
+    
+  
+  Blog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../" class="md-tabs__link">
+          
+  
+  DSA
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../AI/" class="md-tabs__link">
+          
+  
+  Embrace AI
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Lang/" class="md-tabs__link">
+          
+  
+  Languages
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Math/" class="md-tabs__link">
+          
+  
+  Math Master
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../about.md" class="md-tabs__link">
+        
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="AccelerateZ" class="md-nav__button md-logo" aria-label="AccelerateZ" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    AccelerateZ
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/acceleratez/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AccelerateZ
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../blog/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    DSA
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            DSA
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Data Structure
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Data Structure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-Intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    01-Intro
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../02-Vector/intro/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    02-Vector
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../03-List/intro/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    03-List
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-Stack-and-Queue/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    04-Stack and Queue
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../05-Tree/intro/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    05-Tree
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../06-Other-Tree/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    06-Other Tree
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../07-BST/intro/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    07-BST
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../08-Advanced-BST/splay/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    08-Advanced Search Tree
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_9" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_9" id="__nav_3_2_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    09-Dict-Map-and-Hashing
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2_9">
+            <span class="md-nav__icon md-icon"></span>
+            09-Dict-Map-and-Hashing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Intro
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Intro
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      键值对
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      映射和词典的定义
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mapadt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Map的ADT及具体实现
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#javautil" class="md-nav__link">
+    <span class="md-ellipsis">
+      java.util包中的映射类
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-stl-unordered-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      C++ STL Unordered-map
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      哈希表
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ibm" class="md-nav__link">
+    <span class="md-ellipsis">
+      从IBM公司电话说起
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      各种访问方式的比较
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      联合数组
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      实例：电话簿
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      散列表的冲突
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hash/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    哈希函数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../collision/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    散列冲突
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../10-Priority-Queue-and-Heap/priority-queue/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    10-Priority Queue and Heap
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../11-Graph/intro/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    11-Graph
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../12-Graph-Application/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12-Graph Application
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../13-String/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13-String
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../14-Sorting/intro/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    14-Sorting
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Algorithm
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Algorithm
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Algo/01-Intro/master/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    01-Intro
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Algo/02-Search-and-Traverse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    02-Search and Traverse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../Algo/03-Divide-and-Conquer/binary/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    03-Divide and Conquer
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Algo/04-Greedy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    04-Greedy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Algo/05-Dynamic-Programming/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    05-Dynamic Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Algo/06-Back-Tracking/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    06-Back Tracking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Algo/07-Branch-and-Bound/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    07-Branch and Bound
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Algo/08-NP-Complete/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    08-NP Complete
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Algo/09-Randomized/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    09-Randomized
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Algo/10-Approx/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10-Approximation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Algo/11-Genetic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11-Genetic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Algo/12-Crypto/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12-Cryptography
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../../AI/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Embrace AI
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../../Lang/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Languages
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../../Math/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Math Master
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      键值对
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      映射和词典的定义
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mapadt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Map的ADT及具体实现
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#javautil" class="md-nav__link">
+    <span class="md-ellipsis">
+      java.util包中的映射类
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-stl-unordered-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      C++ STL Unordered-map
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      哈希表
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ibm" class="md-nav__link">
+    <span class="md-ellipsis">
+      从IBM公司电话说起
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      各种访问方式的比较
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      联合数组
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      实例：电话簿
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      散列表的冲突
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="mapdictionaryhash">映射(Map)、词典(Dictionary)和散列(Hash)<a class="headerlink" href="#mapdictionaryhash" title="Permanent link"></a></h1>
+<h2 id="_1">键值对<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
+<ol>
+<li>键值对是计算系统和应用程序中的一种基本数据表示方式。设计人员通常希望采用一种开放式数据结构，以便在不修改现有代码或数据的情况下进行未来扩展。在这种情况下，数据模型的全部或部分内容可以用 <code>&lt;属性名、值&gt;</code>形式的 2 元组集合来表示，每个元素都是一个属性值对。根据特定应用和程序员选择的实现方式，属性名可能是唯一的，也可能不是唯一的。</li>
+</ol>
+<blockquote>
+<p>A name–value pair, also called an attribute–value pair, key–value pair, or field–value pair, is a fundamental data representation in computing systems and applications. Designers often desire an open-ended data structure that allows for future extension without modifying existing code or data. In such situations, all or part of the data model may be expressed as a collection of 2-tuples in the form <attribute name, value> with each element being an attribute–value pair. Depending on the particular application and the implementation chosen by programmers, attribute names may or may not be unique.</p>
+<p>——From <a href="https://en.wikipedia.org/wiki/Name–value_pair">Name–value pair - Wikipedia</a></p>
+</blockquote>
+<h2 id="_2">映射和词典的定义<a class="headerlink" href="#_2" title="Permanent link"></a></h2>
+<ol>
+<li><strong>词条(Entry)</strong>：一种组合关系，由<strong>关键码(Key)</strong>和<strong>数据项(Value)</strong>合成。</li>
+<li><strong>映射(Map)</strong>的定义：</li>
+<li>基本定义：假设两个非空集合<span class="arithmatex">\(X, Y\)</span>，存在一个法则<span class="arithmatex">\(f\)</span>，使得对<span class="arithmatex">\(X\)</span>中的每个元素<span class="arithmatex">\(x\)</span>，按法则<span class="arithmatex">\(f\)</span>，在<span class="arithmatex">\(Y\)</span>中有唯一确定的元素<span class="arithmatex">\(y\)</span>与之对应，那么称<span class="arithmatex">\(f\)</span>为从<span class="arithmatex">\(X\)</span>到<span class="arithmatex">\(Y\)</span>的映射。</li>
+<li>在计算机科学中，映射是一种存放一组条目的容器，每个条目(Entry)都包含一个关键码(key)和一个值(value)。每个键都是唯一的，用于标识与之相关联的值。映射提供了一种快速查找值的方法，只需知道其关联的键。需要特别指出，在映射中，各条目的关键码<strong>不允许重复冗余</strong>。</li>
+<li>
+<p>映射中的元素由其关键码唯一标识，而且映射的作用就是通过关键码直接找到对应的元素，故不妨就把关键码理解为指向对应元素的”地址引用“。</p>
+</li>
+<li>
+<p><strong>词典(Dictionary)</strong>：词典是一种数据结构，它也存储键值对。在词典中，键也是唯一的，每个键都对应一个值。词典提供了一种方法，可以通过键快速访问、插入或删除对应的值。在词典中，各条目的关键码<strong>可以重复冗余</strong>。</p>
+</li>
+<li>对于<strong>映射和词典</strong>这类结构，在作为基本数据单位的词条内部，关键码与数值的地位等同，二者不必加以区分。此类结构所支持的这种新的数据访问方式，即所谓的循数值访问。</li>
+<li>特别地，在许多编程语言中，映射和词典实际上是同一种数据结构。例如，在Python中，被称为字典（Dictionary），而在Java中，则被称为映射（Map）。</li>
+</ol>
+<h2 id="mapadt">Map的ADT及具体实现<a class="headerlink" href="#mapadt" title="Permanent link"></a></h2>
+<ol>
+<li>Map类的接口： </li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">Map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="c1">//查询映射结构当前的规模 </span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getSize</span><span class="p">();</span><span class="w"> </span>
+<span class="w">    </span><span class="c1">//判断映射结构是否为空 </span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isEmpty</span><span class="p">();</span><span class="w"> </span>
+<span class="w">    </span><span class="c1">//若映射中存在以key为关键码的条目，则返回该条目的数据对象；否则，返回null </span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">key</span><span class="p">);</span><span class="w"> </span>
+<span class="w">    </span><span class="c1">//若映射中不存在以key为关键码的条目，则插入条目(key, value)并返回null </span>
+<span class="w">    </span><span class="c1">//否则，将已有条目的数据对象替换为value，并返回原先的数据对象 </span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="nf">put</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="n">value</span><span class="p">);</span><span class="w"> </span>
+<span class="w">    </span><span class="c1">//若映射中存在以key为关键码的条目，则删除之并返回其数据对象；否则，返回null </span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="nf">remove</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">key</span><span class="p">);</span><span class="w"> </span>
+<span class="w">    </span><span class="c1">//返回映射中所有条目的一个迭代器 </span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Iterator</span><span class="w"> </span><span class="nf">entries</span><span class="p">();</span><span class="w"> </span>
+<span class="p">}</span><span class="w"> </span>
+</code></pre></div></td></tr></table></div>
+<blockquote>
+<p>这里，没有采取意外错的形式来处理退化情况。原因是在实际中，出现退化情况的概率很高，若采用报意外错的形式，效率十分低下。不过，直接返回null的做法也存在不足，其中最大的问题在于歧义性。比如，按照这一约定，我们将无法以key = null为条件进行查找。</p>
+</blockquote>
+<ol>
+<li>
+<p>判等器(Equality Tester)：</p>
+</li>
+<li>
+<p>映射结构必须能够比较任意一对关键码是否相等，每个映射结构在被创建的时候，都需要指定某一具体标准，以便进行关键码的比较。因此，为了实现映射结构，首先必须实现这样的一个判等器。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">EqualityTester</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isEqualTo</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="c1">//若a与b相等，则返回true；否则，返回false </span>
+<span class="p">}</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">EqualityTesterDefault</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">EqualityTester</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">EqualityTesterDefault</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isEqualTo</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">b</span><span class="p">));</span><span class="w"> </span><span class="p">}</span><span class="c1">//使用Java提供的判等器 </span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</li>
+<li>
+<p>Java提供的<code>equals()</code>是一个较为通用的判等器，我们也可以新建一个类，利用Java提供的<code>euqals()</code>方法和自己实现的某些额外方法，实现一个更加通用的判等器。利用这种模式，程序员完全可以编写出独立的通用判等器，而无需触及对象内部的结构。</p>
+</li>
+</ol>
+<h2 id="javautil">java.util包中的映射类<a class="headerlink" href="#javautil" title="Permanent link"></a></h2>
+<ol>
+<li>Java在<code>java.util</code>包中已定义了一个名为<code>java.util.Map</code>的映射接口，而且也约定禁止关键码的重复。与第6.1.1节定义的映射接口相比，<code>java.util.Map</code>接口并未直接提供迭代器方法，而是通过两个名为<code>keys()</code>和<code>values()</code>的方法，间接地提供关于关键码或数据对象的迭代器。</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Map.html">Map (Java Platform SE 8 ) (oracle.com)</a></li>
+</ol>
+<h2 id="c-stl-unordered-map">C++ STL Unordered-map<a class="headerlink" href="#c-stl-unordered-map" title="Permanent link"></a></h2>
+<ol>
+<li>std::unordered_map 是一种关联容器，含有带唯一键的键-值对。搜索、插入和元素移除拥有平均常数时间复杂度。</li>
+</ol>
+<p>元素在内部不以任何特定顺序排序，而是组织进桶中。元素放进哪个桶完全依赖于对应键的散列。具有相同散列码的键出现于同一个桶。这允许对单独元素的快速访问，因为一旦计算其散列，它即代表元素所放进的确切的桶。</p>
+<p>如果映射的键相等性谓词在传递两个键时返回 true，则它们被认为 等价。如果两个键等价，则散列函数必须对它们返回相同的值。</p>
+<p>std::unordered_map 满足容器 (Container) 、知分配器容器 (AllocatorAwareContainer) 和无序关联容器 (UnorderedAssociativeContainer) 的要求。</p>
+<ol>
+<li><a href="https://zh.cppreference.com/w/cpp/container/unordered_map">std::unordered_map - cppreference.com</a></li>
+</ol>
+<h2 id="_3">哈希表<a class="headerlink" href="#_3" title="Permanent link"></a></h2>
+<p>如果将条目的关键码视作其在映射结构中的存放位置，则可以散列表（Hash table）的形式来实现映射结构。哈希表又称散列表，一种以「key-value」形式存储数据的数据结构。所谓以「key-value」形式存储数据，是指任意的键值 key 都唯一对应到内存中的某个位置。只需要输入查找的键值，就可以快速地找到其对应的 value。可以把哈希表理解为一种高级的数组，这种数组的下标可以是很大的整数，浮点数，字符串甚至结构体。</p>
+<h2 id="ibm">从IBM公司电话说起<a class="headerlink" href="#ibm" title="Permanent link"></a></h2>
+<ol>
+<li>在<a href="https://www.ibm.com/docs/zh/i/7.3?topic=overview-contacting-support">联系 IBM 支持 - IBM 文档</a>中，IBM公司的电话号码是<code>1-800-IBM-CALL</code>和<code>1-800-IBM-4YOU</code>。为什么电话号码中可以出现字母？观察9键键盘，在某些数字键下面，会有英文字母出现。所以，IBM公司的电话号码可以由<code>1-800-426-2255</code>改写成<code>1-800-IBM-CALL</code>。IBM公司的这种方式很是巧妙，借助个性化的电话号码，让用户能够加深对其的印象。这中间蕴含的思维方式，即是<strong>散列</strong>。</li>
+<li>IBM的巧妙体现在两个方面：</li>
+<li>让你能够记住这一家公司的电话号码；</li>
+<li>拨号时，仍然使用的是数字系统，只需要对键盘进行字母+数字改造即可实现上述内容。</li>
+</ol>
+<h2 id="_4">各种访问方式的比较<a class="headerlink" href="#_4" title="Permanent link"></a></h2>
+<ol>
+<li>循秩访问(Call by Rank)：Vector；</li>
+<li>循位置访问(Call by Position)：List；</li>
+<li>循关键码访问(Call by Key)：BST（二叉搜索树）；</li>
+<li>循数值访问(Call by Value)：Hashing（哈希、杂凑、<strong>散列</strong>）。</li>
+</ol>
+<h2 id="_5">联合数组<a class="headerlink" href="#_5" title="Permanent link"></a></h2>
+<p>联合数组(Associative Array)：可以根据数据元素的取值，直接访问。其下标不再是整数，甚至没有了大小次序，这样，更为直观、便捷。支持的语言有：<code>Java, Python, Perl, Ruby, PHP</code>等。</p>
+<p>部分语言的例子：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">//1.java: HashMap+HashTable</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.*</span><span class="p">;</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Hash</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">HashMap</span><span class="w"> </span><span class="n">HM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="p">();</span><span class="w"> </span><span class="c1">//Map</span>
+<span class="w">        </span><span class="n">HM</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;东岳&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;泰山&quot;</span><span class="p">);</span><span class="w"> </span><span class="n">HM</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;西岳&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;华山&quot;</span><span class="p">);</span><span class="w"> </span><span class="n">HM</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;南岳&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;衡山&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">HM</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;北岳&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;恒山&quot;</span><span class="p">);</span><span class="w"> </span><span class="n">HM</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;中岳&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;嵩山&quot;</span><span class="p">);</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">HM</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Hashtable</span><span class="w"> </span><span class="n">HT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Hashtable</span><span class="p">();</span><span class="w"> </span><span class="c1">//Dictionary</span>
+<span class="w">        </span><span class="n">HT</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;东岳&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;泰山&quot;</span><span class="p">);</span><span class="w"> </span><span class="n">HT</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;西岳&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;华山&quot;</span><span class="p">);</span><span class="w"> </span><span class="n">HT</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;南岳&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;衡山&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">HT</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;北岳&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;恒山&quot;</span><span class="p">);</span><span class="w"> </span><span class="n">HT</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;中岳&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;嵩山&quot;</span><span class="p">);</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">HT</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># 2.python: Dictionary Class</span>
+<span class="n">beauty</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span> <span class="p">{</span> <span class="s2">&quot;沉鱼&quot;</span><span class="p">:</span><span class="s2">&quot;西施&quot;</span><span class="p">,</span> <span class="s2">&quot;落雁&quot;</span><span class="p">:</span><span class="s2">&quot;昭君&quot;</span><span class="p">,</span> <span class="s2">&quot;闭月&quot;</span><span class="p">:</span><span class="s2">&quot;貂蝉&quot;</span><span class="p">,</span> <span class="s2">&quot;羞花&quot;</span><span class="p">:</span><span class="s2">&quot;玉环&quot;</span> <span class="p">}</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">beauty</span> <span class="p">)</span>
+<span class="n">beauty</span><span class="p">[</span><span class="s2">&quot;红颜&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;圆圆&quot;</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">beauty</span> <span class="p">)</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">alias</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="ow">in</span> <span class="n">beauty</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="n">alias</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">name</span> <span class="p">)</span>
+<span class="k">for</span> <span class="n">alias</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span> <span class="n">beauty</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="p">)</span> <span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="n">alias</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">name</span> <span class="p">)</span>
+<span class="k">for</span> <span class="n">alias</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span> <span class="n">beauty</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">reverse</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">)</span> <span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="n">alias</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">beauty</span><span class="p">[</span><span class="n">alias</span><span class="p">]</span> <span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="_6">实例：电话簿<a class="headerlink" href="#_6" title="Permanent link"></a></h2>
+<p>需求： 为一所学校制作电话簿。号码<span class="arithmatex">\(\leftrightarrows\)</span>教员、学生、员工、办公室</p>
+<ol>
+<li>使用蛮力法（使用数组实现，按电话号码索引）（R=Real，实际拥有的个数；P=Possible，所有可能的个数。）</li>
+<li>时间复杂度：<span class="arithmatex">\(O(1)\)</span>。</li>
+<li>空间复杂度：<span class="arithmatex">\(O(P+R)\)</span>。</li>
+<li>
+<p>效率：<span class="arithmatex">\(\eta=\dfrac{R}{P}\)</span>，过低（一般地，不到千分之一）。</p>
+</li>
+<li>
+<p>使用散列（简单地改造数组为桶数组(Bucket Array)，即散列表/哈希表(Hash Table)）</p>
+</li>
+<li>桶(Bucket)：直接或间接地指向一个词条。</li>
+<li>哈希表：容量为<span class="arithmatex">\(M\)</span>，满足<span class="arithmatex">\(N&lt;M&lt;&lt;R\)</span>，空间复杂度<span class="arithmatex">\(O(N+M)=O(N)\)</span>。（压缩数组的长度，尽量保证<span class="arithmatex">\(M=\Theta(N)\)</span>）</li>
+<li>定址（散列(Hashing)）：根据词条的key（未必可比较）而直接确定散列表的入口。（无论表有多长）</li>
+<li>确定散列函数<code>hash()</code>：<code>hash(key) -&gt; &amp;entry</code>，将词条的关键码转化为某一个桶单元，并根据这一个桶单元而找到目标词条。</li>
+<li>时间复杂度：若合理地进行设计，则为<span class="arithmatex">\(O(1)\)</span>。</li>
+<li>散列的具体实现：</li>
+<li>确定哈希表：这里哈希表长为<span class="arithmatex">\(M=\Theta(N)\)</span>。（C为常数）</li>
+<li>确定散列函数：可以有很多种构造方法，这里使用取余法<code>hash(key) = key % M</code>。</li>
+<li>空间效率：一般可以使用装填因子<span class="arithmatex">\(\lambda=\dfrac{N}{M}\)</span>来衡量。</li>
+</ol>
+<h2 id="_7">散列表的冲突<a class="headerlink" href="#_7" title="Permanent link"></a></h2>
+<ol>
+<li>
+<p>散列冲突(Hash Collision)：关键码不同的词条被映射到同一散列地址的情况，即<code>hash(key1)=hash(key2)</code>，而<code>key1!=key2</code>。原因是，某些散列函数只是将一个相对较大的集合映射到一个远远相对较小的集合，而按照抽屉原理/鸽巢原理，冲突无法彻底避免。</p>
+</li>
+<li>
+<p>总而言之，随机越强、规律性越弱的散列函数越好。当然，完全符合上述条件的散列函数并不存在，我们只能通过先验地消除可能导致关键码分布不均匀的因素，最大限度地模拟理想的随机函数，尽最大可能降低发生冲突的概率。</p>
+</li>
+<li>
+<p>举例：将人所对应的词条按照生日（月/日）做散列存储。散列表长<span class="arithmatex">\(M = 365\)</span>，装填因子<span class="arithmatex">\(\lambda=\dfrac{N}{M=365}\)</span>（N为在场人数） 。</p>
+</li>
+</ol>
+<blockquote>
+<p>至少有两位同学生日相同的可能性<span class="arithmatex">\(P_{365}(n) = ?\)</span></p>
+<div class="arithmatex">\[
+P_{365}(1) = 0, P_{365}(2) = 1/365,\cdots, P_{365}(22) = 47.6\%, \\P_{365}(23) = 50.7\%,\cdots P_{365}(100)=99.999969\%
+\]</div>
+</blockquote>
+<ol>
+<li>
+<p>在装填因子确定之后，散列策略的选取将至关重要，散列函数的设计也很有讲究。</p>
+</li>
+<li>
+<p>两项基本任务：</p>
+</li>
+<li>
+<p>精心设计散列表及散列函数，尽可能降低冲突的概率。</p>
+</li>
+<li>制定可行的预案，以便在发生冲突时，能够尽快予以排解。</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs", "navigation.tracking", "navigation.path", "navigation.top", "navigation.sections", "navigation.prune", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.081f42fc.min.js"></script>
+      
+        <script src="../../../../assets/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../../assets/katex.js"></script>
+      
+    
+  </body>
+</html>
