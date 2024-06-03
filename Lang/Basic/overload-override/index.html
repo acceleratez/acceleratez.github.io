@@ -774,15 +774,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#c" class="md-nav__link">
-    <span class="md-ellipsis">
-      C++中的重载运算符
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -865,6 +856,27 @@
             C/C++
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C-Cpp/operator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    运算符
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -1313,15 +1325,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#c" class="md-nav__link">
-    <span class="md-ellipsis">
-      C++中的重载运算符
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1344,24 +1347,24 @@
 <table>
 <thead>
 <tr>
-<th></th>
-<th>重写（子类覆盖父类）</th>
-<th>重载（同类同名方法）</th>
-<th>重载运算符</th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">重写（子类覆盖父类）</th>
+<th style="text-align: center;">重载（同类同名方法）</th>
+<th style="text-align: center;">重载运算符</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Java</td>
-<td>@override</td>
-<td>参数列表必须不同</td>
-<td>无</td>
+<td style="text-align: center;">Java</td>
+<td style="text-align: center;">@override</td>
+<td style="text-align: center;">参数列表必须不同</td>
+<td style="text-align: center;">无</td>
 </tr>
 <tr>
-<td>C++</td>
-<td>virtual ... override</td>
-<td>参数列表必须不同</td>
-<td>class operator+ (...){...;}</td>
+<td style="text-align: center;">C++</td>
+<td style="text-align: center;">virtual ... override</td>
+<td style="text-align: center;">参数列表必须不同</td>
+<td style="text-align: center;">class operator+ (...){...;}</td>
 </tr>
 </tbody>
 </table>
@@ -1418,294 +1421,6 @@
 <blockquote>
 <p>注意：在C++中，类的定义实际上是一个声明语句。在C++中，所有的声明语句都需要以分号结束。在Java中，类的定义被视为一个完整的语句，不需要额外的分号来结束。</p>
 </blockquote>
-<h2 id="c">C++中的重载运算符<a class="headerlink" href="#c" title="Permanent link"></a></h2>
-<ol>
-<li>
-<p>为了使用自定义类型的运算符，我们需要重载运算符。</p>
-</li>
-<li>
-<p>重载的运算符是带有特殊名称的函数，函数名是由关键字 operator 和其后要重载的运算符符号构成的。与其他函数一样，重载运算符有一个返回类型和一个参数列表。</p>
-</li>
-<li>
-<p>重载运算符可以被定义为非成员函数或者为类成员函数。例如：</p>
-</li>
-</ol>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Box</span><span class="w"> </span><span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Box</span><span class="o">&amp;</span><span class="w"> </span><span class="n">anotherBox</span><span class="p">){...}</span><span class="c1">//成员函数</span>
-<span class="n">Box</span><span class="w"> </span><span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Box</span><span class="o">&amp;</span><span class="w"> </span><span class="n">bx1</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Box</span><span class="o">&amp;</span><span class="w"> </span><span class="n">bx2</span><span class="p">){...}</span><span class="c1">//非成员函数</span>
-</code></pre></div></td></tr></table></div>
-<ol>
-<li>可重载运算符列表：</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">，</th>
-<th style="text-align: center;">Comma</th>
-<th style="text-align: center;">二进制</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">!</td>
-<td style="text-align: center;">逻辑非</td>
-<td style="text-align: center;">一元</td>
-</tr>
-<tr>
-<td style="text-align: center;">!=</td>
-<td style="text-align: center;">不相等</td>
-<td style="text-align: center;">二进制</td>
-</tr>
-<tr>
-<td style="text-align: center;">%</td>
-<td style="text-align: center;">取模</td>
-<td style="text-align: center;">二进制</td>
-</tr>
-<tr>
-<td style="text-align: center;">%=</td>
-<td style="text-align: center;">取模赋值</td>
-<td style="text-align: center;">二进制</td>
-</tr>
-<tr>
-<td style="text-align: center;">&amp;</td>
-<td style="text-align: center;">位与</td>
-<td style="text-align: center;">二进制</td>
-</tr>
-<tr>
-<td style="text-align: center;">&amp;</td>
-<td style="text-align: center;">Address-of</td>
-<td style="text-align: center;">一元</td>
-</tr>
-<tr>
-<td style="text-align: center;">&amp;&amp;</td>
-<td style="text-align: center;">逻辑与</td>
-<td style="text-align: center;">二进制</td>
-</tr>
-<tr>
-<td style="text-align: center;">&amp;=</td>
-<td style="text-align: center;">按位“与”赋值</td>
-<td style="text-align: center;">二进制</td>
-</tr>
-<tr>
-<td style="text-align: center;">( )</td>
-<td style="text-align: center;">函数调用</td>
-<td style="text-align: center;">—</td>
-</tr>
-<tr>
-<td style="text-align: center;">( )</td>
-<td style="text-align: center;">转换运算符</td>
-<td style="text-align: center;">一元</td>
-</tr>
-<tr>
-<td style="text-align: center;">*</td>
-<td style="text-align: center;">乘法</td>
-<td style="text-align: center;">二进制</td>
-</tr>
-<tr>
-<td style="text-align: center;">*</td>
-<td style="text-align: center;">指针取消引用</td>
-<td style="text-align: center;">一元</td>
-</tr>
-<tr>
-<td style="text-align: center;">*=</td>
-<td style="text-align: center;">乘法赋值</td>
-<td style="text-align: center;">二进制</td>
-</tr>
-<tr>
-<td style="text-align: center;">+</td>
-<td style="text-align: center;">附加内容</td>
-<td style="text-align: center;">二进制</td>
-</tr>
-<tr>
-<td style="text-align: center;">+</td>
-<td style="text-align: center;">一元加</td>
-<td style="text-align: center;">一元</td>
-</tr>
-<tr>
-<td style="text-align: center;">++</td>
-<td style="text-align: center;">递增 1</td>
-<td style="text-align: center;">一元</td>
-</tr>
-<tr>
-<td style="text-align: center;">+=</td>
-<td style="text-align: center;">加法赋值</td>
-<td style="text-align: center;">二进制</td>
-</tr>
-<tr>
-<td style="text-align: center;">-</td>
-<td style="text-align: center;">减</td>
-<td style="text-align: center;">二进制</td>
-</tr>
-<tr>
-<td style="text-align: center;">-</td>
-<td style="text-align: center;">一元求反</td>
-<td style="text-align: center;">一元</td>
-</tr>
-<tr>
-<td style="text-align: center;">--</td>
-<td style="text-align: center;">递减 1</td>
-<td style="text-align: center;">一元</td>
-</tr>
-<tr>
-<td style="text-align: center;">-=</td>
-<td style="text-align: center;">减法赋值</td>
-<td style="text-align: center;">二进制</td>
-</tr>
-<tr>
-<td style="text-align: center;">-&gt;</td>
-<td style="text-align: center;">成员选择</td>
-<td style="text-align: center;">二进制</td>
-</tr>
-<tr>
-<td style="text-align: center;">-&gt;*</td>
-<td style="text-align: center;">指向成员的指针选定内容</td>
-<td style="text-align: center;">二进制</td>
-</tr>
-<tr>
-<td style="text-align: center;">/</td>
-<td style="text-align: center;">分部</td>
-<td style="text-align: center;">二进制</td>
-</tr>
-<tr>
-<td style="text-align: center;">/=</td>
-<td style="text-align: center;">除法赋值</td>
-<td style="text-align: center;">二进制</td>
-</tr>
-<tr>
-<td style="text-align: center;">&lt;</td>
-<td style="text-align: center;">小于</td>
-<td style="text-align: center;">二进制</td>
-</tr>
-<tr>
-<td style="text-align: center;">&lt;&lt;</td>
-<td style="text-align: center;">左移</td>
-<td style="text-align: center;">二进制</td>
-</tr>
-<tr>
-<td style="text-align: center;">&lt;&lt;=</td>
-<td style="text-align: center;">左移赋值</td>
-<td style="text-align: center;">二进制</td>
-</tr>
-<tr>
-<td style="text-align: center;">&lt;=</td>
-<td style="text-align: center;">小于或等于</td>
-<td style="text-align: center;">二进制</td>
-</tr>
-<tr>
-<td style="text-align: center;">=</td>
-<td style="text-align: center;">赋值</td>
-<td style="text-align: center;">二进制</td>
-</tr>
-<tr>
-<td style="text-align: center;">==</td>
-<td style="text-align: center;">等式</td>
-<td style="text-align: center;">二进制</td>
-</tr>
-<tr>
-<td style="text-align: center;">&gt;</td>
-<td style="text-align: center;">大于</td>
-<td style="text-align: center;">二进制</td>
-</tr>
-<tr>
-<td style="text-align: center;">&gt;=</td>
-<td style="text-align: center;">大于或等于</td>
-<td style="text-align: center;">二进制</td>
-</tr>
-<tr>
-<td style="text-align: center;">&gt;&gt;</td>
-<td style="text-align: center;">右移</td>
-<td style="text-align: center;">二进制</td>
-</tr>
-<tr>
-<td style="text-align: center;">&gt;&gt;=</td>
-<td style="text-align: center;">右移赋值</td>
-<td style="text-align: center;">二进制</td>
-</tr>
-<tr>
-<td style="text-align: center;">[ ]</td>
-<td style="text-align: center;">数组下标</td>
-<td style="text-align: center;">—</td>
-</tr>
-<tr>
-<td style="text-align: center;">^</td>
-<td style="text-align: center;">异或</td>
-<td style="text-align: center;">二进制</td>
-</tr>
-<tr>
-<td style="text-align: center;">^=</td>
-<td style="text-align: center;">异或赋值</td>
-<td style="text-align: center;">二进制</td>
-</tr>
-<tr>
-<td style="text-align: center;">|</td>
-<td style="text-align: center;">位或</td>
-<td style="text-align: center;">二进制</td>
-</tr>
-<tr>
-<td style="text-align: center;">|=</td>
-<td style="text-align: center;">按位“与或”赋值</td>
-<td style="text-align: center;">二进制</td>
-</tr>
-<tr>
-<td style="text-align: center;">||</td>
-<td style="text-align: center;">逻辑或</td>
-<td style="text-align: center;">二进制</td>
-</tr>
-<tr>
-<td style="text-align: center;">~</td>
-<td style="text-align: center;">二进制反码</td>
-<td style="text-align: center;">一元</td>
-</tr>
-<tr>
-<td style="text-align: center;">delete</td>
-<td style="text-align: center;">删除</td>
-<td style="text-align: center;">—</td>
-</tr>
-<tr>
-<td style="text-align: center;">new</td>
-<td style="text-align: center;">新建</td>
-<td style="text-align: center;">—</td>
-</tr>
-<tr>
-<td style="text-align: center;">转换运算符</td>
-<td style="text-align: center;">转换运算符</td>
-<td style="text-align: center;">一元</td>
-</tr>
-</tbody>
-</table>
-<ol>
-<li>不可被重载的运算符列表：</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">.</th>
-<th style="text-align: center;">成员选择</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;"><code>.*</code></td>
-<td style="text-align: center;">指向成员的指针选定内容</td>
-</tr>
-<tr>
-<td style="text-align: center;">::</td>
-<td style="text-align: center;">范围解析</td>
-</tr>
-<tr>
-<td style="text-align: center;">? :</td>
-<td style="text-align: center;">条件逻辑</td>
-</tr>
-<tr>
-<td style="text-align: center;">#</td>
-<td style="text-align: center;">预处理器转换为字符串</td>
-</tr>
-<tr>
-<td style="text-align: center;">##</td>
-<td style="text-align: center;">预处理器串联</td>
-</tr>
-</tbody>
-</table>
 
 
 
